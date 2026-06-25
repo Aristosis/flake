@@ -1,4 +1,4 @@
-{ config, lib, pkgs }:
+{ config, lib, pkgs, ... }:
 {
   options.ari.desktop.enable = lib.mkEnableOption "Install and configure desktop programs";
 
