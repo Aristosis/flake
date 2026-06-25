@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }: {
   options.ari.bootloader.enable = lib.mkEnableOption "systemd-bootloader configuration";
 
-  config = lib.mkIf config.myModules.bootloader.enable {
+  config = lib.mkIf config.ari.bootloader.enable {
     boot.loader.systemd-boot = {
       enable = true;
       configurationLimit = 5;
