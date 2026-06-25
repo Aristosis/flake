@@ -7,7 +7,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-  ];
+  ] ++ (builtins.attrValues inputs.self.nixosModules);
 
   nixpkgs = {
     overlays = [
@@ -23,41 +23,16 @@
   nix = {
     settings = {
       experimental-features = "nix-command flakes";
-      # Opinionated: disable global registry
-      # flake-registry = "";
+      flake-registry = "";
     };
-    # Opinionated: disable channels
     channel.enable = false;
   };
-
-  networking.hostName = "ari-nixos";
-  networking.networkmanager.enable = true;
 
   users.users = {
     ari = {
       isNormalUser = true;
-      openssh.authorizedKeys.keys = [
-        # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
-      ];
-      # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
+      openssh.authorizedKeys.keys = [ ];
       extraGroups = [ "wheel" "networkmanager" ];
-    };
-  };
-
-  console.keyMap = "colemak";
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "colemak";
-  };
-
-  services.openssh = {
-    enable = true;
-    settings = {
-      # Opinionated: forbid root login through SSH.
-      # PermitRootLogin = "no";
-      # Opinionated: use keys only.
-      # Remove if you want to SSH using passwords
-      # PasswordAuthentication = false;
     };
   };
 
@@ -66,5 +41,19 @@
   i18n.defaultLocale = "en_IN";
   i18n.extraLocaleSettings.LC_MONETARY = "en_US.UTF-8";
 
-  system.stateVersion = "26.11";
+  ari = {
+    audio.enable = true;
+    desktop.enable = true;
+    bootloader.enable = true;
+    displayManager.enable = true;
+    colemak.enable = true;
+    sshRemote.enable = true;
+    networking.enable = true;
+    graphicsDrivers = {
+      enable = true;
+      nvidia.enable = true;
+    };
+  };
+
+  system.stateVersion = "26.05";
 }
