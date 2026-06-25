@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 {
-  options.ari.graphicsDivers.enable = lib.mkEnableOption "Enable graphics drivers configuration";
+  options.ari.graphicsDrivers.enable = lib.mkEnableOption "Enable graphics drivers configuration";
   options.ari.graphicsDrivers.nvidia.enable = lib.mkEnableOption "Enable Nvidia graphics drivers configuration";
 
 
