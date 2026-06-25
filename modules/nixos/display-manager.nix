@@ -2,5 +2,5 @@
 {
   options.ari.displayManager.enable = lib.mkEnableOption "Enable display manager configuration";
 
-  config.displayManager.ly.enable = lib.mkIf config.ari.displayManager.enable true;
+  config.services.displayManager.ly.enable = lib.mkIf config.ari.displayManager.enable true;
 }
