@@ -23,7 +23,7 @@
 
   ari.home-manager = {
     foot.enable = true;
-    # zsh.enable = true;
+    zsh.enable = true;
   };
 
   home.packages = with pkgs; [

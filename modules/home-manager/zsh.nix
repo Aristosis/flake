@@ -1,6 +1,11 @@
+{ config, lib, pkgs, ... }:
+
 {
-  home.file.".ls_colors".source = ./ls_colors;
-  programs.zsh = {
+  options.ari.home-manager.zsh.enable = lib.mkEnableOption "Enable zsh";
+
+  config.home.file.".ls_colors".source = lib.mkIf config.ari.home-manager.zsh.enable ./ls_colors;
+
+  config.programs.zsh = lib.mkIf config.ari.home-manager.zsh.enable {
     enable = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
