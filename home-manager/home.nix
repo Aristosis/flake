@@ -21,12 +21,12 @@
     homeDirectory = "/home/ari";
   };
 
-  programs = {
-    # neovim.enable = true;
+  ari.home-manager = {
+    foot.enable = true;
+    # zsh.enable = true;
   };
 
   home.packages = with pkgs; [
-    foot
     waybar
     fuzzel
     awww
