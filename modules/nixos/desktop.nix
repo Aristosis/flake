@@ -20,6 +20,7 @@
       copyparty
       ffmpeg-full
       usbutils
+      gparted
     ];
 
   };

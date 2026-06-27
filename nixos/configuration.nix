@@ -23,11 +23,12 @@
   nix = {
     settings = {
       experimental-features = "nix-command flakes";
-      flake-registry = "";
+      # flake-registry = "";
     };
     channel.enable = false;
   };
 
+  users.defaultUserShell = pkgs.zsh;
   users.users = {
     ari = {
       isNormalUser = true;
@@ -53,6 +54,7 @@
       enable = true;
       nvidia.enable = true;
     };
+    fonts.enable = true;
   };
 
   system.stateVersion = "26.05";

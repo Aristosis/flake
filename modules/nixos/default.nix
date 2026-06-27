@@ -7,4 +7,5 @@
   graphicsDrivers = import ./graphics-drivers.nix;
   networking = import ./networking.nix;
   sshRemote = import ./remote-ssh.nix;
+  fonts = import ./fonts.nix;
 }

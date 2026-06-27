@@ -22,7 +22,6 @@
   };
 
   programs = {
-
     # neovim.enable = true;
   };
 
@@ -37,6 +36,7 @@
 
     firefox
     pavucontrol
+
     (obs-studio.override { cudaSupport = true; })
     (prismlauncher.override {
       additionalLibs = with pkgs; [ libxt libxtst libxkbcommon ];
