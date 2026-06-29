@@ -31,6 +31,18 @@
 
   programs = {
 
+    bat.enable = true;
+
+    git = {
+      enable = true;
+      settings = {
+      user.name = "Ari";
+      user.email = "communeofstars@proton.me";
+      credential.helper = "store";
+      init.defaultBranch = "main";
+      };
+    };
+
     fzf = {
       colors = {};
       enable = true;
@@ -53,11 +65,8 @@
   };
 
   home.packages = with pkgs; [
-    fuzzel
-    awww
     material-cursors
     xwayland-satellite
-    kitty
 
     pavucontrol
 
@@ -67,15 +76,12 @@
     })
 
     # CLI
-    git
-    zellij
     btop
     nvtopPackages.nvidia
     neovim
     fastfetch
     wl-clipboard
     cliphist
-    bat
     manix
     nix-search-cli
 
@@ -86,7 +92,6 @@
   ];
 
   programs.home-manager.enable = true;
-  programs.git.enable = true;
 
   home.stateVersion = "26.05";
 }
