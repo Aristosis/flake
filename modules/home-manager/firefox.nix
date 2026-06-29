@@ -6,7 +6,7 @@
   config.programs.firefox = lib.mkIf config.ari.home-manager.firefox.enable {
     enable = true;
 
-    languagePacks = [ "en-US" ];
+    languagePacks = [ "en-IN" ];
 
     policies = {
       AppAutoUpdate                 = false;

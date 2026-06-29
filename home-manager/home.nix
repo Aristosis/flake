@@ -24,17 +24,41 @@
   ari.home-manager = {
     foot.enable = true;
     zsh.enable = true;
+    firefox.enable = true;
+    waybar.enable = true;
+    fuzzel.enable = true;
+  };
+
+  programs = {
+
+    fzf = {
+      colors = {};
+      enable = true;
+      enableZshIntegration = true;
+    };
+
+    eza = {
+      enable = true;
+      enableZshIntegration = true;
+      git = true;
+      icons = "auto";
+    };
+
+    zoxide = {
+      enable = true;
+      enableZshIntegration = true;
+      options = [ "--cmd cd" ];
+    };
+
   };
 
   home.packages = with pkgs; [
-    waybar
     fuzzel
     awww
     material-cursors
     xwayland-satellite
     kitty
 
-    firefox
     pavucontrol
 
     (obs-studio.override { cudaSupport = true; })
@@ -48,12 +72,9 @@
     btop
     nvtopPackages.nvidia
     neovim
-    fzf
     fastfetch
     wl-clipboard
     cliphist
-    zoxide
-    eza
     bat
     manix
     nix-search-cli
@@ -61,6 +82,7 @@
     # Dev.
     nil
     temurin-jre-bin-17
+    bc
   ];
 
   programs.home-manager.enable = true;
