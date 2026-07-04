@@ -4,8 +4,8 @@
   options.ari.home-manager.fuzzel.enable = lib.mkEnableOption "Enable fuzzel";
 
   config.programs.fuzzel = lib.mkIf config.ari.home-manager.fuzzel.enable {
+    enable = true;
     settings = {
-
       main = {
         font = "Inter:size=13";
         use-bold = true;
@@ -20,10 +20,23 @@
           else "";
         dpi-aware = true;
         show-actions = false;
-        border = {
-          radius = 12;
-          width = 0;
-        };
+      };
+      border = {
+        radius = 12;
+        width = 0;
+      };
+      colors = {
+        background = "141218ff";
+        text = "e7e0e8ff";
+        prompt = "ccc2dbff";
+        placeholder = "f0b8c6ff";
+        input = "d1bcfdff";
+        match = "f0b8c6ff";
+        selection = "d1bcfdff";
+        selection-text = "141218ff";
+        selection-match = "37265cff";
+        counter = "ccc2dbff";
+        border = "d1bcfdff";
       };
     };
   };

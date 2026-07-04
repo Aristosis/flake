@@ -78,6 +78,7 @@
     # CLI
     btop
     nvtopPackages.nvidia
+    awww
     neovim
     fastfetch
     wl-clipboard
@@ -90,6 +91,7 @@
     temurin-jre-bin-17
     bc
   ];
+
 
   programs.home-manager.enable = true;
 

@@ -2,8 +2,20 @@
 {
   options.ari.sshRemote.enable = lib.mkEnableOption "Enable remote ssh access";
 
-  config.services.openssh = lib.mkIf config.ari.sshRemote.enable {
-    enable = true;
-    settings = {};
+  config.services = lib.mkIf config.ari.sshRemote.enable {
+    openssh = {
+      enable = true;
+      settings = {};
+    };
+    avahi = {
+      enable = true;
+      nssmdns = true;
+      openFirewall = true;
+      publish = {
+        enable = true;
+        userServices = true;
+        addresses = true;
+      };
+    };
   };
 }
