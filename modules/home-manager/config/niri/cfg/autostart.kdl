@@ -1,0 +1,8 @@
+spawn-sh-at-startup "runsvdir ~/.config/service/"
+spawn-sh-at-startup "/usr/lib/polkit-kde-authentication-agent-1 &"
+spawn-sh-at-startup "mako"   // notif daemon
+spawn-sh-at-startup "foot --server" // Terminal emulator daemon
+// spawn-sh-at-startup "kitty --start-as=hidden --single-instance" // headless kitty lmao
+spawn-sh-at-startup "waybar"        // Status bar
+spawn-sh-at-startup "wl-paste --watch cliphist store"
+spawn-sh-at-startup "awww-daemon"   // Wallpaper daemon

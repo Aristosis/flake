@@ -37,6 +37,12 @@
           ./nixos/configuration.nix
         ];
       };
+      optiplex-nixos = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./nixos/optiplex-configuration.nix
+        ];
+      };
     };
 
     homeConfigurations = {
@@ -44,7 +50,7 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs;};
         modules = [
-          ./home-manager/home.nix
+          ./home-manager/ari/home.nix
         ];
       };
     };

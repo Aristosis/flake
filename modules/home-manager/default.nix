@@ -4,4 +4,5 @@
   zsh = import ./zsh.nix;
   waybar = import ./waybar.nix;
   fuzzel = import ./fuzzel.nix;
+  niri = import ./niri.nix;
 }

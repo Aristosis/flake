@@ -27,6 +27,7 @@
     firefox.enable = true;
     waybar.enable = true;
     fuzzel.enable = true;
+    niri.enable = true;
   };
 
   programs = {
