@@ -1,13 +1,12 @@
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Input
 
 input {
-    keyboard {
-        numlock
-    }
+  keyboard {
+    numlock
+  }
 
-    touchpad {
-        tap
-        natural-scroll
-    }
-
+  touchpad {
+    tap
+    natural-scroll
+  }
 }

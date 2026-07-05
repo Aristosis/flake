@@ -1,22 +1,22 @@
 window-rule {
-	geometry-corner-radius 0
-    clip-to-geometry true
+  geometry-corner-radius 0
+  clip-to-geometry true
 }
 
 // Make the wallpaper stationary, rather than moving with workspaces.
 layer-rule {
-    match namespace="awww-daemon"
-    place-within-backdrop true
+  match namespace="awww-daemon"
+  place-within-backdrop true
 }
 
 overview {
-    workspace-shadow {
-        on
-    }
+  workspace-shadow {
+    on
+  }
 }
 
 gestures {
-	hot-corners {
-		off
-	}
+  hot-corners {
+    off
+  }
 }
