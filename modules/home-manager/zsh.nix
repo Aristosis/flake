@@ -35,8 +35,11 @@
         dots = "git --git-dir=$HOME/dotfiles/.git --work-tree=$HOME/dotfiles";
         lazydots = "lazygit --git-dir=$HOME/dotfiles/.git --work-tree=$HOME/dotfiles";
       };
-      initContent = ''
-        source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
+      # initContent = let zshConfigEarlyInit = lib.mkOrder 500 "do something"; zshConfig = lib.mkOrder 1000 "do something"; in lib.mkMerge [ zshConfigEarlyInit zshConfig ];
+
+      initContent = lib.mkMerge [
+        (lib.mkOrder 550 "source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh")
+        (lib.mkOrder 1000 ''
         source ~/.ls_colors
         setopt auto_param_slash
         setopt auto_menu
@@ -58,7 +61,8 @@
         precmd() {
           PROMPT=$'\n%(?..%F{red}[%?]%f )%F{blue}$(git_current_branch)%f%~\n> '
         }
-      '';
+        '')
+      ];
     };
   };
 }

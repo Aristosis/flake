@@ -44,11 +44,11 @@
       };
 
       network = {
-        format-ethernet = "   {ifname}";
-        format-wifi = "    {signalStrength}%";
+        format-ethernet = "󰈁 {ifname}";
+        format-wifi = "󰖩 {signalStrength}%";
         tooltip-format-wifi = "{ipaddr}/{essid}";
         tooltip-format-ethernet = "{ipaddr}/{ssid}";
-        format-disconnected = "   ";
+        format-disconnected = "󰈂";
       };
 
       wireplumber = {
