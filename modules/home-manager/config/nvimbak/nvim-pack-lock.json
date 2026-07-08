@@ -1,29 +1,18 @@
 {
   "plugins": {
-    "arrow.nvim": {
-      "rev": "6e0f726f55f99332dd726a53effd6813786b6d49",
-      "src": "https://github.com/otavioschwanck/arrow.nvim"
-    },
     "blink.cmp": {
       "rev": "78336bc89ee5365633bcf754d93df01678b5c08f",
-      "src": "https://github.com/Saghen/blink.cmp"
+      "src": "https://github.com/Saghen/blink.cmp",
+      "version": ">=0.0.0"
     },
     "conform.nvim": {
       "rev": "3543d000dafbc41cc7761d860cfdb24e82154f75",
-      "src": "https://github.com/stevearc/conform.nvim"
+      "src": "https://github.com/stevearc/conform.nvim",
+      "version": ">=0.0.0"
     },
     "fidget.nvim": {
       "rev": "b61e8af9b8b68ee0ec7da5fb7a8c203aae854f2e",
-      "src": "https://github.com/j-hui/fidget.nvim",
-      "version": "1.0.0 - 2.0.0"
-    },
-    "gruvbox": {
-      "rev": "5d15b2765f59754d7ac263c88a0f6e3e58124951",
-      "src": "https://github.com/morhetz/gruvbox"
-    },
-    "gruvbox-material": {
-      "rev": "11d779b26a9ab2b3db8c22c6ac9fb6e8ed4fea79",
-      "src": "https://github.com/sainnhe/gruvbox-material"
+      "src": "https://github.com/j-hui/fidget.nvim"
     },
     "guess-indent.nvim": {
       "rev": "84a4987ff36798c2fc1169cbaff67960aed9776f",
@@ -52,28 +41,12 @@
     },
     "nvim-treesitter": {
       "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
-      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter",
+      "version": "'main'"
     },
     "nvim-treesitter-context": {
       "rev": "b311b30818951d01f7b4bf650521b868b3fece16",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-context"
-    },
-    "plenary.nvim": {
-      "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
-      "src": "https://github.com/nvim-lua/plenary.nvim"
-    },
-    "telescope.nvim": {
-      "rev": "5255aa27c422de944791318024167ad5d40aad20",
-      "src": "https://github.com/nvim-telescope/telescope.nvim",
-      "version": ">=0.0.0"
-    },
-    "tree-sitter-manager.nvim": {
-      "rev": "966c28dbc68fc99c82c51a64b6ec37f420aab880",
-      "src": "https://github.com/romus204/tree-sitter-manager.nvim"
-    },
-    "zpack.nvim": {
-      "rev": "c8b4e8d597ec5da5102e66ce7d73b77fa727b90c",
-      "src": "https://github.com/zuqini/zpack.nvim"
     }
   }
 }

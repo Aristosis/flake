@@ -2,10 +2,14 @@
 
 let
   mkIf = lib.mkIf;
+  mkSymlink = config.lib.file.mkOutOfStoreSymlink;
 in
 {
 
   options.ari.home-manager.neovim.enable = lib.mkEnableOption "Enable neovim configuration";
 
-  config.xdg.configFile.neovim.source = mkIf config.ari.home-manager.neovim.enable ./config/neovim;
+  config = mkIf config.ari.home-manager.neovim.enable {
+    home.packages = with pkgs; [ neovim ];
+    xdg.configFile.nvim.source = mkSymlink "/home/ari/flake/modules/home-manager/config/nvim";
+  };
 }
