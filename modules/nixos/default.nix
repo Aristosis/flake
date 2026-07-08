@@ -8,4 +8,5 @@
   networking = import ./networking.nix;
   sshRemote = import ./remote-ssh.nix;
   fonts = import ./fonts.nix;
+  tlp = import ./tlp.nix;
 }

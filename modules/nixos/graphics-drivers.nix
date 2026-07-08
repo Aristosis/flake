@@ -24,8 +24,11 @@
       };
     };
 
-    services.xserver.videoDrivers = lib.mkIf config.ari.graphicsDrivers.nvidia.enable [ "nvidia" ];
+    # services.xserver.videoDrivers = lib.mkIf config.ari.graphicsDrivers.nvidia.enable [ "nvidia" ];
 
+    services.xserver.videoDrivers = if config.ari.graphicsDrivers.nvidia.enable
+    then [ "nvidia" ]
+    else [ "amdgpu" ];
   };
 
 }

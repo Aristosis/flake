@@ -8,6 +8,9 @@
       consoleMode = "max";
     };
     boot.loader.efi.canTouchEfiVariables = true;
-    boot.kernelPackages = pkgs.linuxPackages_6_18;
+
+    boot.kernelPackages = if config.ari.graphicsDrivers.nvidia.enable
+      then pkgs.linuxPackages_6_18
+      else pkgs.linuxPackages_latest;
   };
 }

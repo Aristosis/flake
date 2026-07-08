@@ -6,6 +6,5 @@
 
   config.networking = lib.mkIf config.ari.networking.enable {
     networkmanager.enable = true;
-    hostName = "ari-nixos";
   };
 }

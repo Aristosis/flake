@@ -5,7 +5,7 @@
   config = lib.mkIf config.ari.desktop.enable {
 
     programs = {
-      nix-ld = {
+        nix-ld = {
         enable = true;
         libraries = with pkgs; [
           zlib

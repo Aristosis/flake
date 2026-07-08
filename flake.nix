@@ -34,18 +34,32 @@
       ari-nixos = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
-          ./nixos/configuration.nix
+          ./nixos/desktop/configuration.nix
         ];
       };
       optiplex-nixos = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
-          ./nixos/optiplex-configuration.nix
+          ./nixos/optiplex/configuration.nix
+        ];
+      };
+      nixos-laptop = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./nixos/laptop/configuration.nix
         ];
       };
     };
 
     homeConfigurations = {
+      "ari@nixos-laptop" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = {inherit inputs;};
+        modules = [
+          ./home-manager/ari/laptop-home.nix
+        ];
+      };
+
       "ari@ari-nixos" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs;};
