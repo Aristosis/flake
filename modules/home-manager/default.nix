@@ -5,4 +5,5 @@
   waybar = import ./waybar.nix;
   fuzzel = import ./fuzzel.nix;
   niri = import ./niri.nix;
+  neovim = import ./neovim.nix;
 }

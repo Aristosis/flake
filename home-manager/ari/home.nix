@@ -28,6 +28,7 @@
     waybar.enable = true;
     fuzzel.enable = true;
     niri.enable = true;
+    neovim.enable = true;
   };
 
   programs = {
@@ -77,6 +78,7 @@
     })
 
     # CLI
+    tree-sitter
     btop
     nvtopPackages.nvidia
     awww
