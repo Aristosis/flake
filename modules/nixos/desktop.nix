@@ -141,6 +141,7 @@
       niri.enable = true;
       zsh = {
         enable = true;
+        enableGlobalCompInit = false;
         syntaxHighlighting.enable = true;
         autosuggestions.enable = true;
       };

@@ -35,7 +35,19 @@
         dots = "git --git-dir=$HOME/dotfiles/.git --work-tree=$HOME/dotfiles";
         lazydots = "lazygit --git-dir=$HOME/dotfiles/.git --work-tree=$HOME/dotfiles";
       };
-      # initContent = let zshConfigEarlyInit = lib.mkOrder 500 "do something"; zshConfig = lib.mkOrder 1000 "do something"; in lib.mkMerge [ zshConfigEarlyInit zshConfig ];
+
+      # Use cached compinit. Only rebuild if system generation newer than current cache
+      completionInit = ''
+        autoload -Uz compinit
+        fpath=(''${(ou)fpath}) # Stable fpath order hence consistent cache hit.
+        if [[ ! -s ''${ZDOTDIR:-$HOME}/.zcompdump || \
+          /run/current-system/sw -nt ''${ZDOTDIR:-$HOME}/.zcompdump ]]; then
+            compinit
+            zcompile ''${ZDOTDIR:-$HOME}/.zcompdump 2>/dev/null
+        else
+          compinit -C
+        fi
+      '';
 
       initContent = lib.mkMerge [
         (lib.mkOrder 550 "source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh")
