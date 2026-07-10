@@ -28,9 +28,10 @@
     fonts = with pkgs; {
       monospace.package = iosevka;
       serif.package = inter;
+      sansSerif.package = inter;
       sizes.applications = 14;
       sizes.terminal = 14;
-      sizes.desktop = 12;
+      sizes.desktop = 14;
       sizes.popups = 14;
     };
     opacity = {

@@ -7,8 +7,6 @@
   options.ari.home-manager.zsh.enable = lib.mkEnableOption "Enable zsh";
 
   config = lib.mkIf config.ari.home-manager.zsh.enable {
-    home.file.".ls_colors".source = lib.mkIf config.ari.home-manager.zsh.enable ./ls_colors;
-
     home.packages = with pkgs; [
       zsh-fzf-tab
     ];
@@ -51,7 +49,6 @@
       initContent = lib.mkMerge [
         (lib.mkOrder 550 "source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh")
         (lib.mkOrder 1000 ''
-          source ~/.ls_colors
           setopt auto_param_slash
           setopt auto_menu
           setopt glob_complete
