@@ -5,7 +5,7 @@
   pkgs,
   ...
 }: {
-  imports = (builtins.attrValues inputs.self.homeManagerModules);
+  imports = builtins.attrValues inputs.self.homeManagerModules;
 
   nixpkgs = {
     config.allowUnfree = true;
@@ -31,16 +31,15 @@
   };
 
   programs = {
-
     bat.enable = true;
 
     git = {
       enable = true;
       settings = {
-      user.name = "Ari";
-      user.email = "communeofstars@proton.me";
-      credential.helper = "store";
-      init.defaultBranch = "main";
+        user.name = "Ari";
+        user.email = "communeofstars@proton.me";
+        credential.helper = "store";
+        init.defaultBranch = "main";
       };
     };
 
@@ -60,9 +59,8 @@
     zoxide = {
       enable = true;
       enableZshIntegration = true;
-      options = [ "--cmd cd" ];
+      options = ["--cmd cd"];
     };
-
   };
 
   home.packages = with pkgs; [
@@ -73,7 +71,7 @@
 
     obs-studio
     (prismlauncher.override {
-      additionalLibs = with pkgs; [ libxt libxtst libxkbcommon ];
+      additionalLibs = with pkgs; [libxt libxtst libxkbcommon];
     })
 
     # CLI
@@ -91,7 +89,6 @@
     temurin-jre-bin-17
     bc
   ];
-
 
   programs.home-manager.enable = true;
 

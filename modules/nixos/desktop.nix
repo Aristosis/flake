@@ -1,11 +1,14 @@
-{ config, lib, pkgs, ... }:
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   options.ari.desktop.enable = lib.mkEnableOption "Install and configure desktop programs";
 
   config = lib.mkIf config.ari.desktop.enable {
-
     programs = {
-        nix-ld = {
+      nix-ld = {
         enable = true;
         libraries = with pkgs; [
           zlib
@@ -154,6 +157,5 @@
       usbutils
       gparted
     ];
-
   };
 }

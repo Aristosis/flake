@@ -1,5 +1,9 @@
-{ config, lib, pkgs, ... }:
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   options.ari.sshRemote.enable = lib.mkEnableOption "Enable remote ssh access";
 
   config.services = lib.mkIf config.ari.sshRemote.enable {

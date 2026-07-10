@@ -1,5 +1,9 @@
-{ config, lib, pkgs, ... }:
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   options.ari.audio.enable = lib.mkEnableOption "Enable audio configuration";
   config = lib.mkIf config.ari.audio.enable {
     security.rtkit.enable = true;

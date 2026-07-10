@@ -1,15 +1,16 @@
-{ config, lib, pkgs, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   options.ari.home-manager.foot.enable = lib.mkEnableOption "Enable foot terminal emulator";
 
   config.programs.foot = lib.mkIf config.ari.home-manager.foot.enable {
-
     enable = true;
     server.enable = true;
 
     settings = {
-
       main.font = "Iosevka:size=14";
 
       colors-dark = {
@@ -19,8 +20,6 @@
         selection-foreground = "332d41";
         selection-background = "ccc2db";
       };
-
     };
-
   };
 }

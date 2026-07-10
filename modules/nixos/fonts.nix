@@ -1,5 +1,9 @@
-{ config, lib, pkgs, ... }:
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   options.ari.fonts.enable = lib.mkEnableOption "Enable font configurations";
   config.fonts = lib.mkIf config.ari.fonts.enable {
     enableDefaultPackages = true;

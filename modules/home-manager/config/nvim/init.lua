@@ -1,4 +1,4 @@
---/-@diagnostic disable undefined_global
+---@diagnostic disable undefined_global
 vim.loader.enable()
 
 vim.lsp.enable {

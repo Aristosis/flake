@@ -4,14 +4,14 @@
   config,
   pkgs,
   ...
-}:
-{
+}: {
   networking.hostName = "nixos-server";
 
-  imports = [
-    ./hardware-configuration.nix
-  ]
-  ++ (builtins.attrValues inputs.self.nixosModules);
+  imports =
+    [
+      ./hardware-configuration.nix
+    ]
+    ++ (builtins.attrValues inputs.self.nixosModules);
 
   nixpkgs = {
     config.allowUnfree = true;
@@ -31,7 +31,7 @@
   users.users = {
     ari = {
       isNormalUser = true;
-      openssh.authorizedKeys.keys = [ ];
+      openssh.authorizedKeys.keys = [];
       extraGroups = [
         "wheel"
         "networkmanager"

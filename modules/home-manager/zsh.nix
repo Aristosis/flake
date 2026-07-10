@@ -1,10 +1,12 @@
-{ config, lib, pkgs, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   options.ari.home-manager.zsh.enable = lib.mkEnableOption "Enable zsh";
 
   config = lib.mkIf config.ari.home-manager.zsh.enable {
-
     home.file.".ls_colors".source = lib.mkIf config.ari.home-manager.zsh.enable ./ls_colors;
 
     home.packages = with pkgs; [
@@ -51,24 +53,24 @@
       initContent = lib.mkMerge [
         (lib.mkOrder 550 "source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh")
         (lib.mkOrder 1000 ''
-        source ~/.ls_colors
-        setopt auto_param_slash
-        setopt auto_menu
-        setopt glob_complete
-        setopt pushd_ignore_dups
-        setopt prompt_subst
+          source ~/.ls_colors
+          setopt auto_param_slash
+          setopt auto_menu
+          setopt glob_complete
+          setopt pushd_ignore_dups
+          setopt prompt_subst
 
-        zstyle ':completion:*' group-name \'\'
-        zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
+          zstyle ':completion:*' group-name \'\'
+          zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
 
-        git_current_branch() {
-          local branch=$(git branch --show-current 2>/dev/null)
-            [[ -n $branch ]] && echo  " $branch "
-        }
+          git_current_branch() {
+            local branch=$(git branch --show-current 2>/dev/null)
+              [[ -n $branch ]] && echo  " $branch "
+          }
 
-        precmd() {
-          PROMPT=$'\n%(?..%F{red}[%?]%f )%F{blue}$(git_current_branch)%f%~\n> '
-        }
+          precmd() {
+            PROMPT=$'\n%(?..%F{red}[%?]%f )%F{blue}$(git_current_branch)%f%~\n> '
+          }
         '')
       ];
     };
