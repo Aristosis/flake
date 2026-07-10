@@ -44,7 +44,7 @@ environment {
 
 prefer-no-csd
 
-include "./cfg/gen-colors.kdl"
+// include "./cfg/gen-colors.kdl"
 
 debug {
   // render-drm-device "/dev/dri/renderD129"

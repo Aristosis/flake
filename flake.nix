@@ -39,14 +39,12 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./nixos/desktop/configuration.nix
-          stylix.nixosModules.stylix
         ];
       };
       nixos-laptop = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
           ./nixos/laptop/configuration.nix
-          stylix.nixosModules.stylix
         ];
       };
       nixos-server = nixpkgs.lib.nixosSystem {
@@ -63,6 +61,7 @@
         extraSpecialArgs = {inherit inputs;};
         modules = [
           ./home-manager/ari/laptop-home.nix
+          stylix.homeModules.stylix
         ];
       };
 
@@ -71,6 +70,7 @@
         extraSpecialArgs = {inherit inputs;};
         modules = [
           ./home-manager/ari/home.nix
+          stylix.homeModules.stylix
         ];
       };
     };

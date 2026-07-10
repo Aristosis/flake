@@ -21,6 +21,25 @@
     homeDirectory = "/home/ari";
   };
 
+  stylix = {
+    overlays.enable = false;
+    enable = true;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
+    fonts = with pkgs; {
+      monospace.package = iosevka;
+      serif.package = inter;
+      sizes.applications = 14;
+      sizes.terminal = 14;
+      sizes.desktop = 12;
+      sizes.popups = 14;
+    };
+    opacity = {
+      terminal = 0.9;
+      popups = 0.9;
+    };
+    polarity = "dark";
+  };
+
   ari.home-manager = {
     foot.enable = true;
     zsh.enable = true;
@@ -45,7 +64,7 @@
     };
 
     fzf = {
-      colors = {};
+      # colors = {};
       enable = true;
       enableZshIntegration = true;
     };
@@ -67,6 +86,7 @@
   home.packages = with pkgs; [
     material-cursors
     xwayland-satellite
+    thunar
 
     pavucontrol
 
