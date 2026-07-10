@@ -7,7 +7,27 @@
   options.features.desktop.enable = lib.mkEnableOption "Install and configure desktop programs";
 
   config = lib.mkIf config.features.desktop.enable {
+
+    environment.systemPackages = with pkgs; [
+      alsa-utils
+      copyparty
+      ffmpeg-full
+      usbutils
+      gparted
+    ];
+
     programs = {
+
+      niri.enable = true;
+
+      zsh = {
+        enable = true;
+        enableGlobalCompInit = false;
+        syntaxHighlighting.enable = true;
+        autosuggestions.enable = true;
+      };
+
+      # loco below no need to read
       nix-ld = {
         enable = true;
         libraries = with pkgs; [
@@ -141,21 +161,6 @@
         ];
       };
 
-      niri.enable = true;
-      zsh = {
-        enable = true;
-        enableGlobalCompInit = false;
-        syntaxHighlighting.enable = true;
-        autosuggestions.enable = true;
-      };
     };
-
-    environment.systemPackages = with pkgs; [
-      alsa-utils
-      copyparty
-      ffmpeg-full
-      usbutils
-      gparted
-    ];
   };
 }
