@@ -1,8 +1,13 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   options.ari.graphicsDrivers.enable = lib.mkEnableOption "Enable graphics drivers configuration";
-  options.ari.graphicsDrivers.nvidia.enable = lib.mkEnableOption "Enable Nvidia graphics drivers configuration";
-
+  options.ari.graphicsDrivers.nvidia.enable =
+    lib.mkEnableOption "Enable Nvidia graphics drivers configuration";
 
   config = lib.mkIf config.ari.graphicsDrivers.enable {
 
@@ -24,11 +29,8 @@
       };
     };
 
-    # services.xserver.videoDrivers = lib.mkIf config.ari.graphicsDrivers.nvidia.enable [ "nvidia" ];
-
-    services.xserver.videoDrivers = if config.ari.graphicsDrivers.nvidia.enable
-    then [ "nvidia" ]
-    else [ "amdgpu" ];
+    services.xserver.videoDrivers =
+      if config.ari.graphicsDrivers.nvidia.enable then [ "nvidia" ] else [ "amdgpu" ];
   };
 
 }

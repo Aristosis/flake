@@ -6,7 +6,7 @@
   ...
 }:
 {
-  networking.hostName = "nixos-desktop";
+  networking.hostName = "nixos-server";
 
   imports = [
     ./hardware-configuration.nix
@@ -48,18 +48,9 @@
   };
 
   ari = {
-    audio.enable = true;
-    desktop.enable = true;
     bootloader.enable = true;
-    displayManager.enable = true;
     colemak.enable = true;
-    sshRemote.enable = true;
     networking.enable = true;
-    graphicsDrivers = {
-      enable = true;
-      nvidia.enable = true;
-    };
-    fonts.enable = true;
   };
 
   system.stateVersion = "26.05";

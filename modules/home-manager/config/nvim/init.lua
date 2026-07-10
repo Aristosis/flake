@@ -30,7 +30,7 @@ vim.o.sidescrolloff = 8
 vim.o.swapfile = false
 vim.o.undofile = true
 vim.opt.sessionoptions:append { "globals" }
-vim.o.completeopt = "menu,menuone,popup,fuzzy"
+vim.o.completeopt = "menu,menuone,noinsert,popup,fuzzy"
 vim.o.updatetime = 250
 vim.o.timeoutlen = 300
 vim.o.wrap = false
@@ -107,6 +107,27 @@ vim.api.nvim_create_autocmd('LspAttach', {
       end
    end,
 })
+
+
+vim.diagnostic.config {
+   update_in_insert = false,
+   severity_sort = true,
+   jump = { float = true },
+   float = { source = "if_many" },
+   underline = { severity = { min = vim.diagnostic.severity.WARN } },
+   virtual_text = vim.g.virtual_text,
+   virtual_lines = vim.g.virtual_lines,
+}
+
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+vim.keymap.set("n", "<leader>d", function()
+   vim.g.virtual_lines = not vim.g.virtual_lines
+   vim.g.virtual_text = not vim.g.virtual_text
+   vim.diagnostic.config {
+      virtual_text = vim.g.virtual_text,
+      virtual_lines = vim.g.virtual_lines,
+   }
+end, { desc = "Toggle virtual text/lines" })
 
 vim.pack.add({ 'https://github.com/zuqini/zpack.nvim' })
 require("zpack").setup()
