@@ -1,4 +1,4 @@
----@diagnostic disable undefined_global
+--/-@diagnostic disable undefined_global
 vim.loader.enable()
 
 vim.lsp.enable {
@@ -10,7 +10,6 @@ vim.lsp.enable {
    "gdscript",
    "nil_ls"
 }
-
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.g.virtual_text = true
@@ -30,7 +29,8 @@ vim.o.sidescrolloff = 8
 vim.o.swapfile = false
 vim.o.undofile = true
 vim.opt.sessionoptions:append { "globals" }
-vim.o.completeopt = "menu,menuone,noinsert,popup,fuzzy"
+vim.opt.complete:append("o")
+vim.o.completeopt = "menuone,noinsert,popup,fuzzy,nosort"
 vim.o.updatetime = 250
 vim.o.timeoutlen = 300
 vim.o.wrap = false
@@ -75,39 +75,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
       (vim.hl or vim.highlight).on_yank()
    end,
 })
-
-vim.api.nvim_create_autocmd('LspAttach', {
-   group = vim.api.nvim_create_augroup('my.lsp', {}),
-   callback = function(ev)
-      local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
-      if client:supports_method('textDocument/implementation') then
-         -- Create a keymap for vim.lsp.buf.implementation ...
-      end
-
-      -- Enable auto-completion. Note: Use CTRL-Y to select an item. |complete_CTRL-Y|
-      if client:supports_method('textDocument/completion') then
-         -- Optional: trigger autocompletion on EVERY keypress. May be slow!
-         -- local chars = {}; for i = 32, 126 do table.insert(chars, string.char(i)) end
-         -- client.server_capabilities.completionProvider.triggerCharacters = chars
-
-         vim.lsp.completion.enable(true, client.id, ev.buf, {autotrigger = true})
-      end
-
-      -- Auto-format ("lint") on save.
-      -- Usually not needed if server supports "textDocument/willSaveWaitUntil".
-      if not client:supports_method('textDocument/willSaveWaitUntil')
-         and client:supports_method('textDocument/formatting') then
-         vim.api.nvim_create_autocmd('BufWritePre', {
-            group = vim.api.nvim_create_augroup('my.lsp', {clear=false}),
-            buffer = ev.buf,
-            callback = function()
-               vim.lsp.buf.format({ bufnr = ev.buf, id = client.id, timeout_ms = 1000 })
-            end,
-         })
-      end
-   end,
-})
-
 
 vim.diagnostic.config {
    update_in_insert = false,
