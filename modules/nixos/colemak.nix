@@ -4,9 +4,9 @@
   pkgs,
   ...
 }: {
-  options.ari.colemak.enable = lib.mkEnableOption "Enable colemak keyboard layout";
+  options.features.colemak.enable = lib.mkEnableOption "Enable colemak keyboard layout";
 
-  config = lib.mkIf config.ari.colemak.enable {
+  config = lib.mkIf config.features.colemak.enable {
     console.keyMap = "colemak";
     services.xserver.xkb = {
       layout = "us";

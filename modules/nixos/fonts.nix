@@ -4,8 +4,8 @@
   pkgs,
   ...
 }: {
-  options.ari.fonts.enable = lib.mkEnableOption "Enable font configurations";
-  config.fonts = lib.mkIf config.ari.fonts.enable {
+  options.features.fonts.enable = lib.mkEnableOption "Enable font configurations";
+  config.fonts = lib.mkIf config.features.fonts.enable {
     enableDefaultPackages = true;
     packages = with pkgs; [
       iosevka

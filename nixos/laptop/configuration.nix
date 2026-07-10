@@ -47,7 +47,7 @@
     LC_CTYPE = "en_US.UTF-8";
   };
 
-  ari = {
+  features = {
     audio.enable = true;
     desktop.enable = true;
     bootloader.enable = true;

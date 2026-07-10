@@ -47,7 +47,7 @@
     LC_CTYPE = "en_US.UTF-8";
   };
 
-  ari = {
+  features = {
     bootloader.enable = true;
     colemak.enable = true;
     networking.enable = true;

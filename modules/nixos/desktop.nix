@@ -4,9 +4,9 @@
   pkgs,
   ...
 }: {
-  options.ari.desktop.enable = lib.mkEnableOption "Install and configure desktop programs";
+  options.features.desktop.enable = lib.mkEnableOption "Install and configure desktop programs";
 
-  config = lib.mkIf config.ari.desktop.enable {
+  config = lib.mkIf config.features.desktop.enable {
     programs = {
       nix-ld = {
         enable = true;

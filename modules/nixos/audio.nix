@@ -4,8 +4,8 @@
   pkgs,
   ...
 }: {
-  options.ari.audio.enable = lib.mkEnableOption "Enable audio configuration";
-  config = lib.mkIf config.ari.audio.enable {
+  options.features.audio.enable = lib.mkEnableOption "Enable audio configuration";
+  config = lib.mkIf config.features.audio.enable {
     security.rtkit.enable = true;
     services.pipewire = {
       enable = true;

@@ -4,9 +4,9 @@
   pkgs,
   ...
 }: {
-  options.ari.sshRemote.enable = lib.mkEnableOption "Enable remote ssh access";
+  options.features.sshRemote.enable = lib.mkEnableOption "Enable remote ssh access";
 
-  config.services = lib.mkIf config.ari.sshRemote.enable {
+  config.services = lib.mkIf config.features.sshRemote.enable {
     openssh = {
       enable = true;
       settings = {};

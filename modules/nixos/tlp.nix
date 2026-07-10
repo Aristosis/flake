@@ -4,9 +4,9 @@
   pkgs,
   ...
 }: {
-  options.ari.tlp.enable = lib.mkEnableOption "Enable TLP power management";
+  options.features.tlp.enable = lib.mkEnableOption "Enable TLP power management";
 
-  config = lib.mkIf config.ari.tlp.enable {
+  config = lib.mkIf config.features.tlp.enable {
     services.tlp = {
       enable = true;
     };
