@@ -16,6 +16,7 @@
     self,
     nixpkgs,
     home-manager,
+    stylix,
     ...
   } @ inputs: let
     systems = [
@@ -34,22 +35,24 @@
     homeManagerModules = import ./modules/home-manager;
 
     nixosConfigurations = {
-      ari-nixos = nixpkgs.lib.nixosSystem {
+      nixos-desktop = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
           ./nixos/desktop/configuration.nix
-        ];
-      };
-      optiplex-nixos = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./nixos/optiplex/configuration.nix
+          stylix.nixosModules.stylix
         ];
       };
       nixos-laptop = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
           ./nixos/laptop/configuration.nix
+          stylix.nixosModules.stylix
+        ];
+      };
+      nixos-server = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./nixos/server/configuration.nix
         ];
       };
     };
@@ -63,7 +66,7 @@
         ];
       };
 
-      "ari@ari-nixos" = home-manager.lib.homeManagerConfiguration {
+      "ari@nixos-desktop" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs;};
         modules = [
