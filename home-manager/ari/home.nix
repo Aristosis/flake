@@ -86,6 +86,7 @@
     cliphist
     manix
     nix-search-cli
+    ripgrep
 
     # Dev.
     nil
