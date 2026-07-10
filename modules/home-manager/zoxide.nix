@@ -6,11 +6,11 @@
 }: let
   mkIf = lib.mkIf;
 in {
-  options.ari.home-manager.zoxide.enable = lib.mkEnableOption "Enable zoxide";
+  options.features.home-manager.zoxide.enable = lib.mkEnableOption "Enable zoxide";
 
-  config.programs.zoxide = mkIf config.ari.home-manager.zoxide.enable {
+  config.programs.zoxide = mkIf config.features.home-manager.zoxide.enable {
     enable = true;
-    enableZshIntegration = mkIf config.ari.home-manager.zsh.enable true;
+    enableZshIntegration = mkIf config.features.home-manager.zsh.enable true;
     options = ["--cmd cd"];
   };
 }

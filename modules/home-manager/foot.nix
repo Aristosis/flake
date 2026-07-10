@@ -4,9 +4,9 @@
   pkgs,
   ...
 }: {
-  options.ari.home-manager.foot.enable = lib.mkEnableOption "Enable foot terminal emulator";
+  options.features.home-manager.foot.enable = lib.mkEnableOption "Enable foot terminal emulator";
 
-  config.programs.foot = lib.mkIf config.ari.home-manager.foot.enable {
+  config.programs.foot = lib.mkIf config.features.home-manager.foot.enable {
     enable = true;
     server.enable = true;
 

@@ -4,17 +4,17 @@
   pkgs,
   ...
 }: {
-  options.ari.home-manager.fuzzel.enable = lib.mkEnableOption "Enable fuzzel";
+  options.features.home-manager.fuzzel.enable = lib.mkEnableOption "Enable fuzzel";
   config.stylix.targets.fuzzel.fonts.override =
   let
     monospace = config.stylix.fonts.monospace.package;
   in
-  lib.mkIf config.ari.home-manager.fuzzel.enable 
+  lib.mkIf config.features.home-manager.fuzzel.enable 
   {
     # sizes.popups = ;
     serif.package = monospace;
   };
-  config.programs.fuzzel = lib.mkIf config.ari.home-manager.fuzzel.enable {
+  config.programs.fuzzel = lib.mkIf config.features.home-manager.fuzzel.enable {
     enable = true;
     settings = {
       main = {

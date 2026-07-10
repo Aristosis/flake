@@ -4,9 +4,9 @@
   pkgs,
   ...
 }: {
-  options.ari.home-manager.firefox.enable = lib.mkEnableOption "Enable firefox";
+  options.features.home-manager.firefox.enable = lib.mkEnableOption "Enable firefox";
 
-  config.programs.firefox = lib.mkIf config.ari.home-manager.firefox.enable {
+  config.programs.firefox = lib.mkIf config.features.home-manager.firefox.enable {
     enable = true;
 
     languagePacks = ["en-IN"];

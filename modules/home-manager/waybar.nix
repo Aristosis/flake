@@ -4,9 +4,9 @@
   pkgs,
   ...
 }: {
-  options.ari.home-manager.waybar.enable = lib.mkEnableOption "Enable waybar configuration";
+  options.features.home-manager.waybar.enable = lib.mkEnableOption "Enable waybar configuration";
 
-  config.programs.waybar = lib.mkIf config.ari.home-manager.waybar.enable {
+  config.programs.waybar = lib.mkIf config.features.home-manager.waybar.enable {
     enable = true;
 
     settings = [
@@ -191,19 +191,19 @@ button:hover {
     #   @define-color on_primary #37265c;
     #   @define-color on_primary_container #eaddff;
     #   @define-color on_primary_fixed #220f46;
-    #   @define-color on_primary_fixed_variant #4e3d75;
+    #   @define-color on_primary_fixed_vfeaturesant #4e3d75;
     #   @define-color on_secondary #332d41;
     #   @define-color on_secondary_container #e9def8;
     #   @define-color on_secondary_fixed #1e192b;
-    #   @define-color on_secondary_fixed_variant #4a4358;
+    #   @define-color on_secondary_fixed_vfeaturesant #4a4358;
     #   @define-color on_surface #e7e0e8;
-    #   @define-color on_surface_variant #cbc4cf;
+    #   @define-color on_surface_vfeaturesant #cbc4cf;
     #   @define-color on_tertiary #4a2531;
     #   @define-color on_tertiary_container #ffd9e2;
     #   @define-color on_tertiary_fixed #31101c;
-    #   @define-color on_tertiary_fixed_variant #643b47;
+    #   @define-color on_tertiary_fixed_vfeaturesant #643b47;
     #   @define-color outline #948f99;
-    #   @define-color outline_variant #49454e;
+    #   @define-color outline_vfeaturesant #49454e;
     #   @define-color primary #d1bcfd;
     #   @define-color primary_container #4e3d75;
     #   @define-color primary_fixed #eaddff;
@@ -224,7 +224,7 @@ button:hover {
     #   @define-color surface_container_lowest #0f0d13;
     #   @define-color surface_dim #141218;
     #   @define-color surface_tint #d1bcfd;
-    #   @define-color surface_variant #49454e;
+    #   @define-color surface_vfeaturesant #49454e;
     #   @define-color tertiary #f0b8c6;
     #   @define-color tertiary_container #643b47;
     #   @define-color tertiary_fixed #ffd9e2;

@@ -21,7 +21,7 @@
     homeDirectory = "/home/ari";
   };
 
-  ari.home-manager = {
+  features.home-manager = {
     foot.enable = true;
     zsh.enable = true;
     firefox.enable = true;

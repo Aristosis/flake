@@ -4,9 +4,9 @@
   pkgs,
   ...
 }: {
-  options.ari.home-manager.zsh.enable = lib.mkEnableOption "Enable zsh";
+  options.features.home-manager.zsh.enable = lib.mkEnableOption "Enable zsh";
 
-  config = lib.mkIf config.ari.home-manager.zsh.enable {
+  config = lib.mkIf config.features.home-manager.zsh.enable {
     home.packages = with pkgs; [
       zsh-fzf-tab
     ];
