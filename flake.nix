@@ -38,19 +38,19 @@
       nixos-desktop = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
-          ./nixos/desktop/configuration.nix
+          ./hosts/nixos-desktop/configuration.nix
         ];
       };
       nixos-laptop = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
-          ./nixos/laptop/configuration.nix
+          ./hosts/nixos-laptop/configuration.nix
         ];
       };
       nixos-server = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
-          ./nixos/server/configuration.nix
+          ./hosts/nixos-server/configuration.nix
         ];
       };
     };
