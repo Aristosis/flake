@@ -13,6 +13,7 @@
       inputs.self.overlays.additions
       inputs.self.overlays.modifications
       inputs.self.overlays.unstable-packages
+      inputs.self.overlays.nur
     ];
   };
 
@@ -29,9 +30,9 @@
       monospace.package = iosevka;
       monospace.name = "Iosevka";
       serif.package = inter;
-      serif.name = "inter";
+      serif.name = "Inter";
       sansSerif.package = inter;
-      sansSerif.name = "inter";
+      sansSerif.name = "Inter";
       sizes.applications = 12;
       sizes.terminal = 14;
       sizes.desktop = 13;
@@ -76,7 +77,9 @@
 
     pavucontrol
 
-    (obs-studio.override {cudaSupport = true;})
+    (obs-studio.override {
+      cudaSupport = config.features.graphicsDrivers.nvidia.enable;
+    })
     (prismlauncher.override {
       additionalLibs = with pkgs; [libxt libxtst libxkbcommon];
     })
