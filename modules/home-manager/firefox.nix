@@ -6,17 +6,24 @@
 }: {
   options.features.home-manager.firefox.enable = lib.mkEnableOption "Enable firefox";
 
-  config.stylix.targets.firefox.profileNames = [ "default" ];
+  config.stylix.targets.firefox = {
+    profileNames = [ "default" ];
+    # colorTheme.enable = true;
+  };
+
   config.programs.firefox = lib.mkIf config.features.home-manager.firefox.enable {
     enable = true;
 
     languagePacks = ["en-IN"];
 
     profiles.default = {
+      # Allow stylix to override Firefox Color settings
+      # extensions.settings."FirefoxColor@mozilla.com".force = true;
       settings = {
         "browser.urlbar.suggest.searches" = false;
         "browser.toolbars.bookmarks.visibility" = "never";
         "sidebar.verticalTabs" = true;
+        "extensions.activeThemeID" = "firefox-color@mozilla.org";
       };
     };
 
