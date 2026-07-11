@@ -60,7 +60,7 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs;};
         modules = [
-          ./home-manager/ari/laptop-home.nix
+          ./home-manager/ari/home.nix
           stylix.homeModules.stylix
         ];
       };
