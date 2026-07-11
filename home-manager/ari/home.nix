@@ -52,6 +52,7 @@
     fuzzel.enable = true;
     niri.enable = true;
     neovim.enable = true;
+    cli.enable = true;
   };
 
   programs = {
@@ -65,25 +66,6 @@
         credential.helper = "store";
         init.defaultBranch = "main";
       };
-    };
-
-    fzf = {
-      # colors = {};
-      enable = true;
-      enableZshIntegration = true;
-    };
-
-    eza = {
-      enable = true;
-      enableZshIntegration = true;
-      git = true;
-      icons = "auto";
-    };
-
-    zoxide = {
-      enable = true;
-      enableZshIntegration = true;
-      options = ["--cmd cd"];
     };
   };
 
@@ -100,9 +82,9 @@
     })
 
     # CLI
+    nvtopPackages.nvidia
     tree-sitter
     btop
-    nvtopPackages.nvidia
     awww
     neovim
     fastfetch
