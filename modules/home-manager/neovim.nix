@@ -10,7 +10,13 @@ in {
   options.features.home-manager.neovim.enable = lib.mkEnableOption "Enable neovim configuration";
 
   config = mkIf config.features.home-manager.neovim.enable {
-    home.packages = with pkgs; [neovim];
+    home.packages = with pkgs; [
+      neovim
+      tree-sitter
+      nil
+      lua-language-server
+      bc
+    ];
     xdg.configFile.nvim.source = mkSymlink "${config.home.homeDirectory}/flake/modules/home-manager/config/nvim";
   };
 }

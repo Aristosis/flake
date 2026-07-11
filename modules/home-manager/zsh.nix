@@ -27,10 +27,8 @@
         ll = "eza -lah";
         ls = "eza --icons";
         cat = "bat";
-        btw = "fastfetch";
         dlp = ''yt-dlp --extract-audio --audio-format best --embed-metadata --embed-thumbnail --audio-quality 0 -o "%(artist)s - %(track)s.%(ext)s"'';
         nrs = "sudo nixos-rebuild switch --flake $HOME/flake";
-        hrs = "home-manager switch --flake $HOME/flake -b backup";
       };
 
       # Use cached compinit. Only rebuild if system generation newer than current cache

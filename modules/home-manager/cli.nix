@@ -10,13 +10,27 @@ in {
 
   config = mkIf config.features.home-manager.cli.enable {
     home.packages = with pkgs; [
-      fd
-      ripgrep
-      lazygit
+      bc
       duf
+      fastfetch
+      fd
+      lazygit
+      nix-search-cli
+      ripgrep
+      btop
     ];
 
     programs = {
+      bat.enable = true;
+      git = {
+        enable = true;
+        settings = {
+          user.name = "Ari";
+          user.email = "communeofstars@proton.me";
+          credential.helper = "store";
+          init.defaultBranch = "main";
+        };
+      };
       zoxide = {
         enable = true;
         enableZshIntegration = true;
