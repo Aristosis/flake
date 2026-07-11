@@ -96,5 +96,11 @@ vim.keymap.set("n", "<leader>d", function()
    }
 end, { desc = "Toggle virtual text/lines" })
 
+vim.keymap.set('i', '<CR>', function()
+  if vim.fn.pumvisible() ~= 0 then return '<C-e><CR>'
+  else return '<CR>'
+  end
+end, { expr = true, silent = true })
+
 vim.pack.add({ 'https://github.com/zuqini/zpack.nvim' })
 require("zpack").setup()

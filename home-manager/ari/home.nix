@@ -27,11 +27,14 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
     fonts = with pkgs; {
       monospace.package = iosevka;
+      monospace.name = "Iosevka";
       serif.package = inter;
+      serif.name = "inter";
       sansSerif.package = inter;
-      sizes.applications = 14;
+      sansSerif.name = "inter";
+      sizes.applications = 12;
       sizes.terminal = 14;
-      sizes.desktop = 14;
+      sizes.desktop = 13;
       sizes.popups = 14;
     };
     opacity = {

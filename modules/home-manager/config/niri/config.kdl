@@ -4,7 +4,7 @@ include "./cfg/input.kdl"
 include "./cfg/keybinds.kdl"
 include "./cfg/rules.kdl"
 
-spawn-sh-at-startup "awww img ~/Media/Pictures/Wallpapers/ROR.jpg --transition-fps=100 --transition-type=center --transition-duration=3"
+// spawn-sh-at-startup "awww img ~/Media/Pictures/Wallpapers/ROR.jpg --transition-fps=100 --transition-type=center --transition-duration=3"
 // spawn-sh-at-startup "swaybg -i ~/Media/Pictures/Wallpapers/ROR.jpg"
 
 screenshot-path "~/Media/Pictures/Screenshots"
