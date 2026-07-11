@@ -28,7 +28,10 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
+    backupFileExtension = "backup";
     extraSpecialArgs = { inherit inputs; nixosConfig = config; };
+
+    users.ari = import "${inputs.self}/home-manager/ari/home.nix";
   };
 
   stylix = {

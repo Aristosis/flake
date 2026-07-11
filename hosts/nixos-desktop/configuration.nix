@@ -27,6 +27,7 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
+    backupFileExtension = "backup";
     extraSpecialArgs = { inherit inputs; nixosConfig = config; };
 
     users.ari = import "${inputs.self}/home-manager/ari/home.nix" ;
@@ -36,6 +37,11 @@
     overlays.enable = false;
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
+    cursor = {
+      size = 16;
+      package = pkgs.material-cursors;
+      name = "material_light_cursors";
+    };
     fonts = with pkgs; {
       monospace.package = iosevka;
       monospace.name = "Iosevka";
