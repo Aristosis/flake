@@ -21,6 +21,23 @@
     };
 
     policies = {
+      ExtensionSettings =
+      let
+        mozilla = "https://addons.mozilla.org/firefox/downloads/latest";
+      in
+      {
+         # proton pass has a stupid id
+        "78272b6fa58f4a1abaac99321d503a20@proton.me" = {
+          install_url = "${mozilla}/proton-pass/latest.xpi";
+          installation_mode = "normal_installed";
+          private_browsing = true;
+        };
+        "uBlock0@raymondhill.net" = {
+          install_url = "${mozilla}/ublock-origin/latest.xpi";
+          installation_mode = "normal_installed";
+          private_browsing = true;
+        };
+      };
       AppAutoUpdate = false;
       NewTabPage = false;
       BackgroundAppUpdate = false;
