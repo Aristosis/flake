@@ -39,10 +39,7 @@
         consoleMode = "max";
       };
     };
-    kernelPackages =
-    if config.features.graphicsDrivers.nvidia.enable
-      then pkgs.linuxPackages_6_18
-    else pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages;
   };
 
 }
