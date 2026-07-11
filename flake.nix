@@ -30,44 +30,32 @@
     homeManagerModules = import ./modules/home-manager;
 
     nixosConfigurations = {
+
       nixos-desktop = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/nixos-desktop/configuration.nix
+          home-manager.nixosModules.home-manager
+          stylix.nixosModules.stylix
         ];
       };
+
       nixos-laptop = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/nixos-laptop/configuration.nix
+          home-manager.nixosModules.home-manager
+          stylix.nixosModules.stylix
         ];
       };
+
       nixos-server = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/nixos-server/configuration.nix
         ];
       };
-    };
 
-    homeConfigurations = {
-      "ari@nixos-laptop" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs;};
-        modules = [
-          ./home-manager/ari/home.nix
-          stylix.homeModules.stylix
-        ];
-      };
-
-      "ari@nixos-desktop" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs;};
-        modules = [
-          ./home-manager/ari/home.nix
-          stylix.homeModules.stylix
-        ];
-      };
     };
   };
 }

@@ -2,47 +2,15 @@
   inputs,
   lib,
   config,
+  nixosConfig,
   pkgs,
   ...
 }: {
   imports = builtins.attrValues inputs.self.homeManagerModules;
 
-  nixpkgs = {
-    config.allowUnfree = true;
-    overlays = [
-      inputs.self.overlays.additions
-      inputs.self.overlays.modifications
-      inputs.self.overlays.unstable-packages
-      inputs.self.overlays.nur
-    ];
-  };
-
   home = {
     username = "ari";
     homeDirectory = "/home/ari";
-  };
-
-  stylix = {
-    overlays.enable = false;
-    enable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
-    fonts = with pkgs; {
-      monospace.package = iosevka;
-      monospace.name = "Iosevka";
-      serif.package = inter;
-      serif.name = "Inter";
-      sansSerif.package = inter;
-      sansSerif.name = "Inter";
-      sizes.applications = 12;
-      sizes.terminal = 14;
-      sizes.desktop = 13;
-      sizes.popups = 14;
-    };
-    opacity = {
-      terminal = 0.9;
-      popups = 0.9;
-    };
-    polarity = "dark";
   };
 
   features.home-manager = {
@@ -50,7 +18,6 @@
     zsh.enable = true;
     firefox.enable = true;
     waybar.enable = true;
-    fuzzel.enable = true;
     niri.enable = true;
     neovim.enable = true;
     cli.enable = true;
@@ -78,7 +45,7 @@
     pavucontrol
 
     (obs-studio.override {
-      cudaSupport = config.features.graphicsDrivers.nvidia.enable;
+      cudaSupport = nixosConfig.features.graphicsDrivers.nvidia.enable;
     })
     (prismlauncher.override {
       additionalLibs = with pkgs; [libxt libxtst libxkbcommon];
@@ -102,8 +69,6 @@
     temurin-jre-bin-17
     bc
   ];
-
-  programs.home-manager.enable = true;
 
   home.stateVersion = "26.05";
 }

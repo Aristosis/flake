@@ -10,7 +10,7 @@ in {
 
   config.xdg.configFile.niri.source = mkIf config.features.home-manager.niri.enable ./config/niri;
 
-  config.programs.fuzzel = lib.mkIf config.features.home-manager.fuzzel.enable {
+  config.programs.fuzzel = lib.mkIf config.features.home-manager.niri.enable {
     enable = true;
     settings = {
       main = {
