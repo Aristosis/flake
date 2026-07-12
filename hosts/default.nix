@@ -19,6 +19,8 @@
     settings.experimental-features = "nix-command flakes";
   };
 
+  networking.firewall.enable = true;
+
   time.timeZone = "Asia/Kolkata";
 
   i18n.defaultLocale = "en_IN";
@@ -28,6 +30,7 @@
   };
 
   boot = {
+    kernelPackages = pkgs.linuxPackages;
     loader = {
       efi.canTouchEfiVariables = true;
       systemd-boot = {
@@ -36,6 +39,5 @@
         consoleMode = "max";
       };
     };
-    kernelPackages = pkgs.linuxPackages;
   };
 }
