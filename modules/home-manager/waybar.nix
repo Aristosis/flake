@@ -73,109 +73,108 @@
       }
     ];
     style = ''
-* {
-    font-family: Inter;
-    font-size: 14px;
-    color: @base05;
-}
+      * {
+          font-family: Inter;
+          font-size: 14px;
+          color: @base05;
+      }
 
-window#waybar {
-    background: @base00;
-}
+      window#waybar {
+          background: @base00;
+      }
 
-button {
-    box-shadow: inset 0 -3px transparent;
-    border: none;
-    border-radius: 0;
-}
+      button {
+          box-shadow: inset 0 -3px transparent;
+          border: none;
+          border-radius: 0;
+      }
 
-button:hover {
-    background: inherit;
-    box-shadow: inset 0 -3px @base0D;
-}
+      button:hover {
+          background: inherit;
+          box-shadow: inset 0 -3px @base0D;
+      }
 
-#workspaces button {
-    min-height: 0;
-    min-width: 0;
-    padding: 4px;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    background-color: transparent;
-}
+      #workspaces button {
+          min-height: 0;
+          min-width: 0;
+          padding: 4px;
+          padding-top: 3px;
+          padding-bottom: 3px;
+          background-color: transparent;
+      }
 
-#workspaces button.focused, #workspaces button.active {
-    box-shadow: inset 0 -1px @base0B;
-}
+      #workspaces button.focused, #workspaces button.active {
+          box-shadow: inset 0 -1px @base0B;
+      }
 
-#workspaces button.urgent {
-    background-color: @base08;
-}
+      #workspaces button.urgent {
+          background-color: @base08;
+      }
 
-#clock,
-#battery,
-#cpu,
-#memory,
-#disk,
-#temperature,
-#backlight,
-#network,
-#pulseaudio,
-#wireplumber,
-#custom-media,
-#tray,
-#mode,
-#idle_inhibitor,
-#scratchpad,
-#power-profiles-daemon,
-#mpd {
-    padding: 0 10px;
-}
+      #clock,
+      #battery,
+      #cpu,
+      #memory,
+      #disk,
+      #temperature,
+      #backlight,
+      #network,
+      #pulseaudio,
+      #wireplumber,
+      #custom-media,
+      #tray,
+      #mode,
+      #idle_inhibitor,
+      #scratchpad,
+      #power-profiles-daemon,
+      #mpd {
+          padding: 0 10px;
+      }
 
-#window,
-#workspaces {
-    margin: 0 4px;
-}
+      #window,
+      #workspaces {
+          margin: 0 4px;
+      }
 
-/* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
-}
+      /* If workspaces is the leftmost module, omit left margin */
+      .modules-left > widget:first-child > #workspaces {
+          margin-left: 0;
+      }
 
-/* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > #workspaces {
-    margin-right: 0;
-}
+      /* If workspaces is the rightmost module, omit right margin */
+      .modules-right > widget:last-child > #workspaces {
+          margin-right: 0;
+      }
 
-#clock {
-    background: transparent;
-    border-bottom: 4px solid @base0A;
-}
+      #clock {
+          background: transparent;
+          border-bottom: 4px solid @base0A;
+      }
 
-#network {
-    border-bottom: 4px solid @base0C;
-}
+      #network {
+          border-bottom: 4px solid @base0C;
+      }
 
-#network.disconnected {
-    border-bottom: 4px solid @base09;
-}
+      #network.disconnected {
+          border-bottom: 4px solid @base09;
+      }
 
-#wireplumber {
-    border-bottom: 4px solid @base0D;
-}
+      #wireplumber {
+          border-bottom: 4px solid @base0D;
+      }
 
-#wireplumber.muted {
-    border-bottom: 4px solid @base03;
-}
+      #wireplumber.muted {
+          border-bottom: 4px solid @base03;
+      }
 
-#tray > .passive {
-    -gtk-icon-effect: dim;
-}
+      #tray > .passive {
+          -gtk-icon-effect: dim;
+      }
 
-#tray > .needs-attention {
-    -gtk-icon-effect: highlight;
-    background-color: @base0E;
-}
+      #tray > .needs-attention {
+          -gtk-icon-effect: highlight;
+          background-color: @base0E;
+      }
     '';
-
   };
 }

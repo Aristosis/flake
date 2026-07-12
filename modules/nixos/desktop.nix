@@ -7,7 +7,6 @@
   options.features.desktop.enable = lib.mkEnableOption "Install and configure desktop programs";
 
   config = lib.mkIf config.features.desktop.enable {
-
     # Display Manager - ly
     services.displayManager.ly.enable = true;
 
@@ -45,7 +44,6 @@
     };
 
     programs = {
-
       niri.enable = true;
 
       zsh = {
@@ -54,7 +52,6 @@
         syntaxHighlighting.enable = true;
         autosuggestions.enable = true;
       };
-
     };
   };
 }

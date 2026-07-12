@@ -11,12 +11,13 @@ in {
   config = {
     xdg.configFile.niri.source = mkIf config.features.home-manager.niri.enable ./config/niri;
 
-    home.packages = with pkgs; lib.mkIf config.features.home-manager.niri.enable [
-      xwayland-satellite
+    home.packages = with pkgs;
+      lib.mkIf config.features.home-manager.niri.enable [
+        xwayland-satellite
 
-      # Wallpaper daemon
-      awww
-    ];
+        # Wallpaper daemon
+        awww
+      ];
     programs.fuzzel = lib.mkIf config.features.home-manager.niri.enable {
       enable = true;
       settings = {

@@ -7,7 +7,7 @@
   options.features.home-manager.firefox.enable = lib.mkEnableOption "Enable firefox";
 
   config.stylix.targets.firefox = {
-    profileNames = [ "default" ];
+    profileNames = ["default"];
     # colorTheme.enable = true;
   };
 
@@ -28,12 +28,10 @@
     };
 
     policies = {
-      ExtensionSettings =
-      let
+      ExtensionSettings = let
         mozilla = "https://addons.mozilla.org/firefox/downloads/latest";
-      in
-      {
-         # proton pass has a stupid id
+      in {
+        # proton pass has a stupid id
         "78272b6fa58f4a1abaac99321d503a20@proton.me" = {
           install_url = "${mozilla}/proton-pass/latest.xpi";
           installation_mode = "normal_installed";

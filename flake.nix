@@ -28,7 +28,6 @@
     homeManagerModules = import ./modules/home-manager;
 
     nixosConfigurations = {
-
       nixos-desktop = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
@@ -53,7 +52,6 @@
           ./hosts/nixos-server/configuration.nix
         ];
       };
-
     };
   };
 }
