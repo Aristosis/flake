@@ -21,8 +21,8 @@
   } @ inputs: let
     system = "x86_64-linux";
   in {
-    packages = import ./pkgs nixpkgs.legacyPackages.${system};
-    formatter = nixpkgs.legacyPackages.${system}.alejandra;
+    packages.${system} = import ./pkgs nixpkgs.legacyPackages.${system};
+    formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
     overlays = import ./overlays {inherit inputs;};
     nixosModules = import ./modules/nixos;
     homeManagerModules = import ./modules/home-manager;
