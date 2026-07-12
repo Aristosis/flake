@@ -13,7 +13,7 @@
       copyparty
       ffmpeg-full
       usbutils
-      gparted
+      mpv
     ];
 
     # Display Manager - ly

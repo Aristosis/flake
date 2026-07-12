@@ -38,6 +38,11 @@
     overlays.enable = false;
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
+    cursor = {
+      size = 16;
+      package = pkgs.material-cursors;
+      name = "material_light_cursors";
+    };
     fonts = with pkgs; {
       monospace.package = iosevka;
       monospace.name = "Iosevka";
@@ -54,6 +59,13 @@
       terminal = 0.9;
       popups = 0.9;
     };
+    icons = {
+      enable = true;
+      package = pkgs.papirus-icon-theme;
+      dark = "Papirus-Dark";
+      light = "Papirus-Light";
+    };
+
     polarity = "dark";
   };
 

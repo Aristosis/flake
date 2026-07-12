@@ -58,6 +58,13 @@
       terminal = 0.9;
       popups = 0.9;
     };
+    icons = {
+      enable = true;
+      package = pkgs.papirus-icon-theme;
+      dark = "Papirus-Dark";
+      light = "Papirus-Light";
+    };
+
     polarity = "dark";
   };
 
