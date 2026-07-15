@@ -20,10 +20,11 @@
       # Allow stylix to override Firefox Color settings
       # extensions.settings."FirefoxColor@mozilla.com".force = true;
       settings = {
-        "browser.urlbar.suggest.searches" = false;
+        "browser.newtabpage.activity-stream.showSponsored" = false;
         "browser.toolbars.bookmarks.visibility" = "never";
+        "browser.urlbar.suggest.quicksuggest.sponsored" = false;
+        "browser.urlbar.suggest.searches" = false;
         "sidebar.verticalTabs" = true;
-        "extensions.activeThemeID" = "firefox-color@mozilla.org";
       };
     };
 
