@@ -28,7 +28,7 @@
           "network"
           "wireplumber"
           "clock"
-        ];
+        ] ++ (if config.networking.hostName == "nixos-laptop" then [ "battery" ] else []);
 
         tray = {
           icon-size = 16;
