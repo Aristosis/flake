@@ -7,6 +7,7 @@
   options.features.copyparty.enable = lib.mkEnableOption "Enable copyparty service";
 
   config = lib.mkIf config.features.copyparty.enable {
+    environment.systemPackages = with pkgs; [copyparty nginx];
     networking.firewall.allowedTCPPorts = [80 443];
     systemd.services.copyparty = {
       description = "copy the party";
@@ -21,9 +22,10 @@
 
         ExecStart = ''
           ${pkgs.copyparty}/bin/copyparty \
-          -v /home/ari/Media/Music:/Music:r \
+          -v /home/ari/Media/Music:/Music:r:rw,ari \
           --rproxy -1 \
           --rp-loc /copyparty \
+          -a ari:boing \
           -z \
         '';
 
@@ -31,6 +33,7 @@
         RestartSec = "5s";
       };
     };
+
     services.nginx = {
       enable = true;
       recommendedProxySettings = true;

@@ -23,7 +23,7 @@ in {
     programs = {
       bat.enable = true;
       fish = {
-        enable = true;
+        enable = false;
       };
       git = {
         enable = true;

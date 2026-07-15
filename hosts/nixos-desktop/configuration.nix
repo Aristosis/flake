@@ -76,7 +76,6 @@
   users.users = {
     ari = {
       isNormalUser = true;
-      shell = pkgs.fish;
       openssh.authorizedKeys.keys = [];
       extraGroups = [
         "wheel"
