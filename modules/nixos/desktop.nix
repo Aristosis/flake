@@ -45,6 +45,8 @@
 
     programs = {
       niri.enable = true;
+      foot.enable = true;
+      fish.enable = true;
 
       zsh = {
         enable = true;

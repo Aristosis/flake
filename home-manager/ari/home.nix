@@ -7,7 +7,7 @@
   ...
 }: {
   imports = builtins.attrValues inputs.self.homeManagerModules;
-
+    
   home = {
     username = "ari";
     homeDirectory = "/home/ari";

@@ -15,6 +15,7 @@
     ++ (builtins.attrValues inputs.self.nixosModules);
 
   features = {
+    copyparty.enable = true;
     desktop.enable = true;
     colemak.enable = true;
     sshRemote.enable = true;
@@ -75,6 +76,7 @@
   users.users = {
     ari = {
       isNormalUser = true;
+      shell = pkgs.fish;
       openssh.authorizedKeys.keys = [];
       extraGroups = [
         "wheel"
