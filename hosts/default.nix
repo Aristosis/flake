@@ -29,6 +29,9 @@
     LC_CTYPE = "en_US.UTF-8";
   };
 
+  programs.neovim.enable = true;
+  programs.neovim.defaultEditor = true;
+
   boot = {
     kernelPackages = pkgs.linuxPackages;
     loader = {

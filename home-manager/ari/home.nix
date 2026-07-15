@@ -2,7 +2,7 @@
   inputs,
   lib,
   config,
-  nixosConfig,
+  osConfig,
   pkgs,
   ...
 }: {
@@ -19,7 +19,6 @@
     firefox.enable = true;
     waybar.enable = true;
     niri.enable = true;
-    neovim.enable = true;
     cli.enable = true;
   };
 
@@ -29,7 +28,7 @@
     pavucontrol
 
     (obs-studio.override {
-      cudaSupport = nixosConfig.features.graphicsDrivers.nvidia.enable;
+      cudaSupport = osConfig.features.graphicsDrivers.nvidia.enable;
     })
 
     (prismlauncher.override {

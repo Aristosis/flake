@@ -18,7 +18,14 @@ in {
       nix-search-cli
       ripgrep
       btop
+
+      neovim
+      tree-sitter
+      nil
+      lua-language-server
     ];
+    xdg.configFile.nvim.source =
+      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/flake/modules/home-manager/config/nvim";
 
     programs = {
       bat.enable = true;

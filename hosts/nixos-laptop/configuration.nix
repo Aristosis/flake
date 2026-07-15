@@ -32,7 +32,6 @@
     backupFileExtension = "backup";
     extraSpecialArgs = {
       inherit inputs;
-      nixosConfig = config;
     };
 
     users.ari = import "${inputs.self}/home-manager/ari/home.nix";
@@ -41,7 +40,7 @@
   stylix = {
     overlays.enable = false;
     enable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
     cursor = {
       size = 16;
       package = pkgs.material-cursors;
