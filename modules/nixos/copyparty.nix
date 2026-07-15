@@ -7,47 +7,37 @@
   options.features.copyparty.enable = lib.mkEnableOption "Enable copyparty service";
 
   config = lib.mkIf config.features.copyparty.enable {
+    networking.firewall.allowedTCPPorts = [80 443];
     systemd.services.copyparty = {
       description = "copy the party";
-      after = [ "network.target" ];
-      wantedBy = [ "multi-user.target" ];
+      after = ["network.target"];
+      wantedBy = ["multi-user.target"];
 
       serviceConfig = {
         # Files be under user perms instead of root!
         User = "ari";
         Group = "users";
+        AmbientCapabilities = ["CAP_NET_BIND_SERVICE"];
 
         ExecStart = ''
-        ${pkgs.copyparty}/bin/copyparty \
-        v /home/ari/Media/Music:/Music:r \
-        --zeroconf
+          ${pkgs.copyparty}/bin/copyparty \
+          -v /home/ari/Media/Music:/Music:r \
+          --rproxy -1 \
+          --rp-loc /copyparty \
+          -z \
         '';
 
         Restart = "on-failure";
+        RestartSec = "5s";
       };
     };
-    services = {
-      avahi.extraServiceFiles.copyparty = ''
-        <?xml version="1.0" standalone='no'?>
-        <!DOCTYPE service-group SYSTEM "avahi-service.dtd">
-        <service-group>
-        <name>copyparty</name>
-        <service>
-        <type>_http._tcp</type>
-        <port>80</port>
-        </service>
-        </service-group>
-        '';
-      nginx = {
-        enable = true;
-        recommendedProxySettings = true;
-        virtualHosts."copyparty.local" = {
-          locations."/" = {
-            proxyPass = "http://127.0.0.1:3923";
-            proxyWebsockets = true;
-            # fix copyparty halts downloads;
-            extraConfig = "client_max_body_size 0;"; 
-          };
+    services.nginx = {
+      enable = true;
+      recommendedProxySettings = true;
+      virtualHosts."nixos-desktop" = {
+        locations."/copyparty/" = {
+          proxyPass = "http://127.0.0.1:3923";
+          proxyWebsockets = true; # needed if you need to use WebSocket
         };
       };
     };

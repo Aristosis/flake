@@ -14,12 +14,7 @@
     avahi = {
       enable = true;
       nssmdns4 = true;
-      publish = {
-        enable = true;
-        userServices = true;
-      };
-      extraServiceFiles = {
-      };
+      openFirewall = true;
     };
   };
 }

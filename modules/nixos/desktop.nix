@@ -10,6 +10,9 @@
     # Display Manager - ly
     services.displayManager.ly.enable = true;
 
+    # GVFS for network shares
+    services.gvfs.enable = true;
+
     # Audio
     security.rtkit.enable = true;
     services.pipewire = {
