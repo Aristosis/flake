@@ -47,8 +47,25 @@
     };
 
     programs = {
+      nix-ld = {
+        enable = true;
+        libraries = with pkgs; [
+          alsa-lib
+          libGL
+          libice
+          libsm
+          libx11
+          libxcursor
+          libxext
+          libxi
+          libxinerama
+          libxrandr
+          libpulseaudio
+          libxkbcommon
+          wayland
+        ];
+      };
       niri.enable = true;
-      foot.enable = true;
       fish.enable = true;
 
       zsh = {

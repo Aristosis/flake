@@ -9,6 +9,13 @@
   config = lib.mkIf config.features.home-manager.ghostty.enable {
     programs.ghostty = {
       enable = true;
+      enableZshIntegration = true;
+      enableFishIntegration = true;
+      systemd.enable = true;
+      settings = {
+        quit-after-last-window-closed = false;
+        shell-integration-features = true;
+      };
     };
   };
 }

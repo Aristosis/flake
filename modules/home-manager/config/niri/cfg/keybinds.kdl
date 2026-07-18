@@ -4,7 +4,7 @@ binds {
   MOD+SHIFT+ESCAPE                    { show-hotkey-overlay; }
 
   // MOD+SHIFT+RETURN                    hotkey-overlay-title="Terminal: Kitty" { spawn-sh "kitty --single-instance"; }
-  MOD+SHIFT+RETURN                    hotkey-overlay-title="Terminal: Foot" { spawn-sh "footclient"; }
+  MOD+SHIFT+RETURN                    hotkey-overlay-title="Terminal: Foot" { spawn-sh "ghostty +new-window"; }
   MOD+RETURN                          hotkey-overlay-title="App Launcher: Fuzzel" repeat=false { spawn "fuzzel"; }
   MOD+B                               hotkey-overlay-title="Browser: Firefox" repeat=false { spawn "firefox"; }
   MOD+V                               hotkey-overlay-title="Clipboard: Fuzzel" repeat=false { spawn-sh "$HOME/.config/niri/fuzzel_cliphist.sh"; }

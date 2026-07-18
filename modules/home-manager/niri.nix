@@ -28,7 +28,7 @@ in {
           lines = 12;
           vertical-pad = 5;
           horizontal-pad = 10;
-          terminal = "footclient";
+          terminal = "ghostty +new-window";
           dpi-aware = true;
           show-actions = false;
         };

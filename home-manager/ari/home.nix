@@ -14,12 +14,13 @@
   };
 
   features.home-manager = {
-    foot.enable = true;
+    foot.enable = false;
     zsh.enable = true;
     firefox.enable = true;
     waybar.enable = true;
     niri.enable = true;
     cli.enable = true;
+    ghostty.enable = true;
   };
 
   home.packages = with pkgs; [
