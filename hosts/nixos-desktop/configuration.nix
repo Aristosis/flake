@@ -39,7 +39,7 @@
   stylix = {
     overlays.enable = false;
     enable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
     cursor = {
       size = 16;
       package = pkgs.material-cursors;
