@@ -51,6 +51,7 @@ vim.o.formatoptions = "jcroqlnt"
 vim.o.smartindent = true
 vim.o.autocomplete = true
 vim.opt.shortmess:append { W = true, I = true, c = true }
+vim.g.netrw_banner = 0
 
 -- Rename within same line
 vim.keymap.set("n", "<leader>r", function()
