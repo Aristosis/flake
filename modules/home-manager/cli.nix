@@ -32,6 +32,13 @@ in {
       fish = {
         enable = false;
       };
+      jujutsu = {
+        enable = true;
+        settings = {
+          user.name = "Ari";
+          user.email = "communeofstars@proton.me";
+        };
+      };
       git = {
         enable = true;
         settings = {
