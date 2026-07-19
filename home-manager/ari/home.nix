@@ -21,6 +21,7 @@
     niri.enable = true;
     cli.enable = true;
     ghostty.enable = true;
+    opencode.enable = true;
   };
 
   home.packages = with pkgs; [

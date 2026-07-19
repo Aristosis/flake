@@ -6,4 +6,5 @@
   waybar = import ./waybar.nix;
   niri = import ./niri.nix;
   cli = import ./cli.nix;
+  opencode = import ./opencode.nix;
 }
