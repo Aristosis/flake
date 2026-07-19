@@ -26,6 +26,7 @@
           --rproxy -1 \
           --rp-loc /copyparty \
           -a ari:boing \
+          -e2dsa
           -z \
         '';
 
