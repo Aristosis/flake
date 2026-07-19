@@ -7,4 +7,5 @@
   niri = import ./niri.nix;
   cli = import ./cli.nix;
   opencode = import ./opencode.nix;
+  music = import ./music.nix;
 }

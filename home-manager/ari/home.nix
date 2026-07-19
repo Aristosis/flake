@@ -22,6 +22,7 @@
     cli.enable = true;
     ghostty.enable = true;
     opencode.enable = true;
+    music.enable = true;
   };
 
   home.packages = with pkgs; [
