@@ -28,8 +28,8 @@
     pictures  = "${media}/Pictures";
     videos    = "${media}/Videos";
 
-    share     = "${share}";
-    downloads = "${share}/Downloads";
+    publicShare     = "${share}";
+    download = "${share}/Downloads";
     projects  = "${share}/Projects";
   };
 
