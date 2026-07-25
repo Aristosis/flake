@@ -50,6 +50,7 @@
       nix-ld = {
         enable = true;
         libraries = with pkgs; [
+          icu
           alsa-lib
           libGL
           libice
