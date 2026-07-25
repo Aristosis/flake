@@ -1,0 +1,60 @@
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+vim.g.virtual_text = true
+vim.g.virtual_lines = false
+vim.o.title = true
+vim.o.number = true
+vim.o.relativenumber = true
+vim.o.confirm = true
+vim.o.splitbelow = true
+vim.o.splitright = true
+vim.o.ignorecase = true
+vim.o.smartcase = true
+vim.o.grepprg = "rg --vimgrep"
+vim.o.foldlevel = 99
+vim.o.scrolloff = 10
+vim.o.sidescrolloff = 8
+vim.o.swapfile = false
+vim.o.undofile = true
+vim.opt.sessionoptions:append { "globals" }
+vim.opt.complete:append("o")
+vim.o.completeopt = "menuone,noinsert,popup,fuzzy,nosort"
+vim.o.updatetime = 250
+vim.o.timeoutlen = 300
+vim.o.wrap = false
+vim.o.list = true
+vim.opt.listchars = {
+   trail = "·",
+   nbsp = "␣",
+   tab = "» ",
+   -- leadmultispace = "▏   ",
+}
+vim.o.inccommand = "split"
+vim.o.cursorline = true
+vim.o.showmode = false
+vim.o.pumblend = 30
+vim.o.pumheight = 10
+vim.o.signcolumn = "yes"
+vim.o.formatoptions = "jcroqlnt"
+vim.o.smartindent = true
+vim.o.autocomplete = true
+vim.opt.shortmess:append { W = true, I = true, c = true }
+vim.g.netrw_banner = 0
+
+local augroup = vim.api.nvim_create_augroup("misc", {})
+vim.api.nvim_create_autocmd("TextYankPost", {
+   group = augroup,
+   callback = function()
+      (vim.hl or vim.highlight).on_yank()
+   end,
+})
+
+vim.diagnostic.config {
+   update_in_insert = false,
+   severity_sort = true,
+   jump = { float = true },
+   float = { source = "if_many" },
+   underline = { severity = { min = vim.diagnostic.severity.WARN } },
+   virtual_text = vim.g.virtual_text,
+   virtual_lines = vim.g.virtual_lines,
+}
