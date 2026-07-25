@@ -8,17 +8,39 @@
 in {
   options.features.home-manager.niri.enable = lib.mkEnableOption "Enable niri configuration";
 
-  config = {
-    xdg.configFile.niri.source = mkIf config.features.home-manager.niri.enable ./config/niri;
+  config = mkIf config.features.home-manager.niri.enable {
+    xdg.configFile.niri = {
+      source = ./config/niri;
+      recursive = true;
+    };
+    xdg.configFile."niri/cfg/stylix.kdl".text =
+      lib.optionalString (config.stylix.cursor != null) ''
+      cursor {
+        xcursor-theme "${config.stylix.cursor.name}"
+        xcursor-size ${builtins.toString config.stylix.cursor.size}
+      }
+    '' +
+    ''
+    layout {
+      border {
+        active-color   "#${config.lib.stylix.colors.base0D}"
+        inactive-color "#${config.lib.stylix.colors.base03}"
+        urgent-color   "#${config.lib.stylix.colors.red}"
+      }
+      tab-indicator {
+        active-color   "#${config.lib.stylix.colors.base0D}"
+        inactive-color "#${config.lib.stylix.colors.base03}"
+        urgent-color   "#${config.lib.stylix.colors.red}"
+      }
+    }
+    '';
 
     home.packages = with pkgs;
-      lib.mkIf config.features.home-manager.niri.enable [
-        xwayland-satellite
-
-        # Wallpaper daemon
-        awww
-      ];
-    programs.fuzzel = lib.mkIf config.features.home-manager.niri.enable {
+    [
+      xwayland-satellite
+      awww
+    ];
+    programs.fuzzel = {
       enable = true;
       settings = {
         main = {

@@ -1,5 +1,3 @@
-prefer-no-csd
-
 layout {
   gaps 4
 
@@ -16,11 +14,6 @@ layout {
   center-focused-column "never"
 }
 
-cursor {
-  xcursor-theme "material_light_cursors"
-  // xcursor-size 
-}
-
 animations {
   // Slow down all animations by this factor. Values below 1 speed them up instead.
   slowdown 0.7
@@ -33,3 +26,4 @@ animations {
       curve "ease-out-quad"
   }
 }
+
