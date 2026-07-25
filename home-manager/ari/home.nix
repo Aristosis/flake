@@ -12,6 +12,26 @@
     username = "ari";
     homeDirectory = "/home/ari";
   };
+  xdg.userDirs =
+  let
+    home = "${config.home.homeDirectory}";
+    media = "${home}/Media";
+    share = "${home}/Share";
+  in
+  {
+    createDirectories = true;
+
+    desktop   = "${home}/Desktop"; # Default for reference
+    documents = "${media}/Documents";
+    templates = "${media}/Documents/Templates";
+    music     = "${media}/Music";
+    pictures  = "${media}/Pictures";
+    videos    = "${media}/Videos";
+
+    share     = "${share}";
+    downloads = "${share}/Downloads";
+    projects  = "${share}/Projects";
+  };
 
   features.home-manager = {
     foot.enable = true;
