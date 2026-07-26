@@ -16,6 +16,7 @@ layout {
 
 animations {
   // Slow down all animations by this factor. Values below 1 speed them up instead.
+  off
   slowdown 0.7
   window-open {
       duration-ms 100
