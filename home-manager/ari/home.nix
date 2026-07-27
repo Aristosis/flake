@@ -34,15 +34,13 @@
   };
 
   features.home-manager = {
-    foot.enable = true;
-    zsh.enable = true;
-    firefox.enable = true;
-    waybar.enable = true;
-    niri.enable = true;
     cli.enable = true;
-    ghostty.enable = false;
-    opencode.enable = true;
-    music.enable = true;
+    firefox.enable = true;
+    foot.enable = true;
+    mpv.enable = true;
+    niri.enable = true;
+    waybar.enable = true;
+    zsh.enable = true;
   };
 
   home.packages = with pkgs; [
