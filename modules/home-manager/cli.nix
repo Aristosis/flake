@@ -35,6 +35,7 @@ in {
       jujutsu = {
         enable = true;
         settings = {
+          ui.diff-editor = ":builtin";
           user.name = "Ari";
           user.email = "communeofstars@proton.me";
         };
