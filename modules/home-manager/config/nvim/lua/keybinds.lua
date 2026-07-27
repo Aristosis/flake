@@ -7,33 +7,46 @@ vim.keymap.set({"n","t"}, "<C-x>", function ()
 end)
 
 -- Terminal!!!
-_G.bottom_term_buf = nil
+_G.terminal = {
+   buf = nil,
+   win = nil
+}
 vim.keymap.set("n", "<leader>t", function ()
-   if not _G.bottom_term_buf or not vim.api.nvim_buf_is_valid(_G.bottom_term_buf) then
-      _G.bottom_term_buf = vim.api.nvim_create_buf(false, true)
+   -- initialize term buffer
+   if not _G.terminal.buf or not vim.api.nvim_buf_is_valid(_G.terminal.buf) then
+      _G.terminal.buf = vim.api.nvim_create_buf(false, true)
 
-      vim.api.nvim_buf_call(_G.bottom_term_buf, function ()
+      vim.api.nvim_buf_call(_G.terminal.buf, function ()
          vim.cmd("term")
       end)
-
    end
 
-   local win = vim.api.nvim_open_win(_G.bottom_term_buf, true, {
-      split = "below",
-      height = math.ceil(vim.o.lines / 5),
-   })
-   vim.wo[win].number = true
-   vim.wo[win].relativenumber = true
-   vim.cmd("startinsert")
+   if _G.terminal.win and vim.api.nvim_win_is_valid(_G.terminal.win) then
+      vim.keymap.set("n", "<Esc>", function ()
+         vim.api.nvim_win_close(_G.terminal.win, true)
+      end, {buffer = _G.terminal.buf})
 
-   vim.api.nvim_buf_set_keymap(_G.bottom_term_buf, "n", "<Esc>", "", {callback = function ()
-      vim.api.nvim_win_close(win, true)
-   end})
+      vim.api.nvim_set_current_win(_G.terminal.win)
+      vim.cmd.startinsert()
+   else
+      _G.terminal.win = vim.api.nvim_open_win(_G.terminal.buf, true, {
+         split = "below",
+         height = math.ceil(vim.o.lines / 5),
+      })
+
+      vim.wo[_G.terminal.win].number = true
+      vim.wo[_G.terminal.win].relativenumber = true
+      vim.cmd("startinsert")
+   end
 end)
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Toggle diagnostics display
+
+vim.g.virtual_text = true
+vim.g.virtual_lines = false
+
 vim.keymap.set("n", "<leader>d", function()
    vim.g.virtual_lines = not vim.g.virtual_lines
    vim.g.virtual_text = not vim.g.virtual_text
@@ -49,18 +62,3 @@ vim.keymap.set('i', '<CR>', function()
   end
 end, { expr = true, silent = true })
 
--- Rename within same line
-vim.keymap.set("n", "<leader>r", function()
-   vim.ui.input({ prompt = "Replace <x> with <y>: " }, function(test)
-      if not test then
-         return
-      end
-      local next_arg = string.gmatch(test, "(%w+)")
-      local e = next_arg()
-      local d = next_arg()
-
-      if e and d then
-         vim.cmd("s/" .. e .. "/" .. d .. "/g")
-      end
-   end)
-end)
