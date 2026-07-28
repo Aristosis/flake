@@ -15,7 +15,6 @@
     ++ (builtins.attrValues inputs.self.nixosModules);
 
   features = {
-    copyparty.enable = true;
     desktop.enable = true;
     colemak.enable = true;
     sshRemote.enable = true;
@@ -23,6 +22,7 @@
       enable = true;
       nvidia.enable = true;
     };
+    copyparty.enable = true;
   };
 
   home-manager = {
@@ -36,10 +36,14 @@
     users.ari = import "${inputs.self}/home-manager/ari/home.nix";
   };
 
-  stylix = {
+  stylix =
+  let
+    themes = "${pkgs.base16-schemes}/share/themes";
+  in
+  {
     overlays.enable = false;
     enable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+    base16Scheme = "${themes}/gruvbox-dark-medium.yaml";
     cursor = {
       size = 16;
       package = pkgs.material-cursors;

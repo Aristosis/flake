@@ -16,21 +16,21 @@
   let
     home = "${config.home.homeDirectory}";
     media = "${home}/Media";
-    share = "${home}/Share";
   in
   {
+    enable = true;
     createDirectories = true;
 
-    desktop   = "${home}/Desktop"; # Default for reference
-    documents = "${media}/Documents";
-    templates = "${media}/Documents/Templates";
-    music     = "${media}/Music";
-    pictures  = "${media}/Pictures";
-    videos    = "${media}/Videos";
+    desktop     = "${home}/Desktop";              # Default for reference
+    documents   = "${media}/Documents";
+    templates   = "${media}/Documents/Templates";
+    music       = "${media}/Music";
+    pictures    = "${media}/Pictures";
+    videos      = "${media}/Videos";
 
-    publicShare     = "${share}";
-    download = "${share}/Downloads";
-    projects  = "${share}/Projects";
+    publicShare = "${media}/Share";
+    download    = "${media}/Downloads";
+    projects    = "${media}/Projects";
   };
 
   features.home-manager = {

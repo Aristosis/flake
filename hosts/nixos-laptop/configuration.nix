@@ -16,14 +16,14 @@
     ++ (builtins.attrValues inputs.self.nixosModules);
 
   features = {
-    colemak.enable = true;
     desktop.enable = true;
+    colemak.enable = true;
     sshRemote.enable = true;
-    tlp.enable = true;
     graphicsDrivers = {
       enable = true;
       nvidia.enable = false;
     };
+    tlp.enable = true;
   };
 
   home-manager = {
@@ -37,10 +37,14 @@
     users.ari = import "${inputs.self}/home-manager/ari/home.nix";
   };
 
-  stylix = {
+  stylix =
+  let
+    themes = "${pkgs.base16-schemes}/share/themes";
+  in
+  {
     overlays.enable = false;
     enable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
+    base16Scheme = "${themes}/nord.yaml";
     cursor = {
       size = 16;
       package = pkgs.material-cursors;
