@@ -26,8 +26,8 @@
           --rproxy -1 \
           --rp-loc /copyparty \
           -a ari:boing \
-          -e2dsa
-          -z \
+          -e2dsa \
+          -z
         '';
 
         Restart = "on-failure";
