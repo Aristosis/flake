@@ -1,4 +1,4 @@
-vim.keymap.set("t", "<Esc>", function ()
+vim.keymap.set("t", "<S-Esc>", function ()
    vim.cmd("stopinsert")
 end)
 
@@ -12,7 +12,7 @@ _G.terminal = {
    win = nil
 }
 vim.keymap.set("n", "<leader>t", function ()
-   -- initialize term buffer
+
    if not _G.terminal.buf or not vim.api.nvim_buf_is_valid(_G.terminal.buf) then
       _G.terminal.buf = vim.api.nvim_create_buf(false, true)
 
@@ -22,16 +22,28 @@ vim.keymap.set("n", "<leader>t", function ()
    end
 
    if _G.terminal.win and vim.api.nvim_win_is_valid(_G.terminal.win) then
+      vim.api.nvim_set_current_win(_G.terminal.win)
+      vim.cmd.startinsert()
+   else
+
       vim.keymap.set("n", "<Esc>", function ()
          vim.api.nvim_win_close(_G.terminal.win, true)
       end, {buffer = _G.terminal.buf})
 
-      vim.api.nvim_set_current_win(_G.terminal.win)
-      vim.cmd.startinsert()
-   else
+      local factor = 1.4
+      local height = math.ceil(vim.o.lines / factor)
+      local width = math.ceil(vim.o.columns / factor)
+
+      local row = math.ceil((vim.o.lines / 2) - (height / 2))
+      local col = math.ceil((vim.o.columns / 2) - (width / 2))
+
+
       _G.terminal.win = vim.api.nvim_open_win(_G.terminal.buf, true, {
-         split = "below",
-         height = math.ceil(vim.o.lines / 5),
+         relative = "editor";
+         height = height,
+         width = width,
+         row = row,
+         col = col,
       })
 
       vim.wo[_G.terminal.win].number = true
@@ -44,16 +56,25 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Toggle diagnostics display
 
-vim.g.virtual_text = true
+vim.g.virtual_text = false
 vim.g.virtual_lines = false
 
-vim.keymap.set("n", "<leader>d", function()
-   vim.g.virtual_lines = not vim.g.virtual_lines
-   vim.g.virtual_text = not vim.g.virtual_text
+local function configure_diagnostics()
    vim.diagnostic.config {
       virtual_text = vim.g.virtual_text,
       virtual_lines = vim.g.virtual_lines,
    }
+end
+
+vim.keymap.set("n", "<leader>d", function()
+   vim.g.virtual_text = not vim.g.virtual_text
+   configure_diagnostics()
+end)
+
+vim.keymap.set("n", "<leader>D", function()
+   vim.g.virtual_lines = not vim.g.virtual_lines
+   vim.g.virtual_text = vim.g.virtual_lines
+   configure_diagnostics()
 end, { desc = "Toggle virtual text/lines" })
 
 vim.keymap.set('i', '<CR>', function()
