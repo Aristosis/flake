@@ -10,8 +10,10 @@
 
   imports =
     [
-      ./hardware-configuration.nix
       ../default.nix
+      ./hardware-configuration.nix
+      ./stylix.nix
+      ./users.nix
     ]
     ++ (builtins.attrValues inputs.self.nixosModules);
 

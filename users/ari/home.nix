@@ -1,17 +1,15 @@
 {
   inputs,
-  lib,
   config,
   osConfig,
   pkgs,
   ...
 }: {
-  imports = builtins.attrValues inputs.self.homeManagerModules;
+  imports = builtins.attrValues (import ../../modules/home-manager);
 
-  home = {
-    username = "ari";
-    homeDirectory = "/home/ari";
-  };
+  home.username      = "ari";
+  home.homeDirectory = "/home/ari";
+
   xdg.userDirs =
   let
     home = "${config.home.homeDirectory}";

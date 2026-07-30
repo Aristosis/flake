@@ -1,31 +1,31 @@
 {
-  description = "Nix flake built from Misterio77's starter config";
+  description = "Ari's system configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "nixpkgs/nixos-unstable";
 
-    home-manager.url = "github:nix-community/home-manager/release-26.05";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    stylix.url = "github:nix-community/stylix/release-26.05";
-    stylix.inputs.nixpkgs.follows = "nixpkgs";
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    home-manager,
-    stylix,
-    ...
-  } @ inputs: let
+  outputs = { self, ... }@inputs:
+  let
     system = "x86_64-linux";
-  in {
-    packages.${system} = import ./pkgs nixpkgs.legacyPackages.${system};
-    formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
-    overlays = import ./overlays {inherit inputs;};
-    nixosModules = import ./modules/nixos;
-    homeManagerModules = import ./modules/home-manager;
+
+    nixpkgs      = inputs.nixpkgs;
+    home-manager = inputs.home-manager;
+    stylix       = inputs.stylix;
+  in
+  rec {
+    packages.${system} = nixpkgs.legacyPackages.${system};
+    formatter.${system} = packages.alejandra;
 
     nixosConfigurations = {
       nixos-desktop = nixpkgs.lib.nixosSystem {
@@ -37,21 +37,22 @@
         ];
       };
 
-      nixos-laptop = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./hosts/nixos-laptop/configuration.nix
-          home-manager.nixosModules.home-manager
-          stylix.nixosModules.stylix
-        ];
-      };
-
-      nixos-server = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./hosts/nixos-server/configuration.nix
-        ];
-      };
+      # TODO: Deal with the rest of the nixosConfigurations
+      # nixos-laptop = nixpkgs.lib.nixosSystem {
+      #   specialArgs = {inherit inputs;};
+      #   modules = [
+      #     ./hosts/nixos-laptop/configuration.nix
+      #     home-manager.nixosModules.home-manager
+      #     stylix.nixosModules.stylix
+      #   ];
+      # };
+      #
+      # nixos-server = nixpkgs.lib.nixosSystem {
+      #   specialArgs = {inherit inputs;};
+      #   modules = [
+      #     ./hosts/nixos-server/configuration.nix
+      #   ];
+      # };
     };
   };
 }
