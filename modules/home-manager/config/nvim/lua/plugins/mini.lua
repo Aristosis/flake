@@ -7,7 +7,7 @@ return {
       local ai = require("mini.ai")
       local git = require("mini.git")
       local clue = require("mini.clue")
-      local jump = require("mini.jump")
+      -- local jump = require("mini.jump")
       local pick = require("mini.pick")
       local align = require("mini.align")
       local files = require("mini.files")
@@ -15,7 +15,7 @@ return {
       local sessions = require("mini.sessions")
       local surround = require("mini.surround")
       local splitjoin = require("mini.splitjoin")
-      local bracketed = require("mini.bracketed")
+      -- local bracketed = require("mini.bracketed")
       local cursorword = require("mini.cursorword")
       local statusline = require("mini.statusline")
       local hipatterns = require("mini.hipatterns")
@@ -63,9 +63,9 @@ return {
          },
       }
 
-      jump.setup {
-         silent = true,
-      }
+      -- jump.setup {
+      --    silent = true,
+      -- }
 
       pick.setup {
          options = {
@@ -107,9 +107,9 @@ return {
 
       splitjoin.setup()
 
-      bracketed.setup {
-         silent = true,
-      }
+      -- bracketed.setup {
+      --    silent = true,
+      -- }
 
       cursorword.setup()
 

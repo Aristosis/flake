@@ -1,5 +1,8 @@
 # Ari's NixOS configuration flake
 
+> [!IMPORTANT]
+> I will be rewriting this from scratch on a new branch `rewrite` with my new knowledge (aka I just read [nix.dev](https:/nix.dev/) for the first time).
+
 My working NixOS configuration that manages my:
 - Optiplex 380 home server
 - Acer laptop
