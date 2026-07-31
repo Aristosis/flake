@@ -28,7 +28,7 @@
     useUserPackages = true;
     backupFileExtension = "backup";
     extraSpecialArgs = { inherit inputs; };
-    users.ari = import "${users}/ari/home.nix";
+    users.ari = import "${users}/ari";
   };
 
   users.defaultUserShell = pkgs.zsh;
