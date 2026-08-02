@@ -34,11 +34,17 @@
   features.home-manager = {
     cli.enable = true;
     firefox.enable = true;
-    foot.enable = true;
-    mpv.enable = true;
     niri.enable = true;
     waybar.enable = true;
     zsh.enable = true;
+  };
+
+  programs = {
+    mpv.enable = true;
+    foot = {
+      enable = true;
+      server.enable = true;
+    };
   };
 
   home.packages = with pkgs; [

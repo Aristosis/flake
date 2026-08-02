@@ -19,6 +19,15 @@
     };
   };
 
+  # services.xserver.enable = true;
+  # services.xserver.windowManager.dwm = {
+  #   enable = true;
+  #   package = pkgs.dwm.overrideAttrs ((_: {
+  #     src = ../../modules/home-manager/config/dwm;
+  #   }));
+  # };
+
+
   home-manager =
   let
     users = "${inputs.self}/users";

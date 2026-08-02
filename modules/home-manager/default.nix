@@ -1,9 +1,7 @@
 {
   firefox = import ./firefox.nix;
-  foot = import ./foot.nix;
   zsh = import ./zsh.nix;
   waybar = import ./waybar.nix;
   niri = import ./niri.nix;
   cli = import ./cli.nix;
-  mpv = import ./mpv.nix;
 }
