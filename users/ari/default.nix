@@ -7,28 +7,26 @@
 }: {
   imports = builtins.attrValues (import ../../modules/home-manager);
 
-  home.username      = "ari";
+  home.username = "ari";
   home.homeDirectory = "/home/ari";
 
-  xdg.userDirs =
-  let
+  xdg.userDirs = let
     home = "${config.home.homeDirectory}";
     media = "${home}/Media";
-  in
-  {
+  in {
     enable = true;
     createDirectories = true;
 
-    desktop     = "${home}/Desktop";              # Default for reference
-    documents   = "${media}/Documents";
-    templates   = "${media}/Documents/Templates";
-    music       = "${media}/Music";
-    pictures    = "${media}/Pictures";
-    videos      = "${media}/Videos";
+    desktop = "${home}/Desktop"; # Default for reference
+    documents = "${media}/Documents";
+    templates = "${media}/Documents/Templates";
+    music = "${media}/Music";
+    pictures = "${media}/Pictures";
+    videos = "${media}/Videos";
 
     publicShare = "${media}/Share";
-    download    = "${media}/Downloads";
-    projects    = "${media}/Projects";
+    download = "${media}/Downloads";
+    projects = "${media}/Projects";
   };
 
   features.home-manager = {

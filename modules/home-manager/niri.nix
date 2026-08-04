@@ -15,28 +15,27 @@ in {
     };
     xdg.configFile."niri/cfg/stylix.kdl".text =
       lib.optionalString (config.stylix.cursor != null) ''
-      cursor {
-        xcursor-theme "${config.stylix.cursor.name}"
-        xcursor-size ${builtins.toString config.stylix.cursor.size}
-      }
-    '' +
-    ''
-    layout {
-      border {
-        active-color   "#${config.lib.stylix.colors.base0D}"
-        inactive-color "#${config.lib.stylix.colors.base03}"
-        urgent-color   "#${config.lib.stylix.colors.red}"
-      }
-      tab-indicator {
-        active-color   "#${config.lib.stylix.colors.base0D}"
-        inactive-color "#${config.lib.stylix.colors.base03}"
-        urgent-color   "#${config.lib.stylix.colors.red}"
-      }
-    }
-    '';
+        cursor {
+          xcursor-theme "${config.stylix.cursor.name}"
+          xcursor-size ${builtins.toString config.stylix.cursor.size}
+        }
+      ''
+      + ''
+        layout {
+          border {
+            active-color   "#${config.lib.stylix.colors.base0D}"
+            inactive-color "#${config.lib.stylix.colors.base03}"
+            urgent-color   "#${config.lib.stylix.colors.red}"
+          }
+          tab-indicator {
+            active-color   "#${config.lib.stylix.colors.base0D}"
+            inactive-color "#${config.lib.stylix.colors.base03}"
+            urgent-color   "#${config.lib.stylix.colors.red}"
+          }
+        }
+      '';
 
-    home.packages = with pkgs;
-    [
+    home.packages = with pkgs; [
       xwayland-satellite
       awww
     ];

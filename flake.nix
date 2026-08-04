@@ -1,31 +1,15 @@
 {
   description = "Ari's system configuration";
 
-  inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
-
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    stylix = {
-      url = "github:nix-community/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-  };
-
-  outputs = { self, ... }@inputs:
-  let
+  outputs = {self, ...} @ inputs: let
     system = "x86_64-linux";
 
-    nixpkgs      = inputs.nixpkgs;
+    nixpkgs = inputs.nixpkgs;
     home-manager = inputs.home-manager;
-    stylix       = inputs.stylix;
-  in
-  rec {
+    stylix = inputs.stylix;
+  in rec {
     packages.${system} = nixpkgs.legacyPackages.${system};
-    formatter.${system} = packages.alejandra;
+    formatter.${system} = packages.${system}.alejandra;
 
     nixosConfigurations = {
       nixos-desktop = nixpkgs.lib.nixosSystem {
@@ -53,6 +37,20 @@
       #     ./hosts/nixos-server/configuration.nix
       #   ];
       # };
+    };
+  };
+
+  inputs = {
+    nixpkgs.url = "nixpkgs/nixos-unstable";
+
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 }

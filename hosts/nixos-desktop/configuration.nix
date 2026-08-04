@@ -1,4 +1,10 @@
-{ inputs, pkgs, config, lib, ... }: {
+{
+  inputs,
+  pkgs,
+  config,
+  lib,
+  ...
+}: {
   networking.hostName = "nixos-desktop";
 
   imports =
@@ -6,7 +12,8 @@
       ../default.nix
       ./hardware-configuration.nix
       ./stylix.nix
-    ] ++ builtins.attrValues (import "${inputs.self}/modules/nixos/default.nix");
+    ]
+    ++ builtins.attrValues (import "${inputs.self}/modules/nixos/default.nix");
 
   features = {
     desktop.enable = true;
@@ -27,16 +34,13 @@
   #   }));
   # };
 
-
-  home-manager =
-  let
+  home-manager = let
     users = "${inputs.self}/users";
-  in
-  {
+  in {
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "backup";
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = {inherit inputs;};
     users.ari = import "${users}/ari";
   };
 

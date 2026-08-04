@@ -1,10 +1,8 @@
-{ pkgs, ... }:
-{
-  stylix =
-  let
+{pkgs, ...}: {
+  home.pointerCursor.enable = true;
+  stylix = let
     themes = "${pkgs.base16-schemes}/share/themes";
-  in
-  {
+  in {
     enable = true;
     overlays.enable = false;
     base16Scheme = "${themes}/gruvbox-dark-medium.yaml";
@@ -37,5 +35,5 @@
     };
 
     polarity = "dark";
- };
+  };
 }

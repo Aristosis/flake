@@ -39,11 +39,9 @@
     users.ari = import "${inputs.self}/home-manager/ari/home.nix";
   };
 
-  stylix =
-  let
+  stylix = let
     themes = "${pkgs.base16-schemes}/share/themes";
-  in
-  {
+  in {
     overlays.enable = false;
     enable = true;
     base16Scheme = "${themes}/nord.yaml";
