@@ -37,6 +37,8 @@
     zsh.enable = true;
   };
 
+  home.pointerCursor.enable = true;
+
   programs = {
     mpv.enable = true;
     foot = {

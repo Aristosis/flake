@@ -4,9 +4,13 @@
   pkgs,
   ...
 }: let
+
   mkIf = lib.mkIf;
+
+
 in {
   options.features.home-manager.niri.enable = lib.mkEnableOption "Enable niri configuration";
+
 
   config = mkIf config.features.home-manager.niri.enable {
     xdg.configFile.niri = {
@@ -38,7 +42,19 @@ in {
     home.packages = with pkgs; [
       xwayland-satellite
       awww
+      (pkgs.writeShellApplication {
+        name = "fuzzel-emojis";
+        runtimeInputs = with pkgs; [ fuzzel coreutils wtype ];
+        text = ''
+          emojis=$(cat ${./config/emojis})
+          selected=$(echo "$emojis" | fuzzel -d -l 20)
+          if [ -n "$selected" ]; then
+            wtype "$(echo "$selected" | cut -d ' ' -f1)"
+          fi
+        '';
+      })
     ];
+
     programs.fuzzel = {
       enable = true;
       settings = {
@@ -49,7 +65,7 @@ in {
           lines = 12;
           vertical-pad = 5;
           horizontal-pad = 10;
-          terminal = "ghostty +new-window";
+          terminal = "footclient";
           dpi-aware = true;
           show-actions = false;
         };

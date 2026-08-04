@@ -1,5 +1,4 @@
 {pkgs, ...}: {
-  home.pointerCursor.enable = true;
   stylix = let
     themes = "${pkgs.base16-schemes}/share/themes";
   in {
