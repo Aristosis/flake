@@ -20,19 +20,12 @@
     colemak.enable = true;
     sshRemote.enable = true;
     copyparty.enable = true;
+    zram.enable = true;
     graphicsDrivers = {
       enable = true;
       nvidia.enable = true;
     };
   };
-
-  # services.xserver.enable = true;
-  # services.xserver.windowManager.dwm = {
-  #   enable = true;
-  #   package = pkgs.dwm.overrideAttrs ((_: {
-  #     src = ../../modules/home-manager/config/dwm;
-  #   }));
-  # };
 
   home-manager = let
     users = "${inputs.self}/users";

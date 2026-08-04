@@ -5,4 +5,5 @@
   sshRemote = import ./remote-ssh.nix;
   copyparty = import ./copyparty.nix;
   tlp = import ./tlp.nix;
+  zram = import ./zram.nix;
 }
