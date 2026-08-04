@@ -11,8 +11,6 @@ vim.lsp.enable {
    "nil_ls"
 }
 
-
-
 require("opts")
 require("keybinds")
 

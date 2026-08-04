@@ -12,26 +12,23 @@ in {
     home.packages = with pkgs; [
       bc
       duf
-      fastfetch
       fd
       lazygit
-      nix-search-cli
       ripgrep
       btop
+      nix-search-cli
+      hyfetch
 
-      neovim
-      tree-sitter
       nil
       lua-language-server
+      neovim
+      tree-sitter
     ];
     xdg.configFile.nvim.source =
       config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/flake/modules/home-manager/config/nvim";
 
     programs = {
       bat.enable = true;
-      fish = {
-        enable = false;
-      };
       jujutsu = {
         enable = true;
         settings = {
