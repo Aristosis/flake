@@ -29,7 +29,9 @@
     fonts = {
       enableDefaultPackages = true;
       packages = with pkgs; [
-        iosevka inter nerd-fonts.symbols-only
+        iosevka
+        inter
+        nerd-fonts.symbols-only
       ];
       fontconfig = {
         enable = true;
@@ -46,7 +48,6 @@
       neovim.enable = true;
       neovim.defaultEditor = true;
       niri.enable = true;
-
 
       zsh = {
         enable = true;

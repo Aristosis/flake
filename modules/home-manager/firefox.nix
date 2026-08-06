@@ -24,10 +24,15 @@
           searxng = {
             name = "searxng";
             urls = [
-            {
-              template = "https://priv.au";
-              params = [ {name = "q"; value = "{searchTerms}";} ];
-            }
+              {
+                template = "https://priv.au";
+                params = [
+                  {
+                    name = "q";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
             ];
           };
         };
@@ -158,8 +163,7 @@
 
     policies = {
       GenerativeAI.Enabled = false;
-      ExtensionSettings =
-      let
+      ExtensionSettings = let
         mozilla = "https://addons.mozilla.org/firefox/downloads/latest";
       in {
         # proton pass has a stupid id

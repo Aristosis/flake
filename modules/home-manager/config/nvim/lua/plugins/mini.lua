@@ -4,117 +4,71 @@ return {
    version = "main",
    config = function()
       require("mini.extra").setup()
-      local ai = require("mini.ai")
-      local git = require("mini.git")
-      local clue = require("mini.clue")
-      -- local jump = require("mini.jump")
-      local pick = require("mini.pick")
-      local align = require("mini.align")
-      local files = require("mini.files")
-      local icons = require("mini.icons")
-      local sessions = require("mini.sessions")
-      local surround = require("mini.surround")
-      local splitjoin = require("mini.splitjoin")
-      -- local bracketed = require("mini.bracketed")
-      local cursorword = require("mini.cursorword")
-      local statusline = require("mini.statusline")
-      local hipatterns = require("mini.hipatterns")
-      local indentscope = require("mini.indentscope")
 
-      ai.setup {
+      require("mini.ai").setup { silent = true }
+      require("mini.align").setup()
+      require("mini.icons").setup()
+      require("mini.indentscope").setup()
+      require("mini.surround").setup {
+         search_method = "cover_or_next",
          silent = true,
       }
+      require("mini.splitjoin").setup()
+      require("mini.cursorword").setup()
+      require("mini.statusline").setup()
 
-      git.setup()
+      local pick = require("mini.pick")
+      pick.setup { options = { content_from_bottom = true, use_cache = true } }
 
-      clue.setup {
-         triggers = {
-            { mode = { "n", "x" }, keys = "<leader>" },
-
-            { mode = "n", keys = "[" },
-            { mode = "n", keys = "]" },
-
-            { mode = "i", keys = "<C-x>" },
-
-            { mode = { "n", "x" }, keys = "g" },
-
-            { mode = { "n", "x" }, keys = "'" },
-            { mode = { "n", "x" }, keys = "`" },
-
-            { mode = { "n", "x" }, keys = '"' },
-            { mode = { "i", "c" }, keys = "<C-r>" },
-
-            { mode = "n", keys = "<C-w>" },
-
-            { mode = { "n", "x" }, keys = "z" },
-         },
-
-         clues = {
-            clue.gen_clues.square_brackets(),
-            clue.gen_clues.builtin_completion(),
-            clue.gen_clues.registers(),
-            clue.gen_clues.windows(),
-            clue.gen_clues.marks(),
-            clue.gen_clues.g(),
-            clue.gen_clues.z(),
-         },
-         window = {
-            delay = 250,
-         },
-      }
-
-      -- jump.setup {
-      --    silent = true,
-      -- }
-
-      pick.setup {
-         options = {
-            content_from_bottom = true,
-            use_cache = true
-         }
-      }
-
-      vim.keymap.set("n", "<leader>ff", MiniPick.builtin.files, { desc = "Pick files" })
-      vim.keymap.set("n", "<leader>fb", MiniPick.builtin.buffers, { desc = "Pick buffers" })
-      vim.keymap.set("n", "<leader>fg", MiniPick.builtin.grep_live, { desc = "Pick through grep" })
+      vim.keymap.set("n", "<leader>ff", MiniPick.builtin.files,       { desc = "Pick files" })
+      vim.keymap.set("n", "<leader>fb", MiniPick.builtin.buffers,     { desc = "Pick buffers" })
+      vim.keymap.set("n", "<leader>fg", MiniPick.builtin.grep_live,   { desc = "Pick through grep" })
       vim.keymap.set("n", "<leader>fd", MiniExtra.pickers.diagnostic, { desc = "Pick diagnostics" })
-      vim.keymap.set("n", "<leader>fl", MiniExtra.pickers.lsp, { desc = "Pick lsp symbols" })
-      vim.keymap.set("n", "<leader>fm", MiniExtra.pickers.marks, { desc = "Pick marks" })
 
-      align.setup()
+      vim.keymap.set("n", "<leader>fm", MiniExtra.pickers.marks,      { desc = "Pick marks" })
+      vim.keymap.set(
+         "n",
+         "<leader>F",
+         function()
+            MiniExtra.pickers.marks("global")
+         end,
+         { desc = "Pick global marks" }
+      )
 
-      files.setup {
+      vim.keymap.set(
+         "n",
+         "<leader>fl",
+         function()
+            MiniExtra.pickers.lsp("document_symbol")
+         end,
+         { desc = "Pick lsp symbols" }
+      )
+
+      vim.keymap.set(
+         "n",
+         "<leader>fr",
+         function()
+            MiniExtra.pickers.lsp("references")
+         end,
+         { desc = "Pick references" }
+      )
+
+      require("mini.files").setup {
          windows = {
             preview = true
          }
       }
 
       vim.keymap.set("n", "<leader>-", MiniFiles.open, { desc = "Open files" })
-      vim.keymap.set("n", "<leader>_", function()
-         MiniFiles.open(vim.api.nvim_buf_get_name(0))
-      end, { desc = "Open files in buffer directory" })
-
-      icons.setup()
-
-      sessions.setup {
-         autoread = true,
-      }
-
-      surround.setup {
-         search_method = "cover_or_next",
-         silent = true,
-      }
-
-      splitjoin.setup()
-
-      -- bracketed.setup {
-      --    silent = true,
-      -- }
-
-      cursorword.setup()
-
-      statusline.setup()
-
+      vim.keymap.set(
+         "n",
+         "<leader>_",
+         function()
+            MiniFiles.open(vim.api.nvim_buf_get_name(0))
+         end,
+         { desc = "Open files in buffer directory" }
+      )
+      local hipatterns = require("mini.hipatterns")
       hipatterns.setup {
          highlighters = {
             hex_color = hipatterns.gen_highlighter.hex_color(),
@@ -125,6 +79,5 @@ return {
          },
       }
 
-      indentscope.setup()
    end
 }

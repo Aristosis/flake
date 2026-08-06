@@ -12,58 +12,46 @@ in {
     home.packages = with pkgs; [
       bc
       duf
-      fastfetch
       fd
       lazygit
-      nix-search-cli
       ripgrep
       btop
+      nix-search-cli
+      hyfetch
 
-      neovim
-      tree-sitter
       nil
       lua-language-server
+      neovim
+      tree-sitter
     ];
     xdg.configFile.nvim.source =
       config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/flake/modules/home-manager/config/nvim";
 
     programs = {
       bat.enable = true;
-      fish = {
-        enable = false;
-      };
-      jujutsu = {
-        enable = true;
-        settings = {
-          ui.diff-editor = ":builtin";
-          user.name = "Ari";
-          user.email = "communeofstars@proton.me";
-        };
-      };
-      git = {
-        enable = true;
-        settings = {
-          user.name = "Ari";
-          user.email = "communeofstars@proton.me";
-          credential.helper = "store";
-          init.defaultBranch = "main";
-        };
-      };
+
+      fzf.enable = true;
+      fzf.enableZshIntegration = true;
+
       zoxide = {
         enable = true;
         enableZshIntegration = true;
         options = ["--cmd cd"];
       };
+
       eza = {
         enable = true;
         enableZshIntegration = true;
         git = true;
         icons = "auto";
       };
-      fzf = {
+
+      direnv = {
         enable = true;
         enableZshIntegration = true;
+        nix-direnv.enable = true;
       };
+
     };
   };
 }

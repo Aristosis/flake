@@ -1,46 +1,51 @@
 {
   inputs,
-  lib,
   config,
   osConfig,
   pkgs,
   ...
 }: {
-  imports = builtins.attrValues inputs.self.homeManagerModules;
+  imports = builtins.attrValues (import ../../modules/home-manager);
 
-  home = {
-    username = "ari";
-    homeDirectory = "/home/ari";
-  };
-  xdg.userDirs =
-  let
+  home.username = "ari";
+  home.homeDirectory = "/home/ari";
+
+  xdg.userDirs = let
     home = "${config.home.homeDirectory}";
     media = "${home}/Media";
-  in
-  {
+  in {
     enable = true;
     createDirectories = true;
 
-    desktop     = "${home}/Desktop";              # Default for reference
-    documents   = "${media}/Documents";
-    templates   = "${media}/Documents/Templates";
-    music       = "${media}/Music";
-    pictures    = "${media}/Pictures";
-    videos      = "${media}/Videos";
+    desktop = "${home}/Desktop"; # Default for reference
+    documents = "${media}/Documents";
+    templates = "${media}/Documents/Templates";
+    music = "${media}/Music";
+    pictures = "${media}/Pictures";
+    videos = "${media}/Videos";
 
     publicShare = "${media}/Share";
-    download    = "${media}/Downloads";
-    projects    = "${media}/Projects";
+    download = "${media}/Downloads";
+    projects = "${media}/Projects";
   };
 
   features.home-manager = {
     cli.enable = true;
+    git.enable = true;
     firefox.enable = true;
-    foot.enable = true;
-    mpv.enable = true;
     niri.enable = true;
     waybar.enable = true;
     zsh.enable = true;
+  };
+
+  home.pointerCursor.enable = true;
+
+  programs = {
+    mpv.enable = true;
+    foot = {
+      enable = true;
+      server.enable = true;
+    };
   };
 
   home.packages = with pkgs; [
