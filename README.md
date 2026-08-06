@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> I have moved to [Codeberg](https://codeberg.org/Aristoses/flake/)! Goodbye gyathub
+
 # Ari's NixOS configuration flake
 
 > [!IMPORTANT]
