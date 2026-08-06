@@ -4,4 +4,5 @@
   waybar = import ./waybar.nix;
   niri = import ./niri.nix;
   cli = import ./cli.nix;
+  git = import ./git.nix;
 }

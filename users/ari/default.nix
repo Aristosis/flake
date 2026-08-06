@@ -31,6 +31,7 @@
 
   features.home-manager = {
     cli.enable = true;
+    git.enable = true;
     firefox.enable = true;
     niri.enable = true;
     waybar.enable = true;

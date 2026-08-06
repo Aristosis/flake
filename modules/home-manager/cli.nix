@@ -29,38 +29,29 @@ in {
 
     programs = {
       bat.enable = true;
-      jujutsu = {
-        enable = true;
-        settings = {
-          ui.diff-editor = ":builtin";
-          user.name = "Ari";
-          user.email = "communeofstars@proton.me";
-        };
-      };
-      git = {
-        enable = true;
-        settings = {
-          user.name = "Ari";
-          user.email = "communeofstars@proton.me";
-          credential.helper = "store";
-          init.defaultBranch = "main";
-        };
-      };
+
+      fzf.enable = true;
+      fzf.enableZshIntegration = true;
+
       zoxide = {
         enable = true;
         enableZshIntegration = true;
         options = ["--cmd cd"];
       };
+
       eza = {
         enable = true;
         enableZshIntegration = true;
         git = true;
         icons = "auto";
       };
-      fzf = {
+
+      direnv = {
         enable = true;
         enableZshIntegration = true;
+        nix-direnv.enable = true;
       };
+
     };
   };
 }
