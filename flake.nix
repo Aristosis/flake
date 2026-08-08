@@ -25,12 +25,12 @@
     system = "x86_64-linux";
   in {
 
-    legacyPackages = nixpkgs.legacyPackages;
+    packages.${system} = import ./modules/nixos/pkgs.nix nixpkgs.legacyPackages.${system};
     formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
 
     nixosConfigurations = {
       nixos-desktop = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+        specialArgs = { inherit inputs; };
         modules = [
           ./hosts/nixos-desktop/configuration.nix
           home-manager.nixosModules.home-manager
