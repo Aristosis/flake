@@ -37,6 +37,7 @@ vim.opt.listchars = {
    extends = "⟩",
    precedes = "⟨",
 }
+--vim.opt_local.listchars.leadmultispace = "▏" + (" " * vim.opt_local.tabstop);
 vim.o.inccommand = "split"
 vim.o.cursorline = true
 vim.o.showmode = false
