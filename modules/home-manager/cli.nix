@@ -17,7 +17,7 @@ in {
       ripgrep
       btop
       nix-search-cli
-      hyfetch
+      fastfetch
 
       nil
       lua-language-server
