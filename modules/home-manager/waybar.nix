@@ -9,6 +9,7 @@
 
   config.programs.waybar = lib.mkIf config.features.home-manager.waybar.enable {
     enable = true;
+    systemd.enable = true;
 
     settings = [
       {
@@ -57,7 +58,7 @@
           format-ethernet = "󰈁 {ifname}";
           format-wifi = "󰖩 {signalStrength}%";
           tooltip-format-wifi = "{ipaddr}/{essid}";
-          tooltip-format-ethernet = "{ipaddr}/{ssid}";
+          tooltip-format-ethernet = "{ipaddr}/{essid}";
           format-disconnected = "󰈂";
         };
 
