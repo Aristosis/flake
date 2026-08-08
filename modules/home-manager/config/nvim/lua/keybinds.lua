@@ -10,48 +10,55 @@ vim.keymap.set(
 -- Terminal!!!
 _G.terminal = {
    buf = nil,
+
    win = nil
 }
+
+local function createTerminalWindow(sizeFactor)
+   local height = math.ceil(vim.o.lines / sizeFactor)
+   local width  = math.ceil(vim.o.columns / sizeFactor)
+   local row    = math.ceil((vim.o.lines - height) / 2)
+   local col    = math.ceil((vim.o.columns - width) / 2)
+
+   return vim.api.nvim_open_win(_G.terminal.buf, true, {
+      relative = "editor";
+      height = height,
+      width = width,
+      row = row,
+      col = col,
+   })
+end
+
+local function createTerminalBuffer()
+   local buf = vim.api.nvim_create_buf(false, true)
+
+   return buf
+end
 
 vim.keymap.set(
    "n",
    "<leader>t",
-   function ()
-
-      if not _G.terminal.buf or not vim.api.nvim_buf_is_valid(_G.terminal.buf) then
-         _G.terminal.buf = vim.api.nvim_create_buf(false, true)
-
-         vim.api.nvim_buf_call(_G.terminal.buf, function ()
-            vim.cmd("term")
-         end)
+   function()
+      if _G.terminal.buf == nil or vim.api.nvim_buf_is_valid(_G.terminal.buf) == false then
+        _G.terminal.buf = createTerminalBuffer()
       end
 
-      if _G.terminal.win and vim.api.nvim_win_is_valid(_G.terminal.win) then
-         vim.api.nvim_set_current_win(_G.terminal.win)
-         vim.cmd.startinsert()
+      if not _G.terminal.win or not vim.api.nvim_win_is_valid(_G.terminal.win) then
+         _G.terminal.win = createTerminalWindow(1.4)
       else
+         vim.api.nvim_set_current_win(_G.terminal.win)
+      end
 
-         vim.keymap.set("n", "<Esc>", function ()
+
+      if vim.bo[_G.terminal.buf].buftype ~= "terminal" then
+
+         vim.api.nvim_buf_call(_G.terminal.buf, vim.cmd.terminal)
+         vim.api.nvim_buf_call(_G.terminal.buf, vim.cmd.startinsert)
+         vim.bo[_G.terminal.buf].buflisted = false
+
+         vim.keymap.set("n", "<Esc>", function()
             vim.api.nvim_win_close(_G.terminal.win, true)
          end, {buffer = _G.terminal.buf})
-
-         local factor = 1.4
-         local height = math.ceil(vim.o.lines / factor)
-         local width = math.ceil(vim.o.columns / factor)
-         local row = math.ceil((vim.o.lines / 2) - (height / 2))
-         local col = math.ceil((vim.o.columns / 2) - (width / 2))
-
-         _G.terminal.win = vim.api.nvim_open_win(_G.terminal.buf, true, {
-            relative = "editor";
-            height = height,
-            width = width,
-            row = row,
-            col = col,
-         })
-
-         vim.wo[_G.terminal.win].number = true
-         vim.wo[_G.terminal.win].relativenumber = true
-         vim.cmd("startinsert")
       end
    end
 )
