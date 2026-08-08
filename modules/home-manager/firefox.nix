@@ -17,26 +17,26 @@
     languagePacks = ["en-IN"];
 
     profiles.default = {
-      search = {
-        enable = true;
-        default = "searxng";
-        engines = {
-          searxng = {
-            name = "searxng";
-            urls = [
-              {
-                template = "https://priv.au";
-                params = [
-                  {
-                    name = "q";
-                    value = "{searchTerms}";
-                  }
-                ];
-              }
-            ];
-          };
-        };
-      };
+      # search = {
+      #   enable = true;
+      #   default = "searxng";
+      #   engines = {
+      #     searxng = {
+      #       name = "searxng";
+      #       urls = [
+      #         {
+      #           template = "https://priv.au";
+      #           params = [
+      #             {
+      #               name = "q";
+      #               value = "{searchTerms}";
+      #             }
+      #           ];
+      #         }
+      #       ];
+      #     };
+      #   };
+      # };
       settings = {
         "general.smoothScroll.msdPhysics.enable" = true;
         "mousewheel.default.delta_multipier_y" = true;
