@@ -59,7 +59,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 _G.diagnostics = {
    virtual_text = true,
-   virtual_lines = false
+   virtual_lines = false,
 }
 
 vim.diagnostic.config {

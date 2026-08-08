@@ -20,54 +20,34 @@ return {
       local pick = require("mini.pick")
       pick.setup { options = { content_from_bottom = true, use_cache = true } }
 
-      vim.keymap.set("n", "<leader>ff", MiniPick.builtin.files,       { desc = "Pick files" })
-      vim.keymap.set("n", "<leader>fb", MiniPick.builtin.buffers,     { desc = "Pick buffers" })
-      vim.keymap.set("n", "<leader>fg", MiniPick.builtin.grep_live,   { desc = "Pick through grep" })
+      vim.keymap.set("n", "<leader>ff", MiniPick.builtin.files, { desc = "Pick files" })
+      vim.keymap.set("n", "<leader>fb", MiniPick.builtin.buffers, { desc = "Pick buffers" })
+      vim.keymap.set("n", "<leader>fg", MiniPick.builtin.grep_live, { desc = "Pick through grep" })
       vim.keymap.set("n", "<leader>fd", MiniExtra.pickers.diagnostic, { desc = "Pick diagnostics" })
 
-      vim.keymap.set("n", "<leader>fm", MiniExtra.pickers.marks,      { desc = "Pick marks" })
-      vim.keymap.set(
-         "n",
-         "<leader>F",
-         function()
-            MiniExtra.pickers.marks("global")
-         end,
-         { desc = "Pick global marks" }
-      )
+      vim.keymap.set("n", "<leader>fm", MiniExtra.pickers.marks, { desc = "Pick marks" })
+      vim.keymap.set("n", "<leader>F", function()
+         MiniExtra.pickers.marks("global")
+      end, { desc = "Pick global marks" })
 
-      vim.keymap.set(
-         "n",
-         "<leader>fl",
-         function()
-            MiniExtra.pickers.lsp("document_symbol")
-         end,
-         { desc = "Pick lsp symbols" }
-      )
+      vim.keymap.set("n", "<leader>fl", function()
+         MiniExtra.pickers.lsp("document_symbol")
+      end, { desc = "Pick lsp symbols" })
 
-      vim.keymap.set(
-         "n",
-         "<leader>fr",
-         function()
-            MiniExtra.pickers.lsp("references")
-         end,
-         { desc = "Pick references" }
-      )
+      vim.keymap.set("n", "<leader>fr", function()
+         MiniExtra.pickers.lsp("references")
+      end, { desc = "Pick references" })
 
       require("mini.files").setup {
          windows = {
-            preview = true
-         }
+            preview = true,
+         },
       }
 
       vim.keymap.set("n", "<leader>-", MiniFiles.open, { desc = "Open files" })
-      vim.keymap.set(
-         "n",
-         "<leader>_",
-         function()
-            MiniFiles.open(vim.api.nvim_buf_get_name(0))
-         end,
-         { desc = "Open files in buffer directory" }
-      )
+      vim.keymap.set("n", "<leader>_", function()
+         MiniFiles.open(vim.api.nvim_buf_get_name(0))
+      end, { desc = "Open files in buffer directory" })
       local hipatterns = require("mini.hipatterns")
       hipatterns.setup {
          highlighters = {
@@ -78,6 +58,5 @@ return {
             note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
          },
       }
-
-   end
+   end,
 }

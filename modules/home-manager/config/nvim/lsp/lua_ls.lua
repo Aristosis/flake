@@ -29,5 +29,5 @@ return {
          },
       })
    end,
-   settings = { Lua = { runtime = { version = 'LuaJIT' } }, },
+   settings = { Lua = { runtime = { version = "LuaJIT" } } },
 }

@@ -8,11 +8,11 @@ vim.lsp.enable {
    "gopls",
    "clangd",
    "gdscript",
-   "nil_ls"
+   "nil_ls",
 }
 
 require("opts")
 require("keybinds")
 
-vim.pack.add({ 'https://github.com/zuqini/zpack.nvim' })
+vim.pack.add { "https://github.com/zuqini/zpack.nvim" }
 require("zpack").setup()
