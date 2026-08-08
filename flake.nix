@@ -24,7 +24,8 @@
   } @ inputs: let
     system = "x86_64-linux";
   in {
-    packages.${system} = nixpkgs.legacyPackages.${system};
+
+    legacyPackages = nixpkgs.legacyPackages;
     formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
 
     nixosConfigurations = {
