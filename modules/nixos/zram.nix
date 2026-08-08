@@ -2,8 +2,7 @@
   config,
   lib,
   ...
-}:
-{
+}: {
   options.features.zram.enable = lib.mkEnableOption "Enable zram";
   config.zramSwap = lib.mkIf config.features.zram.enable {
     enable = true;

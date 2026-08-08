@@ -21,8 +21,7 @@
     home-manager,
     stylix,
     ...
-  }@ inputs:
-  let
+  } @ inputs: let
     system = "x86_64-linux";
   in {
     packages.${system} = nixpkgs.legacyPackages.${system};
@@ -30,7 +29,7 @@
 
     nixosConfigurations = {
       nixos-desktop = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
+        specialArgs = {inherit inputs;};
         modules = [
           ./hosts/nixos-desktop/configuration.nix
           home-manager.nixosModules.home-manager

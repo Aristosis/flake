@@ -4,13 +4,9 @@
   pkgs,
   ...
 }: let
-
   mkIf = lib.mkIf;
-
-
 in {
   options.features.home-manager.niri.enable = lib.mkEnableOption "Enable niri configuration";
-
 
   config = mkIf config.features.home-manager.niri.enable {
     xdg.configFile.niri = {
@@ -44,7 +40,7 @@ in {
       awww
       (pkgs.writeShellApplication {
         name = "fuzzel-emojis";
-        runtimeInputs = with pkgs; [ fuzzel coreutils wtype ];
+        runtimeInputs = with pkgs; [fuzzel coreutils wtype];
         text = ''
           emojis=$(cat ${./config/emojis})
           selected=$(echo "$emojis" | fuzzel -d -l 20)

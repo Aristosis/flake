@@ -10,7 +10,7 @@ in {
 
   config = mkIf config.features.home-manager.git.enable {
     programs = {
-# VCS / Git
+      # VCS / Git
       git = {
         enable = true;
         settings = {
