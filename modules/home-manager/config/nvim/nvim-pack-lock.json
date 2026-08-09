@@ -54,6 +54,10 @@
       "rev": "a0847c4bea5a5f92a36e3f3bf7da99d7d685d3ac",
       "src": "https://github.com/neogitorg/neogit"
     },
+    "nordic.nvim": {
+      "rev": "9fb62116b891184049c50ca6ffb0d3bc100a1a6e",
+      "src": "https://github.com/alexvzyl/nordic.nvim"
+    },
     "nvim-lspconfig": {
       "rev": "3371bf298c1f56efc26771ee961f461176958fb5",
       "src": "https://github.com/neovim/nvim-lspconfig"

@@ -51,6 +51,8 @@ in {
       })
     ];
 
+    services.mako.enable = true;
+
     programs.fuzzel = {
       enable = true;
       settings = {

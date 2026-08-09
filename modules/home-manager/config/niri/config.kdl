@@ -4,9 +4,6 @@ include "./cfg/input.kdl"
 include "./cfg/keybinds.kdl"
 include "./cfg/rules.kdl"
 
-// spawn-sh-at-startup "awww img ~/Media/Pictures/Wallpapers/ROR.jpg --transition-fps=100 --transition-type=center --transition-duration=3"
-// spawn-sh-at-startup "swaybg -i ~/Media/Pictures/Wallpapers/ROR.jpg"
-
 screenshot-path "~/Media/Pictures/Screenshots"
 
 
@@ -30,12 +27,6 @@ input {
 
 environment {
   ELECTRON_OZONE_PLATFORM_HINT "auto"
-  // QT_QPA_PLATFORM "wayland"
-  // QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
-  // XDG_SESSION_TYPE "wayland"
-  // XDG_CURRENT_DESKTOP "niri"
-  QT_QPA_PLATFORMTHEME "qt6ct"
-
   NVD_BACKEND "direct"
   __NV_PRIME_RENDER_OFFLOAD "1"
   __GLX_VENDOR_LIBRARY_NAME "nvidia"

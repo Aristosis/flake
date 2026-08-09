@@ -25,7 +25,7 @@
         vi = "nvim";
         vim = "nvim";
         ll = "eza -lah";
-        ls = "eza --icons";
+        ls = "eza --icons=auto";
         cat = "bat";
         dlp = ''yt-dlp --extract-audio --audio-format best --embed-metadata --embed-thumbnail --audio-quality 0 -o "%(artist)s - %(track)s.%(ext)s"'';
         nrs = "sudo nixos-rebuild switch --flake $HOME/flake";
