@@ -20,7 +20,7 @@
 
     hardware = {
       graphics.enable = true;
-      opengl.driSupport32Bit = true;
+      graphics.enable32Bit = true;
       nvidia = lib.mkIf config.features.graphicsDrivers.nvidia.enable {
         package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
         modesetting.enable = true;
