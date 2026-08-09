@@ -5,4 +5,5 @@
   niri = import ./niri.nix;
   cli = import ./cli.nix;
   git = import ./git.nix;
+  umu = import ./umu.nix;
 }
