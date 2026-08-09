@@ -18,6 +18,7 @@ in {
       btop
       nix-search-cli
       fastfetch
+      # 7zip
 
       nil
       lua-language-server

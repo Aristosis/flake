@@ -28,19 +28,7 @@
 
     fonts = {
       enableDefaultPackages = true;
-      packages = with pkgs; [
-        iosevka
-        inter
-        nerd-fonts.symbols-only
-      ];
-      fontconfig = {
-        enable = true;
-        subpixel.rgba = "rgb";
-        hinting = {
-          enable = true;
-          style = "slight";
-        };
-      };
+      packages = with pkgs; [ nerd-fonts.symbols-only ];
     };
 
     programs = {

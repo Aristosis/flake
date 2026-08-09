@@ -13,11 +13,12 @@ in {
       winetricks
       mangohud
       gamemode
+      # proton-ge-bin.steamcompattool
       umu-launcher
-      proton-ge-bin
+      # (umu-launcher.overrideAttrs {
+      #   extraEnv.
+      # })
     ];
-    home.sessionVariables = {
-      PROTONPATH = "${pkgs.proton-ge-bin}";
-    };
+    home.sessionVariables.PROTONPATH = "${pkgs.proton-ge-bin.steamcompattool}";
   };
 }
