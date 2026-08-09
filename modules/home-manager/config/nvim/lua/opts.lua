@@ -37,7 +37,6 @@ vim.opt.listchars = {
    extends = "⟩",
    precedes = "⟨",
 }
---vim.opt_local.listchars.leadmultispace = "▏" + (" " * vim.opt_local.tabstop);
 vim.o.inccommand = "split"
 vim.o.cursorline = true
 vim.o.showmode = false
@@ -45,7 +44,7 @@ vim.o.shiftwidth = 0
 vim.o.pumblend = 30
 vim.o.pumheight = 10
 vim.o.signcolumn = "yes"
-vim.o.formatoptions = "j,q,l,n"
+vim.o.formatoptions = "jqln"
 vim.o.smartindent = true
 vim.o.autocomplete = true
 vim.opt.shortmess:append { W = true, I = true, c = true }
