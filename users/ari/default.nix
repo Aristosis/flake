@@ -35,7 +35,7 @@
     };
     firefox.enable = true;
     niri.enable = true;
-    # gaming.enable = true;
+    umu.enable = true;
   };
 
   home.pointerCursor.enable = true;
