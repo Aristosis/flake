@@ -30,8 +30,10 @@
   };
 
   features.home-manager = {
-    cli.enable = true;
     git.enable = true;
+    cli = {
+      enable = true;
+    };
     firefox.enable = true;
     niri.enable = true;
     # gaming.enable = true;
