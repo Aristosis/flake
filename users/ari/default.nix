@@ -30,7 +30,6 @@
   };
 
   features.home-manager = {
-    git.enable = true;
     cli = {
       enable = true;
     };
