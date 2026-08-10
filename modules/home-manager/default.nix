@@ -1,9 +1,8 @@
 {
   firefox = import ./firefox.nix;
-  zsh = import ./zsh.nix;
   # waybar = import ./waybar.nix;
   niri = import ./niri;
-  cli = import ./cli.nix;
   git = import ./git.nix;
+  cli = import ./cli;
   gaming = import ./gaming.nix;
 }

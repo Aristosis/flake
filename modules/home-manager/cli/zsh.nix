@@ -1,15 +1,18 @@
 {
-  config,
   lib,
+  config,
   pkgs,
   ...
-}: {
-  options.features.home-manager.zsh.enable = lib.mkEnableOption "Enable zsh";
+}:
+{
 
-  config = lib.mkIf config.features.home-manager.zsh.enable {
-    home.packages = with pkgs; [
-      zsh-fzf-tab
-    ];
+  options.features.home-manager.cli.zsh.enable = lib.mkOption {
+    description = "Enable zsh configuration";
+    default = config.features.home-manager.cli.enable;
+  };
+
+  config = lib.mkIf config.features.home-manager.cli.zsh.enable {
+    home.packages = with pkgs; [ zsh-fzf-tab ];
 
     programs.zsh = {
       enable = true;

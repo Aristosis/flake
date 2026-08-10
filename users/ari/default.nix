@@ -37,7 +37,6 @@
     niri.enable = true;
     # gaming.enable = true;
     # waybar.enable = true;
-    zsh.enable = true;
   };
 
   home.pointerCursor.enable = true;
