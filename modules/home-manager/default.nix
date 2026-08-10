@@ -1,9 +1,6 @@
 {
+  cli = import ./cli;
   firefox = import ./firefox.nix;
-  zsh = import ./zsh.nix;
-  waybar = import ./waybar.nix;
-  niri = import ./niri.nix;
-  cli = import ./cli.nix;
-  git = import ./git.nix;
+  niri = import ./niri;
   umu = import ./umu.nix;
 }

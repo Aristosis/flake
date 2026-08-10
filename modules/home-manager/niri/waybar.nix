@@ -1,11 +1,14 @@
 {
-  config,
   lib,
-  pkgs,
+  config,
   osConfig,
   ...
 }: {
-  options.features.home-manager.waybar.enable = lib.mkEnableOption "Enable waybar configuration";
+
+  options.features.home-manager.waybar.enable = lib.mkOption {
+    description = "Enable waybar configuration";
+    default = config.features.home-manager.niri.enable;
+  };
 
   config.programs.waybar = lib.mkIf config.features.home-manager.waybar.enable {
     enable = true;
@@ -31,12 +34,7 @@
             "network"
             "wireplumber"
             "clock"
-          ]
-          ++ (
-            if osConfig.networking.hostName == "nixos-laptop"
-            then ["battery"]
-            else []
-          );
+          ] ++ lib.optional (osConfig.networking.hostName == "nixos-laptop") "battery";
 
         tray = {
           icon-size = 16;

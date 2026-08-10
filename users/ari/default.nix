@@ -30,13 +30,12 @@
   };
 
   features.home-manager = {
-    cli.enable = true;
-    git.enable = true;
+    cli = {
+      enable = true;
+    };
     firefox.enable = true;
     niri.enable = true;
     umu.enable = true;
-    waybar.enable = true;
-    zsh.enable = true;
   };
 
   home.pointerCursor.enable = true;
