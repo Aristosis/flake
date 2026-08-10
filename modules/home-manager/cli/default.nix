@@ -8,6 +8,7 @@
 in
 {
   imports = [
+    ./misc.nix
     ./git.nix
     ./direnv.nix
   ];
