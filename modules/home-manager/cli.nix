@@ -11,18 +11,15 @@ in {
   config = mkIf config.features.home-manager.cli.enable {
     home.packages = with pkgs; [
       bc
+      btop
       duf
+      fastfetch
       fd
       lazygit
-      ripgrep
-      btop
-      nix-search-cli
-      fastfetch
-      # 7zip
-
-      nil
-      lua-language-server
       neovim
+      nix-search-cli
+      p7zip
+      ripgrep
       tree-sitter
     ];
     xdg.configFile.nvim.source =

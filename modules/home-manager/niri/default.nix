@@ -1,5 +1,6 @@
 {
   config,
+  osConfig,
   lib,
   pkgs,
   ...
@@ -7,12 +8,16 @@
   mkIf = lib.mkIf;
 in {
   options.features.home-manager.niri.enable = lib.mkEnableOption "Enable niri configuration";
-
   config = mkIf config.features.home-manager.niri.enable {
+    # imports = [ ];
+    programs.waybar = import ./waybar.nix { inherit lib osConfig; };
+
     xdg.configFile.niri = {
-      source = ./config/niri;
+      source = ../config/niri;
       recursive = true;
     };
+
+    # Generated styling
     xdg.configFile."niri/cfg/stylix.kdl".text =
       lib.optionalString (config.stylix.cursor != null) ''
         cursor {
@@ -36,13 +41,14 @@ in {
       '';
 
     home.packages = with pkgs; [
-      xwayland-satellite
-      awww
-      (pkgs.writeShellApplication {
+
+      awww                          # wallpaper
+      xwayland-satellite            # X11 client support
+      (pkgs.writeShellApplication { # Emoji picker script
         name = "fuzzel-emojis";
         runtimeInputs = with pkgs; [fuzzel coreutils wtype];
         text = ''
-          emojis=$(cat ${./config/emojis})
+          emojis=$(cat ${../config/emojis})
           selected=$(echo "$emojis" | fuzzel -d -l 20)
           if [ -n "$selected" ]; then
             wtype "$(echo "$selected" | cut -d ' ' -f1)"
@@ -51,25 +57,25 @@ in {
       })
     ];
 
-    services.mako.enable = true;
+    services = {
+      mako.enable = true; # Notification (pop-ups specifically)
+    };
 
     programs.fuzzel = {
       enable = true;
       settings = {
+        border.radius = 6; # TODO: make sure this lines up with niri
+        border.width = 0;
         main = {
-          use-bold = true;
           prompt = "  ";
+          use-bold = true;
           width = 26;
           lines = 12;
           vertical-pad = 5;
           horizontal-pad = 10;
-          terminal = "footclient";
           dpi-aware = true;
+          terminal = "footclient";
           show-actions = false;
-        };
-        border = {
-          radius = 12;
-          width = 0;
         };
       };
     };

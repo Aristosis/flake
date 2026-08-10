@@ -34,8 +34,8 @@
     git.enable = true;
     firefox.enable = true;
     niri.enable = true;
-    umu.enable = true;
-    waybar.enable = true;
+    # gaming.enable = true;
+    # waybar.enable = true;
     zsh.enable = true;
   };
 
