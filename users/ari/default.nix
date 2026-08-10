@@ -36,7 +36,6 @@
     firefox.enable = true;
     niri.enable = true;
     # gaming.enable = true;
-    # waybar.enable = true;
   };
 
   home.pointerCursor.enable = true;

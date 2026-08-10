@@ -7,10 +7,10 @@
 }: let
   mkIf = lib.mkIf;
 in {
-  options.features.home-manager.niri.enable = lib.mkEnableOption "Enable niri configuration";
+  imports = [ ./waybar.nix ];
+
+  options.features.home-manager.niri.enable = lib.mkEnableOption "Enable Niri configuration";
   config = mkIf config.features.home-manager.niri.enable {
-    # imports = [ ];
-    programs.waybar = import ./waybar.nix { inherit lib osConfig; };
 
     xdg.configFile.niri = {
       source = ../config/niri;

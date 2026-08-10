@@ -1,11 +1,16 @@
 {
   lib,
+  config,
   osConfig,
   ...
 }: {
-  # options.features.home-manager.waybar.enable = lib.mkEnableOption "Enable waybar configuration";
 
-  # config.programs.waybar = lib.mkIf config.features.home-manager.waybar.enable {
+  options.features.home-manager.waybar.enable = lib.mkOption {
+    description = "Enable waybar configuration";
+    default = config.features.home-manager.niri.enable;
+  };
+
+  config.programs.waybar = lib.mkIf config.features.home-manager.waybar.enable {
     enable = true;
     systemd.enable = true;
 
@@ -177,5 +182,5 @@
           background-color: @base0E;
       }
     '';
-  # };
+  };
 }
