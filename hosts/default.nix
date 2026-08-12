@@ -9,8 +9,13 @@
   };
 
   nix = {
-    channel.enable = false;
     settings.experimental-features = "nix-command flakes";
+    channel.enable = false;
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
   };
 
   networking.firewall.enable = true;

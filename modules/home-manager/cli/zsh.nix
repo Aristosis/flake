@@ -25,6 +25,7 @@
       };
 
       shellAliases = {
+        max = ''manix "" | grep '^# ' | sed 's/^# \(.*\) (.*/\1/;s/ (.*//;s/^# //' | fzf --preview="manix '{}'" | xargs manix'';
         vi = "nvim";
         vim = "nvim";
         ll = "eza -lah";

@@ -35,12 +35,14 @@
     };
 
     home.packages = with pkgs; [
+      manix
+      nix-search-cli
+
       bc
       btop
       duf
       fastfetch
       fd
-      nix-search-cli
       p7zip
       ripgrep
     ] ++ lib.optionals config.features.home-manager.cli.git.enable [
