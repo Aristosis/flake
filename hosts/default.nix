@@ -10,7 +10,7 @@
 
   nix = {
     settings.experimental-features = "nix-command flakes";
-    channel.enable = false;
+    channel.enable = true;
     gc = {
       automatic = true;
       dates = "weekly";
