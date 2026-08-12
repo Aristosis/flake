@@ -5,7 +5,6 @@ return {
    config = function()
       require("mini.extra").setup()
 
-      require("mini.ai").setup { silent = true }
       require("mini.align").setup()
       require("mini.icons").setup()
       require("mini.indentscope").setup()
