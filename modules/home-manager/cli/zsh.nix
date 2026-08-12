@@ -34,6 +34,14 @@
         nrs = "sudo nixos-rebuild switch --flake $HOME/flake";
       };
 
+      setOptions = [
+        "auto_param_slash"
+        "auto_menu"
+        "glob_complete"
+        "pushd_ignore_dups"
+        "prompt_subst"
+      ];
+
       # Use cached compinit. Only rebuild if system generation newer than current cache
       completionInit = ''
         autoload -Uz compinit
@@ -50,12 +58,6 @@
       initContent = lib.mkMerge [
         (lib.mkOrder 550 "source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh")
         (lib.mkOrder 1000 ''
-          setopt auto_param_slash
-          setopt auto_menu
-          setopt glob_complete
-          setopt pushd_ignore_dups
-          setopt prompt_subst
-
           zstyle ':completion:*' group-name \'\'
           zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
 
