@@ -7,8 +7,20 @@
 }: {
   imports = builtins.attrValues (import ../../modules/home-manager);
 
-  home.username = "ari";
-  home.homeDirectory = "/home/ari";
+  home = {
+    username = "ari";
+    homeDirectory = "/home/ari";
+    packages = with pkgs; [
+      material-cursors
+      thunar
+      pavucontrol
+    ]
+
+    pointerCursor.enable = true;
+
+    home.stateVersion = "26.05";
+  }
+
 
   xdg.userDirs = let
     home = "${config.home.homeDirectory}";
@@ -46,13 +58,4 @@
     };
   };
 
-  home.packages = with pkgs; [
-    material-cursors
-    thunar
-    pavucontrol
-  ];
-
-  home.pointerCursor.enable = true;
-
-  home.stateVersion = "26.05";
 }
