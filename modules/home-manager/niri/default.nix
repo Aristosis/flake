@@ -41,6 +41,9 @@ in {
       '';
 
     home.packages = with pkgs; [
+      # Clipboard
+      wl-clipboard
+      cliphist
 
       awww                          # wallpaper
       xwayland-satellite            # X11 client support

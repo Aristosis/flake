@@ -62,9 +62,6 @@
     })
     temurin-jre-bin-17
 
-    # Clipboard
-    wl-clipboard
-    cliphist
   ];
 
   manual.json.enable = true;
