@@ -38,8 +38,6 @@
     umu.enable = true;
   };
 
-  home.pointerCursor.enable = true;
-
   programs = {
     mpv.enable = true;
     foot = {
@@ -52,14 +50,9 @@
     material-cursors
     thunar
     pavucontrol
-
-    (obs-studio.override {
-      cudaSupport = osConfig.features.graphicsDrivers.nvidia.enable;
-    })
-
   ];
 
-  manual.json.enable = true;
+  home.pointerCursor.enable = true;
 
   home.stateVersion = "26.05";
 }
