@@ -34,7 +34,6 @@
       enable = true;
     };
     firefox.enable = true;
-    qutebrowser.enable = true;
     niri.enable = true;
     umu.enable = true;
   };
