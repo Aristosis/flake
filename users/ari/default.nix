@@ -57,11 +57,6 @@
       cudaSupport = osConfig.features.graphicsDrivers.nvidia.enable;
     })
 
-    (prismlauncher.override {
-      additionalLibs = with pkgs; [libxt libxtst libxkbcommon];
-    })
-    temurin-jre-bin-17
-
   ];
 
   manual.json.enable = true;
