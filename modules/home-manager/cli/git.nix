@@ -19,10 +19,12 @@
 
   config = {
     programs.git = lib.mkIf config.features.home-manager.cli.git.enable {
+      enable = true;
       settings = {
         user.name = "Ari";
         user.email = "communeofstars@proton.me";
         credential.helper = "store";
+        credential.store = "git-credential-libsecret";
         init.defaultBranch = "main";
       };
     };

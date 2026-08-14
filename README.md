@@ -1,7 +1,6 @@
 # Ari's NixOS configuration flake
 
 My working NixOS configuration that manages my:
-A
 - Work desktop (HP G3 285 MT BUSINESS PC)
 - ~~Optiplex 380 home server~~
 - ~~Acer laptop~~
@@ -18,4 +17,3 @@ consistency.
 
 ## Version control
 Version control managed via [Jujutsu](https://www.jj-vcs.dev/latest/)!
-

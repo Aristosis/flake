@@ -14,12 +14,12 @@
       material-cursors
       thunar
       pavucontrol
-    ]
+    ];
 
     pointerCursor.enable = true;
 
-    home.stateVersion = "26.05";
-  }
+    stateVersion = "26.05";
+  };
 
 
   xdg.userDirs = let
