@@ -33,7 +33,6 @@ vim.opt.listchars = {
    trail = "·",
    nbsp = "␣",
    tab = "» ",
-   leadmultispace = "▏   ",
    extends = "⟩",
    precedes = "⟨",
 }

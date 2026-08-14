@@ -4,10 +4,14 @@ return {
    version = "main",
    config = function()
       require("mini.extra").setup()
-
       require("mini.align").setup()
       require("mini.icons").setup()
-      require("mini.indentscope").setup()
+      local indent_scope = require("mini.indentscope")
+      indent_scope.setup({
+         symbol = "▏",
+         options = { try_as_border = true},
+         draw = { animation = indent_scope.gen_animation.none() }
+      })
       require("mini.surround").setup {
          search_method = "cover_or_next",
          silent = true,
@@ -19,42 +23,55 @@ return {
       local pick = require("mini.pick")
       pick.setup { options = { content_from_bottom = true, use_cache = true } }
 
-      vim.keymap.set("n", "<leader>ff", MiniPick.builtin.files, { desc = "Pick files" })
-      vim.keymap.set("n", "<leader>fb", MiniPick.builtin.buffers, { desc = "Pick buffers" })
-      vim.keymap.set("n", "<leader>fg", MiniPick.builtin.grep_live, { desc = "Pick through grep" })
-      vim.keymap.set("n", "<leader>fd", MiniExtra.pickers.diagnostic, { desc = "Pick diagnostics" })
-
-      vim.keymap.set("n", "<leader>fm", MiniExtra.pickers.marks, { desc = "Pick marks" })
-      vim.keymap.set("n", "<leader>F", function()
-         MiniExtra.pickers.marks("global")
-      end, { desc = "Pick global marks" })
-
-      vim.keymap.set("n", "<leader>fl", function()
-         MiniExtra.pickers.lsp("document_symbol")
-      end, { desc = "Pick lsp symbols" })
-
-      vim.keymap.set("n", "<leader>fr", function()
-         MiniExtra.pickers.lsp("references")
-      end, { desc = "Pick references" })
+      vim.keymap.set("n", "<leader><leader>", MiniPick.builtin.files, { desc = "Pick files" })
+      vim.keymap.set("n", "<leader>b", MiniPick.builtin.buffers,      { desc = "Pick buffers" })
+      vim.keymap.set("n", "<leader>d", MiniExtra.pickers.diagnostic,  { desc = "Pick diagnostics" })
+      vim.keymap.set("n", "<leader>f", MiniPick.builtin.grep_live,    { desc = "Pick through grep" })
+      vim.keymap.set("n", "<leader>m", MiniExtra.pickers.marks,       { desc = "Pick marks" })
+      vim.keymap.set(
+         "n",
+         "<leader>s",
+         function()
+            MiniExtra.pickers.lsp { scope = "document_symbol" }
+         end,
+         { desc = "Pick LSP symbols" }
+      )
+      vim.keymap.set(
+         "n",
+         "<leader>r",
+         function()
+            MiniExtra.pickers.lsp { scope = "references" }
+         end,
+         { desc = "Pick references" }
+      )
 
       require("mini.files").setup {
-         windows = {
-            preview = true,
-         },
+         windows = { preview = true },
       }
 
-      vim.keymap.set("n", "<leader>-", MiniFiles.open, { desc = "Open files" })
-      vim.keymap.set("n", "<leader>_", function()
-         MiniFiles.open(vim.api.nvim_buf_get_name(0))
-      end, { desc = "Open files in buffer directory" })
+      vim.keymap.set("n", "<leader>-", MiniFiles.open, { desc = "Files" })
+      vim.keymap.set(
+         "n",
+         "<leader>_",
+         function()
+            local s, e = pcall(function()
+               MiniFiles.open(vim.api.nvim_buf_get_name(0))
+            end)
+            if not s or e then
+               print("Buffer path not valid.")
+            end
+         end,
+         { desc = "Files (pwd)" }
+      )
+
       local hipatterns = require("mini.hipatterns")
       hipatterns.setup {
          highlighters = {
             hex_color = hipatterns.gen_highlighter.hex_color(),
             fixme = { pattern = "%f[%w]()FIXME()%f[%W]", group = "MiniHipatternsFixme" },
-            hack = { pattern = "%f[%w]()HACK()%f[%W]", group = "MiniHipatternsHack" },
-            todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
-            note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
+            hack =  { pattern = "%f[%w]()HACK()%f[%W]", group = "MiniHipatternsHack" },
+            todo =  { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
+            note =  { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
          },
       }
    end,
