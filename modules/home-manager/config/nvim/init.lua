@@ -9,6 +9,7 @@ vim.lsp.enable {
    "clangd",
    "gdscript",
    "nil_ls",
+   "org"
 }
 
 require("opts")
