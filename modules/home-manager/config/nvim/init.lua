@@ -15,5 +15,8 @@ vim.lsp.enable {
 require("opts")
 require("keybinds")
 
+_G.org = "~/Media/Documents/org"
+
 vim.pack.add { "https://github.com/zuqini/zpack.nvim" }
 require("zpack").setup()
+
