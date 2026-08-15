@@ -23,10 +23,15 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
   in {
 
-    packages.${system} = import ./modules/nixos/pkgs.nix nixpkgs.legacyPackages.${system};
-    formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
+    packages.${system} = import ./modules/nixos/pkgs.nix pkgs;
+    formatter.${system} = pkgs.alejandra;
+
+    devShells.${system}.default = pkgs.mkShell {
+      packages = with pkgs; [ nls ];
+    };
 
     nixosConfigurations = {
       nixos-desktop = nixpkgs.lib.nixosSystem {
