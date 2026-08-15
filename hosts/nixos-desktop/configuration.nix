@@ -19,12 +19,12 @@
     desktop.enable = true;
     colemak.enable = true;
     sshRemote.enable = true;
-    copyparty.enable = true;
     zram.enable = true;
     graphicsDrivers = {
       enable = true;
       nvidia.enable = true;
     };
+    copyparty.enable = true;
   };
 
   home-manager = let
@@ -33,7 +33,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "backup";
-    extraSpecialArgs = {inherit inputs;};
+    extraSpecialArgs = { inherit inputs; };
     users.ari = import "${users}/ari";
   };
 

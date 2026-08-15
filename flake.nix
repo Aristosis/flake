@@ -42,6 +42,14 @@
           stylix.nixosModules.stylix
         ];
       };
+      nixos-laptop = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/nixos-laptop/configuration.nix
+          home-manager.nixosModules.home-manager
+          stylix.nixosModules.stylix
+        ];
+      };
 
       # TODO: Deal with the rest of the nixosConfigurations
       # nixos-laptop = nixpkgs.lib.nixosSystem {
