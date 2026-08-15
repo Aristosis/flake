@@ -16,11 +16,7 @@ in {
       settings = {
         colors.webpage.darkmode.enabled = true;
         completion.shrink = true;
-        tabs = {
-          position = "left";
-          show = "multiple";
-          width = 32;
-        };
+        tabs.show = "multiple";
       };
       greasemonkey =
         [
