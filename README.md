@@ -17,3 +17,4 @@ consistency.
 
 ## Version control
 Version control managed via [Jujutsu](https://www.jj-vcs.dev/latest/)!
+
