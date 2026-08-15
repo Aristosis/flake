@@ -33,6 +33,7 @@
 
     programs = {
       git.enable = true;
+      git.package = pkgs.gitFull;
       neovim.enable = true;
       neovim.defaultEditor = true;
       niri.enable = true;
