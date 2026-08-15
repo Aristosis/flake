@@ -61,7 +61,8 @@ in {
     ];
 
     services = {
-      mako.enable = true; # Notification (pop-ups specifically)
+      mako.enable = true;         # Notification (pop-ups specifically)
+      mako.defaultTimeout = 5000; # 5s
     };
 
     programs.fuzzel = {
