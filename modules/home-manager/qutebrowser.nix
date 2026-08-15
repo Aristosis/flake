@@ -14,6 +14,7 @@ in {
       enableDefaultBindings = true;
       loadAutoconfig = false;
       settings = {
+        colors.webpage.darkmode.enabled = true;
         completion.shrink = true;
         tabs = {
           position = "left";
@@ -23,7 +24,7 @@ in {
       };
       greasemonkey =
         [
-          (pkgs.fetchurl { url = "https://update.greasyfork.org/scripts/459541/YouTube%E5%8E%BB%E5%B9%BF%E5%91%8A.user.js"; hash = "sha256-l1jSu6wD8/77wf5TT9apxvy+6B+9ywVm6pmMkhM6Ex8="; })
+          (pkgs.fetchurl { url = "https://raw.githubusercontent.com/SysAdminDoc/YoutubeAdblock/refs/heads/main/YoutubeAdblock.user.js"; hash = "sha256-FGHOG/e3DzExL0WSyf/KfdsHNP0EObI1xIWRKQmzxic="; })
         ];
     };
   };
