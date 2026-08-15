@@ -23,8 +23,7 @@
       settings = {
         user.name = "Ari";
         user.email = "communeofstars@proton.me";
-        credential.helper = "store";
-        credential.store = "git-credential-libsecret";
+        credential.helper = "libsecret";
         init.defaultBranch = "main";
       };
     };
