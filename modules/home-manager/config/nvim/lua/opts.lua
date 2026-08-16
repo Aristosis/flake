@@ -56,17 +56,3 @@ vim.api.nvim_create_autocmd("TextYankPost", {
    end,
 })
 
-_G.diagnostics = {
-   virtual_text = true,
-   virtual_lines = false,
-}
-
-vim.diagnostic.config {
-   update_in_insert = false,
-   severity_sort = true,
-   jump = { float = true },
-   float = { source = "if_many" },
-   underline = { severity = { min = vim.diagnostic.severity.WARN } },
-   virtual_text = _G.diagnostics.virtual_text,
-   virtual_lines = vim.g.virtual_lines,
-}

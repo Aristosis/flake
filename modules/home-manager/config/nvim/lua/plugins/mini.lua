@@ -2,20 +2,52 @@
 return {
    "nvim-mini/mini.nvim",
    version = "main",
+   event = "VeryLazy",
    config = function()
       require("mini.extra").setup()
       require("mini.align").setup()
+      require("mini.bracketed").setup()
+
+      local clue = require("mini.clue")
+      clue.setup {
+         clues = {
+            clue.gen_clues.builtin_completion(),
+            clue.gen_clues.g(),
+            clue.gen_clues.square_brackets(),
+            clue.gen_clues.marks(),
+            clue.gen_clues.registers(),
+            clue.gen_clues.windows(),
+            clue.gen_clues.z(),
+         },
+         triggers = {
+            { mode = { 'n', 'x' }, keys = '<Leader>' },
+            { mode = 'n', keys = '[' },
+            { mode = 'n', keys = ']' },
+            { mode = 'i', keys = '<C-x>' },
+            { mode = { 'n', 'x' }, keys = 'g' },
+            { mode = { 'n', 'x' }, keys = "'" },
+            { mode = { 'n', 'x' }, keys = '`' },
+            { mode = { 'n', 'x' }, keys = '"' },
+            { mode = { 'i', 'c' }, keys = '<C-r>' },
+            { mode = 'n', keys = '<C-w>' },
+            { mode = { 'n', 'x' }, keys = 'z' },
+         }
+      }
+
       require("mini.icons").setup()
+
       local indent_scope = require("mini.indentscope")
       indent_scope.setup({
          symbol = "▏",
          options = { try_as_border = true},
          draw = { animation = indent_scope.gen_animation.none() }
       })
+
       require("mini.surround").setup {
          search_method = "cover_or_next",
          silent = true,
       }
+
       require("mini.splitjoin").setup()
       require("mini.cursorword").setup()
       require("mini.statusline").setup()
