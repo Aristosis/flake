@@ -58,6 +58,7 @@
           tooltip-format-wifi = "{ipaddr}/{essid}";
           tooltip-format-ethernet = "{ipaddr}/{essid}";
           format-disconnected = "󰈂";
+          on-click = "nm-applet";
         };
 
         wireplumber = {
@@ -65,7 +66,7 @@
           format = "{icon} {volume}%";
           format-muted = " ";
           on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
-          on-click-right = "pwvucontrol";
+          on-click-right = "pavucontrol";
           on-click-middle = "helvum";
           format-icons = ["" "" "" "" "" "" "" "" "" ""];
         };
