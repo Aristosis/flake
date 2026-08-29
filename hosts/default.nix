@@ -1,21 +1,9 @@
 {pkgs, ...}: {
-  nixpkgs = {
-    config.allowUnfree = true;
-    overlays = [
-      # inputs.self.overlays.additions
-      # inputs.self.overlays.modifications
-      # inputs.self.overlays.unstable-packages
-    ];
-  };
+  nixpkgs.config.allowUnfree = true;
 
   nix = {
     settings.experimental-features = "nix-command flakes";
-    channel.enable = true;
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 30d";
-    };
+    channel.enable = false;
   };
 
   networking.firewall.enable = true;
