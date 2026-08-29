@@ -1,6 +1,6 @@
 {
   security.rtkit.enable = true;
-  pipewire = {
+  services.pipewire = {
     enable = true;
     extraConfig.pipewire."98-crackling-fix".context.properties.default.clock = {
       quantum = 1024;

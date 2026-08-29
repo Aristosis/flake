@@ -18,6 +18,7 @@
       (modules + "copyparty.nix")
       (modules + "desktop.nix")
       (modules + "nvidia-drivers.nix")
+      (modules + "programs.nix")
       (modules + "remote-ssh.nix")
       (modules + "zram.nix")
     ];

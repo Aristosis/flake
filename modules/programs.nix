@@ -1,8 +1,17 @@
 { pkgs, ... }:
 {
+  environment.systemPackages = with pkgs; [
+    fzf
+    fuzzel
+    librewolf
+    lsd
+  ];
   programs = {
+    zoxide.enable = true;
     git.enable = true;
     niri.enable = true;
+    foot.enable = true;
+    waybar.enable = true;
     neovim.enable = true;
     neovim.defaultEditor = true;
 
