@@ -1,0 +1,19 @@
+{
+  config,
+  pkgs,
+  ...
+}:
+{
+let
+config = pkgs.writeText "/home/user-dirs.dirs" ''
+XDG_DESKTOP_DIR="/home/ari/Desktop"
+XDG_DOCUMENTS_DIR="/home/ari/Media/Documents"
+XDG_DOWNLOAD_DIR="/home/ari/Media/Downloads"
+XDG_MUSIC_DIR="/home/ari/Media/Music"
+XDG_PICTURES_DIR="/home/ari/Media/Pictures"
+XDG_PROJECTS_DIR="/home/ari/Media/Projects"
+XDG_PUBLICSHARE_DIR="/home/ari/Media/Share"
+XDG_TEMPLATES_DIR="/home/ari/Media/Documents/Templates"
+XDG_VIDEOS_DIR="/home/ari/Media/Videos"
+''
+}

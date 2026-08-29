@@ -1,5 +1,8 @@
 { pkgs, ... }:
 {
+  imports = [
+    ./zsh.nix
+  ];
   environment.systemPackages = with pkgs; [
     fzf
     fuzzel
@@ -14,13 +17,9 @@
     waybar.enable = true;
     neovim.enable = true;
     neovim.defaultEditor = true;
+    neovim.viAlias = true;
+    neovim.vimAlias = true;
 
-    zsh = {
-      enable = true;
-      enableGlobalCompInit = false;
-      syntaxHighlighting.enable = true;
-      autosuggestions.enable = true;
-    };
 
     nix-ld = {
       enable = true;
