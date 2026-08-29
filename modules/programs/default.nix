@@ -8,10 +8,11 @@
     fuzzel
     librewolf
     lsd
+    awww
+    wl-clipboard
   ];
   programs = {
     zoxide.enable = true;
-    git.enable = true;
     niri.enable = true;
     foot.enable = true;
     waybar.enable = true;
@@ -20,6 +21,10 @@
     neovim.viAlias = true;
     neovim.vimAlias = true;
 
+    git = {
+      enable = true;
+      package = pkgs.gitFull;
+    };
 
     nix-ld = {
       enable = true;
