@@ -1,31 +1,26 @@
 {
   inputs,
   pkgs,
-  config,
-  lib,
   ...
 }: {
   networking.hostName = "nixos-desktop";
 
   imports =
+  let
+    modules = "${inputs.self}/modules/";
+  in
     [
       ../default.nix
       ./hardware-configuration.nix
-      ./stylix.nix
-    ]
-    ++ builtins.attrValues (import "${inputs.self}/modules/nixos/default.nix");
 
-  features = {
-    desktop.enable = true;
-    colemak.enable = true;
-    sshRemote.enable = true;
-    zram.enable = true;
-    graphicsDrivers = {
-      enable = true;
-      nvidia.enable = true;
-    };
-    copyparty.enable = true;
-  };
+      (modules + "audio.nix")
+      (modules + "colemak.nix")
+      (modules + "copyparty.nix")
+      (modules + "desktop.nix")
+      (modules + "nvidia-drivers.nix")
+      (modules + "remote-ssh.nix")
+      (modules + "zram.nix")
+    ];
 
   users.defaultUserShell = pkgs.zsh;
   users.users.ari = {

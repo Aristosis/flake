@@ -15,7 +15,7 @@
       pkgs = nixpkgs.legacyPackages.${system};
   in {
 
-    packages.${system} = import ./modules/nixos/pkgs.nix pkgs;
+    packages.${system} = import ./modules/pkgs.nix pkgs;
     formatter.${system} = pkgs.alejandra;
 
     devShells.${system}.default = pkgs.mkShell {

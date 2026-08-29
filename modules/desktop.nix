@@ -1,69 +1,16 @@
+{ pkgs, ... }:
 {
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
-  options.features.desktop.enable = lib.mkEnableOption "Install and configure desktop programs";
+  services = {
+    displayManager.ly.enable = true;
+    gvfs.enable = true;
+  };
 
-  config = lib.mkIf config.features.desktop.enable {
-    security.rtkit.enable = true;
-    services = {
-      displayManager.ly.enable = true;
-      gvfs.enable = true;
-      pipewire = {
-        enable = true;
-        alsa.enable = true;
-
-        # TODO: Revert when openblas-0.3.33 package is fixed
-        alsa.support32Bit = false;
-        pulse.enable = true;
-        extraConfig.pipewire."98-crackling-fix".context.properties.default.clock = {
-          quantum = 1024;
-          min-quantum = 1024;
-          max-quantum = 8192;
-        };
-      };
-    };
-
-    fonts = {
-      enableDefaultPackages = true;
-      packages = with pkgs; [ nerd-fonts.symbols-only ];
-    };
-
-    programs = {
-      git.enable = true;
-      git.package = pkgs.gitFull;
-      neovim.enable = true;
-      neovim.defaultEditor = true;
-      niri.enable = true;
-
-      zsh = {
-        enable = true;
-        enableGlobalCompInit = false;
-        syntaxHighlighting.enable = true;
-        autosuggestions.enable = true;
-      };
-
-      nix-ld = {
-        enable = true;
-        libraries = with pkgs; [
-          icu
-          alsa-lib
-          libGL
-          libice
-          libsm
-          libx11
-          libxcursor
-          libxext
-          libxi
-          libxinerama
-          libxrandr
-          libpulseaudio
-          libxkbcommon
-          wayland
-        ];
-      };
-    };
+  fonts = {
+    enableDefaultPackages = true;
+    packages = with pkgs; [
+      inter
+      iosevka
+      nerd-fonts.symbols-only
+    ];
   };
 }

@@ -1,12 +1,5 @@
 {
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
-  options.features.sshRemote.enable = lib.mkEnableOption "Enable remote ssh access";
-
-  config.services = lib.mkIf config.features.sshRemote.enable {
+  services = {
     openssh = {
       enable = true;
       settings = {};
