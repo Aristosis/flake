@@ -4,11 +4,11 @@
   pkgs,
   ...
 }: {
-  options.features.home-manager.firefox.enable = lib.mkEnableOption "Enable firefox";
+  options.features.home-manager.librewolf.enable = lib.mkEnableOption "Enable librewolf";
 
-  config.stylix.targets.firefox.profileNames = ["default"];
+  config.stylix.targets.librewolf.profileNames = ["default"];
 
-  config.programs.firefox = lib.mkIf config.features.home-manager.firefox.enable {
+  config.programs.librewolf = lib.mkIf config.features.home-manager.librewolf.enable {
     enable = true;
 
     languagePacks = ["en-IN"];

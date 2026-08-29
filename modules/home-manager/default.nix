@@ -1,6 +1,6 @@
 {
   cli = import ./cli;
-  firefox = import ./firefox.nix;
+  librewolf = import ./librewolf.nix;
   niri = import ./niri;
   obs = import ./obs.nix;
   prismLauncher = import ./prism-launcher.nix;

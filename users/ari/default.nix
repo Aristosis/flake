@@ -59,7 +59,7 @@
     cli = {
       enable = true;
     };
-    firefox.enable = true;
+    librewolf.enable = true;
     niri.enable = true;
     umu.enable = true;
   };
