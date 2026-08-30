@@ -1,8 +1,8 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   qt = {
     enable = true;
-    platformTheme = "gtk";
+    platformTheme = "qt5ct";
   };
   # environment.sessionVariables = {
   # };

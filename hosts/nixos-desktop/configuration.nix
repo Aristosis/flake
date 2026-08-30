@@ -1,8 +1,10 @@
 {
+  baseVars,
   inputs,
   pkgs,
   ...
-}: {
+}:
+{
   networking.hostName = "nixos-desktop";
 
   imports =
