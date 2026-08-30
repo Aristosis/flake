@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-
   };
 
   outputs = {
@@ -23,7 +22,11 @@
     };
 
     nixosConfigurations."nixos-desktop" = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs; };
+      specialArgs =
+      let
+        baseVars = import ./hosts/nixos-desktop/base-vars.nix;
+      in
+      { inherit inputs baseVars; };
       modules = [./hosts/nixos-desktop/configuration.nix];
     };
   };
