@@ -19,7 +19,7 @@
       (modules + "desktop.nix")
       (modules + "nvidia-drivers.nix")
       (modules + "remote-ssh.nix")
-      (modules + "theme.nix")
+      (modules + "themes.nix")
       (modules + "zram.nix")
 
       (modules + "programs")
