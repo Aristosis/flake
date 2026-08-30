@@ -5,28 +5,37 @@
   ...
 }:
 {
-  # users.users.ari = {
-  #   isNormalUser = true;
-  #   openssh.authorizedKeys = [];
-  #   extraGroups = [ "wheel" ];
-  # };
-  # hjem.users.ari.packages = {};
-  hjem.users.ari = {
+  imports =
+  let
+    modules = "${inputs.self}/modules/";
+    users = "${modules}/users/";
+  in
+  [
+    (modules + "programs")
+  ];
+
+  users.users.ari = {
+    isNormalUser = true;
+    openssh.authorizedKeys.keys = [];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
+  };
+
+  hjem.users.ari =
+  let
+    config = "${inputs.self}/config";
+  in
+  {
     enable = true;
     user = "ari";
     directory = "/home/ari";
     clobberFiles = true;
-    files =
-    let
-    config = "${inputs.self}/config/";
-    in
-    {
-      ".config/niri".source   = config + "niri";
-      # ".config/foot".source   = config + "foot";
-      # ".config/waybar".source = config + "waybar";
-      # ".zshrc".source         = config + "zsh/zshrc";
-      # xdg.config.files."nvim".source   = config / "nvim";
-      # xdg.config.files."mako".source   = config / "mako";
+    xdg.config.files = {
+      "niri".source = "${config}/niri";
+      "waybar".source = "${config}/waybar";
+      "foot".source = "${config}/foot";
     };
   };
 }

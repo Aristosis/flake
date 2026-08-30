@@ -15,11 +15,14 @@
       pkgs = nixpkgs.legacyPackages.${system};
   in {
 
-    packages.${system} = import ./modules/pkgs.nix pkgs;
+    packages.${system} = import ./modules/pkgs pkgs;
     formatter.${system} = pkgs.alejandra;
 
-    devShells.${system}.default = pkgs.mkShell {
-      packages = with pkgs; [ nil ];
+    devShells.${system}.default = pkgs.mkShellNoCC {
+      packages = with pkgs; [
+        neovim
+        nil
+      ];
     };
 
     nixosConfigurations."nixos-desktop" = nixpkgs.lib.nixosSystem {

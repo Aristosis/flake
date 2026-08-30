@@ -1,4 +1,8 @@
-{ pkgs, ... }:
+{
+  inputs,
+  pkgs,
+  ...
+}:
 {
   imports = [
     ./zsh.nix
@@ -10,8 +14,22 @@
     librewolf
     lsd
     awww
+
     wl-clipboard
+    cliphist
     xwayland-satellite
+
+    (writeShellApplication {
+      name = "fuzzel-emojis";
+      runtimeInputs = with pkgs; [fuzzel coreutils wtype];
+      text = ''
+        emojis=$(cat ${inputs.self}/config/emojis)
+        selected=$(echo "$emojis" | fuzzel -d -l 20)
+        if [ -n "$selected" ]; then
+          wtype "$(echo "$selected" | cut -d ' ' -f1)"
+        fi
+      '';
+    })
   ];
   programs = {
     zoxide.enable = true;

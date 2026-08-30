@@ -5,6 +5,8 @@
     gvfs.enable = true;
   };
 
+  programs.niri.enable = true;
+
   fonts = {
     enableDefaultPackages = true;
     packages = with pkgs; [

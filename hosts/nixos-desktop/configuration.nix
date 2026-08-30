@@ -24,20 +24,11 @@
       (modules + "remote-ssh.nix")
       (modules + "themes.nix")
       (modules + "zram.nix")
-      (modules + "programs")
 
       (users + "ari.nix")
     ];
 
   users.defaultUserShell = pkgs.zsh;
-  users.users.ari = {
-    isNormalUser = true;
-    openssh.authorizedKeys.keys = [];
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-    ];
-  };
 
   system.stateVersion = "26.05";
 }
