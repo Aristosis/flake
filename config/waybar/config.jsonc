@@ -26,7 +26,7 @@
     "clock": {
         "interval": "60",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%I:%m %p}",
+        "format": "{:%I:%M %p}",
         "format-alt": "{:%d-%m-%Y}"
     },
     "cpu": {
@@ -38,5 +38,5 @@
     "network": {
         "format-ethernet": "we nettin",
         "format-disconnected": "no nettin ⚠"
-    },
+    }
 }
