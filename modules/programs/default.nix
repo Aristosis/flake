@@ -2,6 +2,7 @@
 {
   imports = [
     ./zsh.nix
+    ./prism-launcher.nix
   ];
   environment.systemPackages = with pkgs; [
     fzf
@@ -10,6 +11,7 @@
     lsd
     awww
     wl-clipboard
+    xwayland-satellite
   ];
   programs = {
     zoxide.enable = true;
