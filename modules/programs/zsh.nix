@@ -46,7 +46,7 @@
     zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
 
 
-    eval "$(zoxide init zsh)"
+    eval "$(zoxide init zsh --cmd cd)"
     ''
     + ''
     source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
