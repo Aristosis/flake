@@ -10,7 +10,7 @@
   imports =
   let
     modules = "${inputs.self}/modules/";
-    wrappers = "${inputs.self}/wrappers/";
+    users = "${modules}/users/";
   in
     [
       ../default.nix
@@ -24,9 +24,9 @@
       (modules + "remote-ssh.nix")
       (modules + "themes.nix")
       (modules + "zram.nix")
-
       (modules + "programs")
-      (wrappers + "niri")
+
+      (users + "ari.nix")
     ];
 
   users.defaultUserShell = pkgs.zsh;

@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+    hjem.url = "github:feel-co/hjem";
   };
 
   outputs = {
@@ -29,6 +30,7 @@
       { inherit inputs baseVars; };
       modules = [
         ./hosts/nixos-desktop/configuration.nix
+        inputs.hjem.nixosModules.default
       ];
     };
   };

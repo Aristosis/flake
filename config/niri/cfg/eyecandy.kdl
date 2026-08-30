@@ -1,0 +1,30 @@
+layout {
+  gaps 4
+
+  background-color "transparent"
+
+  focus-ring {
+    off
+  }
+  border {
+    width 1
+    on
+  }
+
+  center-focused-column "never"
+}
+
+animations {
+  // Slow down all animations by this factor. Values below 1 speed them up instead.
+  off
+  slowdown 0.7
+  window-open {
+      duration-ms 100
+      curve "ease-out-expo"
+    }
+  window-close {
+      duration-ms 100
+      curve "ease-out-quad"
+  }
+}
+
