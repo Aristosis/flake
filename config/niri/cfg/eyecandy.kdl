@@ -6,9 +6,23 @@ layout {
   focus-ring {
     off
   }
+
   border {
+    active-color   "#ffffff"
+    inactive-color "#aaaaaa"
+    urgent-color   "#ffb4ab"
     width 1
     on
+  }
+
+  tab-indicator {
+    active-color   "#ffffff"
+    inactive-color "#aaaaaa"
+    urgent-color   "#ffb4ab"
+  }
+
+  insert-hint {
+    color   "#ffffff"
   }
 
   center-focused-column "never"
