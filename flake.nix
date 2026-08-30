@@ -27,7 +27,10 @@
         baseVars = import ./hosts/nixos-desktop/base-vars.nix;
       in
       { inherit inputs baseVars; };
-      modules = [./hosts/nixos-desktop/configuration.nix];
+      modules = [
+        ./hosts/nixos-desktop/configuration.nix
+      ];
     };
   };
 }
+

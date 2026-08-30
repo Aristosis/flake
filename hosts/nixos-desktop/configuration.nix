@@ -10,6 +10,7 @@
   imports =
   let
     modules = "${inputs.self}/modules/";
+    wrappers = "${inputs.self}/wrappers/";
   in
     [
       ../default.nix
@@ -25,6 +26,7 @@
       (modules + "zram.nix")
 
       (modules + "programs")
+      (wrappers + "niri")
     ];
 
   users.defaultUserShell = pkgs.zsh;
