@@ -77,6 +77,15 @@ return {
          { desc = "Pick references" }
       )
 
+      require("mini.files").setup {
+         windows = { preview = true },
+         mappings = {
+           go_in       = 'L',
+           go_out      = 'H',
+         },
+      }
+
+      vim.keymap.set("n", "<leader>-", MiniFiles.open, { desc = "Files" })
       vim.keymap.set(
          "n",
          "<leader>_",
