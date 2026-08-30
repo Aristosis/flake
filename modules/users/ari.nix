@@ -33,9 +33,11 @@
     directory = "/home/ari";
     clobberFiles = true;
     xdg.config.files = {
-      "niri".source = "${config}/niri";
+      "niri".source   = "${config}/niri";
       "waybar".source = "${config}/waybar";
-      "foot".source = "${config}/foot";
+      "foot".source   = "${config}/foot";
+      "fuzzel".source = "${config}/fuzzel";
+      "nvim".source   = "/home/ari/flake/config/nvim";
     };
   };
 }
