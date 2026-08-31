@@ -1,4 +1,3 @@
----@diagnostic disable undefined_global
 vim.loader.enable()
 _G.org = "~/Media/Documents/org"
 
@@ -16,9 +15,8 @@ vim.lsp.enable {
    "clangd",
    "gdscript",
    "nil_ls",
-   "org"
+   "org",
 }
-
 
 _G.diagnostics = {
    virtual_text = true,

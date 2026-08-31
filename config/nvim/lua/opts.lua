@@ -55,4 +55,3 @@ vim.api.nvim_create_autocmd("TextYankPost", {
       (vim.hl or vim.highlight).on_yank()
    end,
 })
-

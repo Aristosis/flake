@@ -20,11 +20,16 @@
       packages.${system} = pkgs;
       formatter.${system} = pkgs.nixfmt-tree;
 
-      devShells.${system}.default = pkgs.mkShellNoCC {
-        packages = with pkgs; [
-          neovim
-          nil
-        ];
+      devShells.${system} = {
+        default = pkgs.mkShellNoCC { packages = with pkgs; [ nil ]; };
+
+        neovim = pkgs.mkShell {
+          packages = with pkgs; [
+            neovim
+            stylua
+            lua-language-server
+          ];
+        };
       };
 
       nixosConfigurations."nixos-desktop" = nixpkgs.lib.nixosSystem {
