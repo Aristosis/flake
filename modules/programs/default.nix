@@ -6,6 +6,7 @@
 {
   imports = [
     ./cli
+    ./librewolf.nix
     ./games/prism-launcher.nix
     ./games/umu-launcher.nix
   ];
