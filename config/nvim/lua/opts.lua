@@ -41,11 +41,13 @@ vim.o.cursorline = true
 vim.o.showmode = false
 vim.o.shiftwidth = 0
 vim.o.pumblend = 30
+vim.o.pummaxwidth = 80
 vim.o.pumheight = 10
 vim.o.signcolumn = "yes"
 vim.o.formatoptions = "jqln"
 vim.o.smartindent = true
 vim.o.autocomplete = true
+
 vim.opt.shortmess:append { W = true, I = true, c = true }
 
 local augroup = vim.api.nvim_create_augroup("misc", {})
