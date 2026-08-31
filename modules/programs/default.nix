@@ -2,7 +2,8 @@
   inputs,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     ./cli
     ./games/prism-launcher.nix

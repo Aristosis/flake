@@ -6,32 +6,39 @@
     hjem.url = "github:feel-co/hjem";
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    ...
-  } @ inputs: let
-    system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
-  in {
-    packages.${system} = pkgs;
-    formatter.${system} = pkgs.alejandra;
+  outputs =
+    {
+      self,
+      nixpkgs,
+      ...
+    }@inputs:
+    let
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+    in
+    {
+      packages.${system} = pkgs;
+      formatter.${system} = pkgs.nixfmt-tree;
 
-    devShells.${system}.default = pkgs.mkShellNoCC {
-      packages = with pkgs; [
-        neovim
-        nil
-      ];
-    };
+      devShells.${system}.default = pkgs.mkShellNoCC {
+        packages = with pkgs; [
+          neovim
+          nil
+        ];
+      };
 
-    nixosConfigurations."nixos-desktop" = nixpkgs.lib.nixosSystem {
-      specialArgs = let
-        baseVars = import ./hosts/nixos-desktop/base-vars.nix;
-      in {inherit inputs baseVars;};
-      modules = [
-        ./hosts/nixos-desktop/configuration.nix
-        inputs.hjem.nixosModules.default
-      ];
+      nixosConfigurations."nixos-desktop" = nixpkgs.lib.nixosSystem {
+        specialArgs =
+          let
+            baseVars = import ./hosts/nixos-desktop/base-vars.nix;
+          in
+          {
+            inherit inputs baseVars;
+          };
+        modules = [
+          ./hosts/nixos-desktop/configuration.nix
+          inputs.hjem.nixosModules.default
+        ];
+      };
     };
-  };
 }

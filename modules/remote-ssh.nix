@@ -2,7 +2,7 @@
   services = {
     openssh = {
       enable = true;
-      settings = {};
+      settings = { };
     };
     avahi = {
       enable = true;

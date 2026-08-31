@@ -1,16 +1,22 @@
-{pkgs, ...}: {
-  environment.systemPackages = with pkgs; [copyparty nginx];
-  networking.firewall.allowedTCPPorts = [80 443];
+{ pkgs, ... }: {
+  environment.systemPackages = with pkgs; [
+    copyparty
+    nginx
+  ];
+  networking.firewall.allowedTCPPorts = [
+    80
+    443
+  ];
   systemd.services.copyparty = {
     description = "copy the party";
-    after = ["network.target"];
-    wantedBy = ["multi-user.target"];
+    after = [ "network.target" ];
+    wantedBy = [ "multi-user.target" ];
 
     serviceConfig = {
       # Files be under user perms instead of root!
       User = "ari";
       Group = "users";
-      AmbientCapabilities = ["CAP_NET_BIND_SERVICE"];
+      AmbientCapabilities = [ "CAP_NET_BIND_SERVICE" ];
 
       ExecStart = ''
         ${pkgs.copyparty}/bin/copyparty \
