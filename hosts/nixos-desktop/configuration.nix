@@ -22,7 +22,7 @@
       (modules + "desktop.nix")
       (modules + "nvidia-drivers.nix")
       (modules + "remote-ssh.nix")
-      (modules + "themes.nix")
+      (modules + "niri.nix")
       (modules + "zram.nix")
 
       (users + "ari.nix")

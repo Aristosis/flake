@@ -11,7 +11,7 @@
     users = "${modules}/users/";
   in
   [
-    (modules + "programs")
+    # (modules + "programs")
   ];
 
   users.users.ari = {
