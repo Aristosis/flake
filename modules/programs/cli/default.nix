@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   imports = [
     ./zsh.nix
   ];
@@ -8,6 +8,7 @@
     duf
     p7zip
     lsd
+    tree-sitter
   ];
 
   programs = {
