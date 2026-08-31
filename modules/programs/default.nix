@@ -7,9 +7,11 @@
   imports = [
     ./zsh.nix
     ./prism-launcher.nix
+    ./umu-launcher.nix
   ];
   environment.systemPackages = with pkgs; [
     fzf
+    duf
     fuzzel
     librewolf
     lsd
