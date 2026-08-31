@@ -1,6 +1,7 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   imports = [
     ./zsh.nix
+    ./direnv.nix
   ];
 
   environment.systemPackages = with pkgs; [
