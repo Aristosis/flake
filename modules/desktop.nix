@@ -1,8 +1,7 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   imports = [
     ./niri.nix
-  ]
+  ];
 
   services = {
     displayManager.ly.enable = true;

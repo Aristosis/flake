@@ -3,14 +3,11 @@
   lib,
   pkgs,
   ...
-}:
-{
-  imports =
-  let
+}: {
+  imports = let
     modules = "${inputs.self}/modules/";
     users = "${modules}/users/";
-  in
-  [
+  in [
     # (modules + "programs")
   ];
 
@@ -23,21 +20,19 @@
     ];
   };
 
-  hjem.users.ari =
-  let
+  hjem.users.ari = let
     config = "${inputs.self}/config";
-  in
-  {
+  in {
     enable = true;
     user = "ari";
     directory = "/home/ari";
     clobberFiles = true;
     xdg.config.files = {
-      "niri".source   = "${config}/niri";
+      "niri".source = "${config}/niri";
       "waybar".source = "${config}/waybar";
-      "foot".source   = "${config}/foot";
+      "foot".source = "${config}/foot";
       "fuzzel".source = "${config}/fuzzel";
-      "nvim".source   = "/home/ari/flake/config/nvim";
+      "nvim".source = "/home/ari/flake/config/nvim";
     };
   };
 }

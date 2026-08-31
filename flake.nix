@@ -12,10 +12,9 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
+    pkgs = nixpkgs.legacyPackages.${system};
   in {
-
-    packages.${system} = import ./modules/pkgs pkgs;
+    packages.${system} = pkgs;
     formatter.${system} = pkgs.alejandra;
 
     devShells.${system}.default = pkgs.mkShellNoCC {
@@ -26,11 +25,9 @@
     };
 
     nixosConfigurations."nixos-desktop" = nixpkgs.lib.nixosSystem {
-      specialArgs =
-      let
+      specialArgs = let
         baseVars = import ./hosts/nixos-desktop/base-vars.nix;
-      in
-      { inherit inputs baseVars; };
+      in {inherit inputs baseVars;};
       modules = [
         ./hosts/nixos-desktop/configuration.nix
         inputs.hjem.nixosModules.default
@@ -38,4 +35,3 @@
     };
   };
 }
-

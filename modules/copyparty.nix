@@ -1,8 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
-
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [copyparty nginx];
   networking.firewall.allowedTCPPorts = [80 443];
   systemd.services.copyparty = {
