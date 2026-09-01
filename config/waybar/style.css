@@ -19,6 +19,11 @@ window#waybar {
   border-bottom: 2px solid white;
 }
 
+#wireplumber {
+  color: pink;
+  border-bottom: 2px solid pink;
+}
+
 #cpu {
   color: red;
   border-bottom: 2px solid red;

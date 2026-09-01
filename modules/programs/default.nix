@@ -7,6 +7,7 @@
   imports = [
     ./cli
     ./librewolf.nix
+    ./pavucontrol-helvum.nix
     ./games/prism-launcher.nix
     ./games/umu-launcher.nix
   ];
