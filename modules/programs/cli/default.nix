@@ -5,6 +5,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    btop
     fzf
     duf
     p7zip
