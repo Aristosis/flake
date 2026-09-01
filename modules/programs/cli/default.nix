@@ -11,6 +11,9 @@
     p7zip
     lsd
     tree-sitter
+    bat
+    fd
+    ripgrep
   ];
 
   programs = {
