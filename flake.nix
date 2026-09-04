@@ -17,7 +17,7 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in
     {
-      packages.${system} = pkgs;
+      legacyPackages.${system} = pkgs;
       formatter.${system} = pkgs.nixfmt-tree;
 
       devShells.${system} = {

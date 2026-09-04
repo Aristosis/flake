@@ -1,18 +1,11 @@
 {
   inputs,
-  lib,
-  pkgs,
   ...
 }:
 {
-  imports =
-    let
-      modules = "${inputs.self}/modules/";
-      users = "${modules}/users/";
-    in
-    [
-      # (modules + "programs")
-    ];
+  imports = [
+    "${inputs.self}/modules/programs"
+  ];
 
   users.users.ari = {
     isNormalUser = true;

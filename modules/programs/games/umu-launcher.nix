@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  environment.systemPackages = with pkgs; [
+  hjem.users.ari.packages = with pkgs; [
     umu-launcher
   ];
 }

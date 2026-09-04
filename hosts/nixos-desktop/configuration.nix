@@ -1,5 +1,4 @@
 {
-  baseVars,
   inputs,
   pkgs,
   ...
@@ -9,8 +8,8 @@
 
   imports =
     let
-      modules = "${inputs.self}/modules/";
-      users = "${modules}/users/";
+      modules = "${inputs.self}/modules/nixos/";
+      users = "${inputs.self}/modules/users/";
     in
     [
       ../default.nix
@@ -24,7 +23,6 @@
       (modules + "remote-ssh.nix")
       (modules + "niri.nix")
       (modules + "zram.nix")
-      (modules + "programs")
 
       (users + "ari.nix")
     ];
