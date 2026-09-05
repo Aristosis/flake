@@ -36,9 +36,9 @@
           Name=GTA III
           Categories=Game;
 
-          Icon=/home/ari/Share/Games/GTA III/Icons/icon.png
-          Path=/home/ari/Share/Games/GTA III
-          Exec="WINEDLLOVERRIDES="d3d8=n,b"" "gamering" "/home/ari/Share/Games/GTA III/gta3.exe"
+          Icon=/home/ari/Media/Share/Games/GTA III/Icons/icon.png
+          Path=/home/ari/Media/Share/Games/GTA III
+          Exec=sh -c 'WINEDLLOVERRIDES="d3d8=n,b" exec gamering "$1"' sh "/home/ari/Media/Share/Games/GTA III/gta3.exe"
         '';
       };
   };
