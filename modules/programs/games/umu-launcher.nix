@@ -6,6 +6,7 @@
 {
   hjem.users.ari = {
     packages = with pkgs; [
+      setxkbmap
       umu-launcher
       (import "${inputs.self}/modules/pkgs/gamering.nix" pkgs)
     ];
@@ -38,7 +39,20 @@
 
           Icon=/home/ari/Media/Share/Games/GTA III/Icons/icon.png
           Path=/home/ari/Media/Share/Games/GTA III
-          Exec=sh -c 'WINEDLLOVERRIDES="d3d8=n,b" exec gamering "$1"' sh "/home/ari/Media/Share/Games/GTA III/gta3.exe"
+          Exec=sh -c 'setxkbmap cm; WINEDLLOVERRIDES="d3d8=n,b" exec gamering "$1"' sh "/home/ari/Media/Share/Games/GTA III/gta3.exe"
+        '';
+
+        "${entries}/GTA IV.desktop".text = ''
+          [Desktop Entry]
+          Encoding=UTF-8
+          Value=1.0
+          Type=Application
+          Name=GTA IV
+          Categories=Game;
+
+          Icon=/home/ari/Media/Share/Games/GTA IV/Fixed/icon.png
+          Path=/home/ari/Media/Share/Games/GTA IV
+          Exec="DXVK_HUD=0 gamering /home/ari/Media/Share/Games/GTA\ IV/Fixed/GTAIV.exe"
         '';
       };
   };
