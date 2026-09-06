@@ -7,6 +7,7 @@ vim.pack.add {
    { src = "https://github.com/kylechui/nvim-surround" },
    { src = "https://github.com/neovim/nvim-lspconfig" },
    { src = "https://github.com/lewis6991/gitsigns.nvim" },
+   { src = "https://github.com/obsidian-nvim/obsidian.nvim", version = vim.version.range("*") },
 }
 
 require("nvim-surround").setup()
@@ -46,3 +47,16 @@ end)
 vim.keymap.set("n", "<leader>m", fzf.marks)
 
 vim.keymap.set("n", "<leader>f", fzf.live_grep)
+
+require("obsidian").setup {
+   legacy_commands = false,
+   ui = {
+      enable = false,
+   },
+   workspaces = {
+      {
+         name = "ari",
+         path = "~/Media/Documents/ari",
+      },
+   },
+}
