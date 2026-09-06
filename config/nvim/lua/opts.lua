@@ -45,12 +45,7 @@ vim.o.sidescrolloff = 8
 vim.o.swapfile = false
 vim.o.undofile = true
 vim.opt.complete:append("o")
--- vim.opt.completeopt = {
---    "menuone",
---    "noinsert",
---    "popup",
---    "fuzzy",
--- }
+vim.opt.completeopt = { "menuone", "noinsert", "popup", "fuzzy" }
 vim.o.updatetime = 250
 vim.o.timeoutlen = 300
 vim.o.wrap = false
@@ -73,6 +68,7 @@ vim.o.signcolumn = "yes"
 vim.o.formatoptions = "jqln"
 vim.o.smartindent = true
 vim.o.autocomplete = true
+vim.o.lazyredraw = true
 
 vim.opt.shortmess:append { W = true, I = true, c = true }
 vim.opt.path:append { "**" }

@@ -20,3 +20,4 @@ end)
 vim.keymap.set("n", "<leader>_", function()
    oil.toggle_float(vim.fn.getcwd(), { preview = {} })
 end)
+
