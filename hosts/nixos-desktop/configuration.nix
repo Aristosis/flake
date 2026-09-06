@@ -17,7 +17,7 @@
 
       (modules + "audio.nix")
       (modules + "colemak.nix")
-      (modules + "copyparty.nix")
+      # (modules + "copyparty.nix")
       (modules + "desktop.nix")
       (modules + "nvidia-drivers.nix")
       (modules + "remote-ssh.nix")

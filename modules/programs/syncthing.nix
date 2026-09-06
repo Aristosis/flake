@@ -7,24 +7,26 @@
     settings = {
       devices.phone.id = "RINSL5F-4IERP4O-UFRMGVU-OFQOSF2-XCLL2HB-ZSVBXMP-DDXGKNR-ON5TEQQ";
       options.urAccepted = -1;
-      folders = {
-        "/home/ari/Media/Documents" = {
-          versioning.type = "simple";
-          versioning.params.cleanoutDays = 365;
-          id = "documents";
-          devices = [ "phone" ];
-        };
-
-        "/home/ari/Media/Music" = {
-          versioning.type = "simple";
-          versioning.params.cleanoutDays = 365;
-          id = "music";
-          devices = [ "phone" ];
-        };
-      };
       gui = {
         user = "ari";
         password = "bingus";
+      };
+      folders = {
+        "documents" = {
+          versioning.type = "simple";
+          versioning.params.cleanoutDays = "365";
+          id = "documents";
+          path = "~/media/hdd/documents";
+          devices = [ "phone" ];
+        };
+
+        "music" = {
+          versioning.type = "simple";
+          versioning.params.cleanoutDays = "365";
+          id = "music";
+          path = "~/media/hdd/music";
+          devices = [ "phone" ];
+        };
       };
     };
   };
