@@ -1,9 +1,17 @@
 vim.pack.add {
    { src = "https://github.com/Saghen/blink.cmp", version = vim.version.range("1.*") },
    { src = "https://github.com/stevearc/oil.nvim" },
+   { src = "https://github.com/ibhagwan/fzf-lua" },
+
+   { src = "https://github.com/nvim-telescope/telescope.nvim" },
+   { src = "https://github.com/nvim-lua/plenary.nvim" },
+   { src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim", build = function() vim.fn.system({"make"}) end },
+
+   { src = "https://github.com/kylechui/nvim-surround" }
 }
 
 require("blink.cmp").setup()
+require("nvim-surround").setup()
 
 local oil = require("oil")
 
@@ -21,3 +29,22 @@ vim.keymap.set("n", "<leader>_", function()
    oil.toggle_float(vim.fn.getcwd(), { preview = {} })
 end)
 
+local fzf = require("fzf-lua")
+fzf.setup()
+
+vim.keymap.set(
+   "n",
+   "<leader><leader>",
+   function()
+      if not fzf.git_files() then fzf.files() end
+   end
+)
+
+-- require("telescope").setup()
+-- local ts = require("telescope.builtin")
+--
+-- vim.keymap.set(
+--    "n",
+--    "<leader><leader>",
+--    ts.find_files
+-- )
