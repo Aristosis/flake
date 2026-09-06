@@ -7,6 +7,7 @@
     ./cli
     ./librewolf.nix
     ./pavucontrol-helvum.nix
+    ./syncthing.nix
     ./games/prism-launcher.nix
     ./games/umu-launcher.nix
   ];

@@ -4,7 +4,6 @@
 {
   config,
   lib,
-  pkgs,
   modulesPath,
   ...
 }:
@@ -29,7 +28,7 @@
     fsType = "ext4";
   };
 
-  fileSystems."/home/ari/Media/Share" = {
+  fileSystems."/home/ari/media/hdd" = {
     device = "/dev/disk/by-uuid/31899a88-d872-492b-9fa1-281a2a8c12a9";
     fsType = "ext4";
   };

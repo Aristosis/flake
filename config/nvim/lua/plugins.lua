@@ -40,24 +40,25 @@ fzf.setup {
    fzf_opts = { ["--color"] = "bg:-1,bg+:-1,gutter:-1" },
 }
 
-vim.keymap.set("n", "<leader><leader>", function()
-   if not fzf.git_files() then fzf.files() end
-end)
+vim.keymap.set("n", "<leader><leader>", fzf.files)
 
 vim.keymap.set("n", "<leader>m", fzf.marks)
 
 vim.keymap.set("n", "<leader>f", fzf.live_grep)
 
-require("obsidian").setup {
-   legacy_commands = false,
-   ui = {
-      enable = false,
-   },
-   workspaces = {
-      {
-         name = "ari",
-         path = "~/Media/Documents/ari",
+vim.schedule(function()
+   require("obsidian").setup {
+      legacy_commands = false,
+      ui = {
+         enable = false,
       },
-   },
-}
-vim.keymap.set("n", "<leader>o", vim.cmd.Obsidian)
+      workspaces = {
+         {
+            name = "ari",
+            path = "/home/ari/media/hdd/documents/ari",
+         },
+      },
+   }
+   vim.keymap.set("n", "<leader>o", vim.cmd.Obsidian)
+end)
+
