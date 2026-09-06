@@ -1,3 +1,33 @@
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+
+_G.diagnostics = {
+   virtual_text = true,
+   virtual_lines = false,
+}
+
+vim.lsp.enable {
+   "lua_ls",
+   "pyright",
+   "rust_analyzer",
+   "gopls",
+   "clangd",
+   "gdscript",
+   "nil_ls",
+   "org",
+}
+
+
+vim.diagnostic.config {
+   update_in_insert = false,
+   severity_sort = true,
+   jump = { float = true },
+   float = { source = "if_many" },
+   underline = { severity = { min = vim.diagnostic.severity.WARN } },
+   virtual_text = _G.diagnostics.virtual_text,
+   virtual_lines = vim.g.virtual_lines,
+}
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.g.netrw_banner = 0
@@ -19,12 +49,12 @@ vim.o.sidescrolloff = 8
 vim.o.swapfile = false
 vim.o.undofile = true
 vim.opt.complete:append("o")
-vim.opt.completeopt = {
-   "menuone",
-   "noinsert",
-   "popup",
-   "fuzzy",
-}
+-- vim.opt.completeopt = {
+--    "menuone",
+--    "noinsert",
+--    "popup",
+--    "fuzzy",
+-- }
 vim.o.updatetime = 250
 vim.o.timeoutlen = 300
 vim.o.wrap = false
@@ -49,6 +79,7 @@ vim.o.smartindent = true
 vim.o.autocomplete = true
 
 vim.opt.shortmess:append { W = true, I = true, c = true }
+vim.opt.path:append { "**" }
 
 local augroup = vim.api.nvim_create_augroup("misc", {})
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -57,3 +88,10 @@ vim.api.nvim_create_autocmd("TextYankPost", {
       (vim.hl or vim.highlight).on_yank()
    end,
 })
+
+vim.keymap.set(
+	"n",
+	"<leader><leader>",
+	":find "
+)
+

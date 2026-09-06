@@ -83,3 +83,11 @@ vim.keymap.set("n", "<leader>t", function()
    vim.api.nvim_set_current_win(_G.terminal.win)
    vim.api.nvim_buf_call(_G.terminal.buf, vim.cmd.startinsert)
 end)
+
+-- find
+vim.keymap.set(
+	"n",
+	"<leader><leader>",
+	":find "
+)
+

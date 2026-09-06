@@ -2,7 +2,8 @@
   "plugins": {
     "blink.cmp": {
       "rev": "78336bc89ee5365633bcf754d93df01678b5c08f",
-      "src": "https://github.com/saghen/blink.cmp"
+      "src": "https://github.com/saghen/blink.cmp",
+      "version": "1.0.0 - 2.0.0"
     },
     "blink.lib": {
       "rev": "c8fdc12c8a2fab6cf786dd7141a283f8079f902b",
@@ -14,8 +15,7 @@
     },
     "fidget.nvim": {
       "rev": "b61e8af9b8b68ee0ec7da5fb7a8c203aae854f2e",
-      "src": "https://github.com/j-hui/fidget.nvim",
-      "version": "1.0.0 - 2.0.0"
+      "src": "https://github.com/j-hui/fidget.nvim"
     },
     "friendly-snippets": {
       "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
@@ -35,8 +35,7 @@
     },
     "mini.nvim": {
       "rev": "e58ad4b0c9e9376096b9704f98fc00d4c9448870",
-      "src": "https://github.com/nvim-mini/mini.nvim",
-      "version": "'main'"
+      "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nordic.nvim": {
       "rev": "9fb62116b891184049c50ca6ffb0d3bc100a1a6e",
@@ -48,8 +47,11 @@
     },
     "nvim-treesitter": {
       "rev": "074aa4422bf029908338e855d0c0f71470a971bb",
-      "src": "https://github.com/nvim-treesitter/nvim-treesitter",
-      "version": "'main'"
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+    },
+    "oil.nvim": {
+      "rev": "b73018b75affd13fa38e2fc94ef753b465f770d7",
+      "src": "https://github.com/stevearc/oil.nvim"
     },
     "orgmode": {
       "rev": "f32a06d4b5399dad8bf0478c772bf6c513f02dcf",
