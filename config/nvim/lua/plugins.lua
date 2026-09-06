@@ -6,14 +6,11 @@ vim.pack.add {
    { src = "https://github.com/ibhagwan/fzf-lua" },
    { src = "https://github.com/kylechui/nvim-surround" },
 
-   { src = "https://github.com/nvim-telescope/telescope.nvim" },
-   { src = "https://github.com/nvim-lua/plenary.nvim" },
-   { src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim", build = function() vim.fn.system({"make"}) end },
-
-   { src = "https://github.com/kylechui/nvim-surround" }
+   { src = "https://github.com/lewis6991/gitsigns.nvim" }
 }
 
 require("blink.cmp").setup()
+require("gitsigns").setup()
 require("nvim-surround").setup()
 
 local oil = require("oil")
