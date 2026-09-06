@@ -52,7 +52,7 @@
 
           Icon=/home/ari/Media/Share/Games/GTA IV/Fixed/icon.png
           Path=/home/ari/Media/Share/Games/GTA IV
-          Exec="DXVK_HUD=0 gamering /home/ari/Media/Share/Games/GTA\ IV/Fixed/GTAIV.exe"
+          Exec="/home/ari/Media/Share/Games/GTA\ IV/Fixed/run.sh"
         '';
       };
   };
