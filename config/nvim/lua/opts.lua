@@ -1,6 +1,3 @@
-vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
-
 _G.diagnostics = {
    virtual_text = true,
    virtual_lines = false,
@@ -16,7 +13,6 @@ vim.lsp.enable {
    "nil_ls",
    "org",
 }
-
 
 vim.diagnostic.config {
    update_in_insert = false,
@@ -89,9 +85,5 @@ vim.api.nvim_create_autocmd("TextYankPost", {
    end,
 })
 
-vim.keymap.set(
-	"n",
-	"<leader><leader>",
-	":find "
-)
-
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })

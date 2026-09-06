@@ -85,9 +85,14 @@ vim.keymap.set("n", "<leader>t", function()
 end)
 
 -- find
-vim.keymap.set(
-	"n",
-	"<leader><leader>",
-	":find "
-)
+vim.keymap.set("n", "<leader><leader>", ":find ")
 
+-- qf
+local copen = false
+vim.keymap.set("n", "<leader>q", function()
+   if copen then
+      vim.cmd.cclose()
+   else
+      vim.cmd.copen()
+   end
+end)
