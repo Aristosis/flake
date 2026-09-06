@@ -4,7 +4,7 @@
 
     shellAliases = {
       cat = "bat";
-      nrs = "sudo nixos-rebuild switch --flake $HOME/flake";
+      nrs = "sudo nixos-rebuild switch --flake $HOME/media/projects/flake";
 
       ls = "lsd";
       l = "lsd -l";

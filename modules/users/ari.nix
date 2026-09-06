@@ -30,15 +30,15 @@
         "waybar".source = "${config}/waybar";
         "foot".source = "${config}/foot";
         "fuzzel".source = "${config}/fuzzel";
-        "nvim".source = "/home/ari/flake/config/nvim";
+        "nvim".source = "/home/ari/media/projects/flake/config/nvim";
         "user-dirs.dirs".text = ''
 XDG_DESKTOP_DIR="media/hdd/desktop"
-XDG_DOWNLOAD_DIR="media/hdd/Downloads"
-XDG_PROJECTS_DIR="media/projects"
 XDG_DOCUMENTS_DIR="media/hdd/documents"
-XDG_PICTURES_DIR="media/hdd/Pictures"
+XDG_PICTURES_DIR="media/hdd/pictures"
 XDG_MUSIC_DIR="media/hdd/music"
-XDG_VIDEOS_DIR="media/hdd/Videos"
+XDG_VIDEOS_DIR="media/hdd/videos"
+XDG_DOWNLOAD_DIR="media/downloads"
+XDG_PROJECTS_DIR="media/projects"
 XDG_TEMPLATES_DIR="/var/empty"
 XDG_PUBLICSHARE_DIR="/var/empty"
         '';
