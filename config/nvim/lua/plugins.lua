@@ -1,7 +1,10 @@
 vim.pack.add {
+   { src = "https://github.com/nvim-tree/nvim-web-devicons" },
+
    { src = "https://github.com/Saghen/blink.cmp", version = vim.version.range("1.*") },
    { src = "https://github.com/stevearc/oil.nvim" },
    { src = "https://github.com/ibhagwan/fzf-lua" },
+   { src = "https://github.com/kylechui/nvim-surround" },
 
    { src = "https://github.com/nvim-telescope/telescope.nvim" },
    { src = "https://github.com/nvim-lua/plenary.nvim" },
@@ -14,7 +17,6 @@ require("blink.cmp").setup()
 require("nvim-surround").setup()
 
 local oil = require("oil")
-
 oil.setup {
    default_file_explorer = true,
    skip_confirm_for_simple_edits = true,
@@ -30,7 +32,9 @@ vim.keymap.set("n", "<leader>_", function()
 end)
 
 local fzf = require("fzf-lua")
-fzf.setup()
+fzf.setup {
+   fzf_opts = { ["--color"] = "bg:-1,bg+:-1,gutter:-1" }
+}
 
 vim.keymap.set(
    "n",
@@ -40,11 +44,20 @@ vim.keymap.set(
    end
 )
 
--- require("telescope").setup()
--- local ts = require("telescope.builtin")
---
--- vim.keymap.set(
---    "n",
---    "<leader><leader>",
---    ts.find_files
--- )
+vim.keymap.set(
+   "n",
+   "<leader>m",
+   fzf.marks
+)
+
+vim.keymap.set(
+   "n",
+   "<leader>f",
+   fzf.live_grep
+)
+
+vim.keymap.set(
+   "n",
+   "<leader>f",
+   fzf.live_grep
+)
