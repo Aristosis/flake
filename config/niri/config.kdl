@@ -4,7 +4,7 @@ include "./cfg/input.kdl"
 include "./cfg/keybinds.kdl"
 include "./cfg/rules.kdl"
 
-screenshot-path "~/Media/Pictures/Screenshots"
+screenshot-path "~/media/hdd/pictures/screenshots/"
 
 
 output "HDMI-A-3" {
