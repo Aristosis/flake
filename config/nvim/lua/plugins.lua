@@ -25,6 +25,7 @@ oil.setup {
    default_file_explorer = true,
    skip_confirm_for_simple_edits = true,
    float = { border = "single", max_width = 0.8, max_height = 0.8 },
+   preview_win = { win_options = { number = true } }
 }
 
 vim.keymap.set("n", "<leader>-", function()
