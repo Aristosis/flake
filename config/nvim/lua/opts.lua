@@ -8,7 +8,7 @@ vim.lsp.enable {
    "pyright",
    "rust_analyzer",
    "gopls",
-   "clangd",
+   "ccls",
    "gdscript",
    "nil_ls",
    "org",
@@ -80,6 +80,8 @@ vim.api.nvim_create_autocmd("TextYankPost", {
       (vim.hl or vim.highlight).on_yank()
    end,
 })
+
+vim.cmd.colorscheme("catppuccin")
 
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
