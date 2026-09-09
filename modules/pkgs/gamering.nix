@@ -5,7 +5,7 @@ pkgs.writeShellScriptBin "gamering" ''
   export __GLX_VENDOR_LIBRARY_NAME=nvidia
   export __VK_LAYER_NV_optimus=NVIDIA_only
 
-  WINE=$HOME/media/hdd/Games/Wine
+  WINE=$HOME/Media/Share/Games/Wine
   export WINEPREFIX="$WINE/Wineprefix"
 
   umu-run "$@"
