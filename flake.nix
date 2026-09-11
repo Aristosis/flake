@@ -18,6 +18,7 @@
     in
     {
       legacyPackages.${system} = pkgs;
+      packages.${system} = import "${inputs.self}/modules/pkgs" { inherit pkgs; };
       formatter.${system} = pkgs.nixfmt-tree;
 
       devShells.${system} = {
