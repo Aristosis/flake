@@ -2,6 +2,7 @@
   imports = [
     ./zsh.nix
     ./direnv.nix
+    ./nh.nix
   ];
 
   environment.systemPackages = with pkgs; [
