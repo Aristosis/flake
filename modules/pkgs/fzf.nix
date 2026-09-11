@@ -1,8 +1,8 @@
-pkgs:
-pkgs.symlinkJoin {
+{ fzf, makeWrapper, symlinkJoin }:
+symlinkJoin {
   name = "fzf-wrapped";
-  paths = [ pkgs.fzf ];
-  buildInputs = [ pkgs.makeWrapper ];
+  paths = [ fzf ];
+  nativeBuildInputs = [ makeWrapper ];
   postBuild = ''
     wrapProgram $out/bin/fzf \
       --add-flags "--color=bg:-1,bg+:-1,gutter:-1"

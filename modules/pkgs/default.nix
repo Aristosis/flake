@@ -2,5 +2,6 @@
   pkgs
 }:
 {
-  fzf-wrapped = import ./fzf.nix pkgs;
+  fzf-wrapped = pkgs.callPackage ./fzf.nix { };
+  bat-wrapped = pkgs.callPackage ./bat.nix { };
 }
