@@ -42,10 +42,10 @@ fzf.setup {
 }
 
 vim.keymap.set("n", "<leader><leader>", fzf.files)
-
-vim.keymap.set("n", "<leader>m", fzf.marks)
-
 vim.keymap.set("n", "<leader>f", fzf.live_grep)
+vim.keymap.set("n", "<leader>b", fzf.buffers)
+vim.keymap.set("n", "<leader>f", fzf.files)
+vim.keymap.set("n", "<leader>m", fzf.marks)
 
 vim.schedule(function()
    require("obsidian").setup {
