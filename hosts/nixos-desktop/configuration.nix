@@ -27,6 +27,8 @@
       (users + "ari.nix")
     ];
 
+  boot.kernel.sysctl."kernel.sysrq" = 502;
+
   users.defaultUserShell = pkgs.zsh;
 
   system.stateVersion = "26.05";
