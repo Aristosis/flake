@@ -10,7 +10,7 @@
     waybar.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [
+  hjem.users.ari.packages = with pkgs; [
     (writeShellApplication {
       name = "fuzzel-emojis";
       runtimeInputs = with pkgs; [
@@ -26,6 +26,7 @@
         fi
       '';
     })
+    mako
     awww
     fuzzel
     wl-clipboard

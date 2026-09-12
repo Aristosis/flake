@@ -27,6 +27,7 @@
       clobberFiles = true;
       xdg.config.files = {
         "niri".source = "${config}/niri";
+        "mako".source = "${config}/mako";
         "waybar".source = "${config}/waybar";
         "foot".source = "${config}/foot";
         "fuzzel".source = "${config}/fuzzel";
