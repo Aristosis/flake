@@ -6,7 +6,6 @@
 {
   programs = {
     niri.enable = true;
-    foot.enable = true;
     waybar.enable = true;
   };
 
@@ -26,6 +25,7 @@
         fi
       '';
     })
+    (pkgs.callPackage "${inputs.self}/modules/pkgs/kitty" {})
     mako
     awww
     fuzzel

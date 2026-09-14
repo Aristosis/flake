@@ -3,10 +3,9 @@ binds {
 
   MOD+SHIFT+ESCAPE                    { show-hotkey-overlay; }
 
-  // MOD+SHIFT+RETURN                    hotkey-overlay-title="Terminal: Kitty" { spawn-sh "kitty --single-instance"; }
-  MOD+SHIFT+RETURN                    hotkey-overlay-title="Terminal: Foot" { spawn-sh "footclient"; }
+  MOD+SHIFT+RETURN                    hotkey-overlay-title="Terminal: Kitty" { spawn-sh "kitty -1"; }
   MOD+RETURN                          hotkey-overlay-title="App Launcher: Fuzzel" repeat=false { spawn "fuzzel"; }
-  MOD+B                               hotkey-overlay-title="Browser: Qutebrowser" repeat=false { spawn "qutebrowser"; }
+  MOD+B                               hotkey-overlay-title="Browser: Librewolf" repeat=false { spawn "librewolf"; }
   MOD+V                               hotkey-overlay-title="Clipboard: Fuzzel" repeat=false { spawn-sh "cliphist-fuzzel-img"; }
   MOD+PERIOD                          hotkey-overlay-title="Emoji Picker: Fuzzel" repeat=false { spawn-sh "fuzzel-emojis"; }
 
