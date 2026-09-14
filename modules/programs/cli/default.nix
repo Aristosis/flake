@@ -30,6 +30,11 @@
     git = {
       enable = true;
       package = pkgs.gitFull;
+      config = {
+        init.defaultBranch = "main";
+        user.email = "communeofstars@proton.me";
+        user.name = "ari";
+      };
     };
   };
 }

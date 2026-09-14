@@ -31,7 +31,7 @@
         "waybar".source = "${config}/waybar";
         "foot".source = "${config}/foot";
         "fuzzel".source = "${config}/fuzzel";
-        "nvim".source = "/home/ari/media/projects/flake/config/nvim";
+        "nvim".source = "/home/ari/media/projects/nixos/config/nvim";
         "user-dirs.dirs".text = ''
 XDG_DESKTOP_DIR="media/hdd/desktop"
 XDG_DOCUMENTS_DIR="media/hdd/documents"
