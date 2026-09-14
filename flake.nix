@@ -17,10 +17,10 @@
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
+      localPkgs = import ./packages { inherit pkgs; };
     in
     {
-      legacyPackages.${system} = pkgs;
-      packages.${system} = import "${inputs.self}/modules/pkgs" { inherit pkgs; };
+      packages.${system} = localPkgs;
       formatter.${system} = pkgs.nixfmt-tree;
 
       devShells.${system} = {
@@ -41,7 +41,7 @@
             baseVars = import ./hosts/nixos-desktop/base-vars.nix;
           in
           {
-            inherit inputs baseVars;
+            inherit inputs baseVars localPkgs;
           };
         modules = [
           ./hosts/nixos-desktop/configuration.nix

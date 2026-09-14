@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  localPkgs,
   ...
 }:
 {
@@ -8,7 +9,8 @@
     packages = with pkgs; [
       setxkbmap
       umu-launcher
-      (import "${inputs.self}/modules/pkgs/gamering.nix" pkgs)
+      localPkgs.gamering
+      # (import "${inputs.self}/modules/pkgs/gamering.nix" pkgs)
     ];
     files =
       let

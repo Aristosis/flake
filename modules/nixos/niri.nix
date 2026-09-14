@@ -1,5 +1,6 @@
 {
   pkgs,
+  localPkgs,
   inputs,
   ...
 }:
@@ -25,7 +26,7 @@
         fi
       '';
     })
-    (pkgs.callPackage "${inputs.self}/modules/pkgs/kitty" {})
+    localPkgs.kitty-wrapped
     mako
     awww
     fuzzel
