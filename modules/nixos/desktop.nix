@@ -8,7 +8,6 @@
       enable = true;
       settings.session_log = ".local/state/ly-session.log";
     };
-    gvfs.enable = true;
   };
 
   fonts = {
