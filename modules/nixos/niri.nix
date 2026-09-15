@@ -14,7 +14,7 @@
     (writeShellApplication {
       name = "fuzzel-emojis";
       runtimeInputs = with pkgs; [
-        fuzzel
+        localPkgs.fuzzel-wrapped
         coreutils
         wtype
       ];
@@ -29,7 +29,7 @@
     localPkgs.kitty-wrapped
     mako
     awww
-    fuzzel
+    localPkgs.fuzzel-wrapped
     wl-clipboard
     cliphist
     xwayland-satellite
