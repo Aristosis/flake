@@ -13,6 +13,7 @@ vim.pack.add {
 
 require("image").setup()
 require("mini.move").setup()
+require("mini.align").setup()
 require("mini.surround").setup()
 require("mini.statusline").setup()
 require("mini.ai").setup()
